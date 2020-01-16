@@ -18,11 +18,29 @@ VPC
 	
 # Difference between Secutiry Groups vs Network Access Control List (NACL)
 	https://medium.com/awesome-cloud/aws-difference-between-security-groups-and-network-acls-adc632ea29ae
-
+	
+S3 (Simple Storage Service)
+	- Types of S3 
+		-- S3 Standard : General Purpose
+		-- S3 Intelligent-Tiering (S3 Intelligent-Tiering) : Unknown or changing access
+		-- S3 Standard-Infrequent Access (S3 Standard-IA) : Infrequent access
+		-- S3 One Zone-Infrequent Access (S3 One Zone-IA) : 
+		-- S3 Glacier : Archive
+		-- S3 Glacier Deep Archive
+		
+CloudFront
+	- CloudFront is a CDN (Content Delevery Network) on AWS
+	- Edge location: This is the location where content will be cached. This is separate to and AWS Region/AZ.
+	- Origin : This is the origin of all the files that the CDN will distribute. This can be an S3 Bucket, an EC2 instance,  an Elastic Load Balancer or Rount53.
+	- Distribution : This is the name given to CDN which consists of a collection of Edge Locations.
+	- Web Distribution : Typically used for websites.
+	- RTMP : Used for Media Streaming.
+	
 ELB
 	- Application Load Balancer (Http, Https)
 	- Network Load Balancer (TCP, UDP, High proformace)
 	- Classic Load Balancer (Old generation LB)
+	
 	
 IAM
 	- Set users, groups, permission and rolles etc.
@@ -42,3 +60,20 @@ AWS Lambda
 		4. Maximum execution timeout for a function is 15 minutes.
 		5. Requests limitations by lambda: Request and response body payload size are maximized to 6 MB.
 		6. Event request body can be up to 128 KB.
+		
+RDS
+
+API Gateway
+
+CloudWatch
+
+Route53
+
+ElastiCache
+	- ElastiCache supports two open-source in-memory caching engines.
+		-- Memcached
+		-- Redis
+	
+
+
+
