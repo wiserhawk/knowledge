@@ -1,0 +1,198 @@
+* Reverse Array
+* Reverse digits of a number
+* Sum the digits of a given number
+* Check if a given number is Lucky
+* Pair Sum Equals Number
+Floor and Ceil
+* Max Sum Subarray
+* Missing Number
+* Odd Occuring Number
+* Sort by Frequency
+First and Second Smallest
+* Majority Element
+Difference between elements
+* Arrange Even and Odd
+Closest Sum Elements
+* Distinct Elements
+* First Repeating Number
+Common Elements in Arrays
+Smallest Missing Number
+Max Adjacent Sum
+* Find Occurrences of Number
+Rotate Image
+Distance Between Numbers
+Pair with given difference
+Product Array Puzzle
+Replace Elements
+* Move Zeroes to End
+Pythagorean Triplets
+Maximum Average Subarray
+Subarray Sum Equal to X
+* Leaders in Array
+Largest Pair Sum
+Segregate 0s 1s and 2s
+Find Duplicates
+Consecutive Elements Check
+Triplet with given Sum
+Binary Search in Sorted Array
+Fixed point in sorted array
+Reorder Elements by Indexes
+Merging two sorted arrays
+Find next greater number
+Reorder array using given indexes
+Count of triplets with sum less than given value
+Merge two sorted arrays
+Subarray and Subsequence
+Rearrange array maximum minimum form
+Find the lost element from a duplicated array
+Count minimum steps to get the given array
+Maximum element in an array which is increasing and then decreasing
+Minimum number of jumps to reach the end of an array
+Subarray with given sum
+Length of Longest Increasing Subsequence
+Smallest positive number missing unsorted array
+The Celebrity Problem
+Sorted subsequence of size 3
+Partition Problem
+Find pair with given difference
+Maximum length of chain pairs
+Four elements that sum to given
+Maximum circular subarray sum
+Count possible triangles
+Longest Increasing Subsequence
+Petrol Bunks Tour
+Tug of War
+Counting Sort
+Maximum Repeating Number
+Positive Negative Arrangement
+Find a Peak element
+Elements More Than n/k
+Max Product Subsequence
+Longest Bitonic subarray in an array
+Number of smaller elements on right side
+Implement two stacks in an array
+Maximum sum increasing subsequence
+Find the two numbers with odd occurrences in an unsorted array
+Largest subarray with equal number of 0's and 1's
+Maximum product subarray
+Replace every element with the greatest on the right side in an array
+Sorting a k sorted array
+Find the row with maximum number of 1's
+Shuffle a given array
+Iterative Implementation of quick sort
+Arrange given numbers to form the biggest number
+Pancake sorting
+Pancake sorting Problem
+Maximum Subarray Sum using Divide and Conquer
+Merge Overlapping Intervals
+Stock Buy Sell to Maximize Profit
+Sort Elements by frequency
+Print all possible combinations of r elements in a given array of size n
+Monotonically increasing function
+Minimum element in a sorted and rotated array
+Merge k Sorted Arrays
+Flip Zeroes for Consecutive 1's
+Least Average Subarray
+Longest span with same sum in two binary arrays
+Form minimum number from given sequence of D's and I's
+Number of strictly increasing subarrays
+Minimum difference between any two elements in an array
+Number of pairs with given sum
+Make Array Palindrome
+
+
+
+Rearrange the array with alternate high and low elements
+Sort binary array in linear time
+Sort an array containing 0’s, 1’s and 2’s (Dutch national flag problem)
+Find pair with given sum in the array
+Shuffle a given array of elements (Fisher–Yates shuffle)
+Find equilibrium index of an array
+Find majority element in an array (Boyer–Moore majority vote algorithm)
+Move all zeros present in the array to the end
+Inplace merge two sorted arrays
+Merge two arrays by satisfying given constraints
+Find sub-array with 0 sum
+Find maximum length sub-array having given sum
+Find maximum length sub-array having equal number of 0’s and 1’s
+Find index of 0 to replaced to get maximum length sequence of continuous ones
+Find maximum product of two integers in an array
+Replace each element of array with product of every other element without using / operator
+Find a duplicate element in a limited range array
+Find largest sub-array formed by consecutive integers
+Find Longest Bitonic Subarray in an array
+Find maximum difference between two elements in the array by satisfying given constraints
+Maximum subarray problem (Kadane’s algorithm)
+Maximum Sum Circular Subarray
+Find all distinct combinations of given length
+Find all distinct combinations of given length with repetition allowed
+Find maximum sequence of continuous 1’s formed by replacing at-most k zeroes by ones
+Find minimum sum subarray of given size k
+Find subarray having given sum in given array of integers
+Find the length of smallest subarray whose sum of elements is greater than the given number
+Find largest number possible from set of given numbers
+Find the smallest window in array sorting which will make the entire array sorted
+Find maximum sum path involving elements of given arrays
+Maximum profit earned by buying and selling shares any number of times
+Trapping Rain Water within given set of bars
+Longest Increasing Subsequence
+Find maximum product subarray in a given array
+Find maximum sum of subsequence with no adjacent elements
+Find minimum platforms needed in the station so to avoid any delay in arrival of any train
+
+Merging Overlapping Intervals
+Activity Selection Problem
+Job Sequencing Problem with Deadlines
+Introduction to Priority Queues using Binary Heaps
+Min Heap and Max Heap Implementation in C++
+Heap Sort (Out-of-place and In-place implementation in C++ and C)
+Check if given array represents min heap or not
+Convert Max Heap to Min Heap in linear time
+Find K’th largest element in an array
+Sort a K-Sorted Array
+Merge M sorted lists of variable length
+Find K’th smallest element in an array
+Find smallest range with at-least one element from each of the given lists
+Merge M sorted lists each containing N elements
+Insertion sort | Iterative & Recursive
+Selection sort | Iterative & Recursive
+Bubble sort | Iterative & Recursive
+Merge Sort
+Quicksort
+Iterative Implementation of Quicksort
+Hybrid QuickSort
+External merge sort
+Custom Sort | Sort elements by their frequency and Index
+Custom Sort | Sort elements of the array by order of elements defined by the second array
+Inversion Count of an array
+Segregate positive and negative integers in linear time
+Binary Search
+Ternary Search vs Binary search
+Interpolation search
+Exponential search
+Find number of rotations in a circularly sorted array
+Search an element in a circular sorted array
+Find first or last occurrence of a given number in a sorted array
+Count occurrences of a number in a sorted array with duplicates
+Find smallest missing element from a sorted array
+Find Floor and Ceil of a number in a sorted array
+Search in a nearly sorted array in O(logn) time
+Find number of 1’s in a sorted binary array
+Find the peak element in an array
+Maximum Sum Subarray using Divide & Conquer
+Find Minimum and Maximum element in an array using minimum comparisons
+Matrix Chain Multiplication
+0-1 Knapsack problem
+Maximize value of the expression A[s] – A[r] + A[q] – A[p] where s > r > q > p
+Partition problem
+Subset sum problem
+Minimum Sum Partition problem
+Rod Cutting
+Coin change-making problem (unlimited supply of coins)
+Coin Change Problem – Find total number of ways to get the denomination of coins
+Longest alternating subsequence
+Combinations of words formed by replacing given numbers with corresponding English alphabets
+Decode the given sequence to construct minimum number without repeated digits
+All combinations of elements satisfiying given constraints
+
+

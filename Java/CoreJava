@@ -1,0 +1,131 @@
+# Multithreading
+1. Thread creation using Thread/Runnable/ThreadFactory
+2. Thread vs Runnable
+3. Run() vs Start()
+4. Thread Sleep() and Yield()
+5. Thread Join()
+6. Thread Interruption
+7. Thread Group/Thread Priority
+8. Uncaught Exception Handler
+9. Thread Synchronization
+10. Wait(), notify() and notifyAll()
+11. notify() vs notifyAll()
+12. Producer and Consumer using wait and notify
+13. Thread word printer
+14. Pros and cons of synchronize 
+15. What is Reentrant.
+16. Reentrant Lock
+17. lock(), unLock(), tryLock(), lockInterruptibilty()
+18. Fair vs NonFair lock
+19. Condition
+20. Producer and Consumer using Lock
+21. Lock vs Synchronization
+22. Custom Lock implementation
+23. ReentrantReadWrite lock
+24. Custom Implementation of ReadWriteLock
+25. CountDownLatch
+26. Custom Implementation of CountDownLatch
+27. CyclicBarrier
+28. CountDownLatch vs CyclicBarrier
+29. Semaphore
+30. Custom implementation of Semaphore
+31. Executor
+32. Scheduled Executor
+33. Runnable and Callable
+34. CompletionExecutor Service
+35. Executor shutdown(), shutdownNow() and awaitTermination()
+36. Future and CompletableFuture
+37. Future get() and isDone()
+38. Custom ThreadPoolExecutor
+39. static synchronization vs non-static
+40. Volatile
+
+# SOLID
+# Association/ Aggregation/ Composition
+# Serialization/Externalization
+# Cloneable
+# String
+# JVM
+# Garbage Collector And Algorithm
+# Exception
+# ClassNotFoundException
+# NoClassDefError
+# StackOverflow
+# Immutable Class
+# OutOfMemoryException/ PremGen Error
+# FailFast And FailSafe Iterator
+# HashMap And ConcurrentHashMap
+# BlockingQueue
+# Synchronous Queue
+# DeQueueu
+# Atomic
+# CustomIterator
+# Sort HashMap by values
+# Comparable And Comparator
+# Type of References
+# Consistatnt Hashing
+# Rate Limitor
+
+
+# Sorting
+
+# Design Patterns 
+1. Singleton
+2. Factory
+3. Builder
+4. Prototype
+5. Observer
+6. Strategy
+7. Facade
+8. Chain Of Responsibility
+9. Command
+
+
+# SQL
+1. Find  duplicate rows
+2. Delete all duplicate rows
+3. Delete all duplicate except one
+4. Nth highest/lowest salary
+5. Find Employee/Manager
+6. ACID
+7. Isolation Level
+8. Clustered/ Non-Clustered Index
+
+# LRU
+# BookMyShow
+# Uber
+# Tiny URL
+
+============================================================================================================================================
+## Core Java 
+## Spring/Spring Boot 
+## Rest/Microservices
+
+## Sorting
+## Array 
+## String 
+## Matrix 
+## Linked List 
+## Stack 
+## Queue 
+## Binary Tree 
+## Binary Search Tree 
+## Heap 
+## Trie 
+## Backtracking 
+## Dynamic Programming 
+## Graph 
+
+## Kafka 
+## Redis 
+## MongoDB 
+## Cassandra 
+## System Design 
+
+
+
+
+
+
+
+

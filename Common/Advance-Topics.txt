@@ -1,0 +1,492 @@
+#####################################################
+############	ADVANCE TOPICS	  ###################
+#####################################################
+
+=====================================================
+					BASIC TOPICS
+=====================================================
+- Algorithm - (Cracking the Coding Interview via HackerRank) https://www.youtube.com/watch?v=GKgAVjJxh9w&list=PLOuZYwbmgZWXvkghUyMLdI90IwxbNCiWK&index=1
+- Spring Security
+- Microsevice logging using ELK Stack (Elastic Search, Logstash, Kibana). Link (https://www.youtube.com/watch?v=vZQMoY_2_AA)
+	-- Elastic Search
+	-- Kibana
+	-- logstash
+
+- Use event- or messaging-based architectures
+- Messaging frameworks such as Tibco , Kafka
+- RAML, Swagger
+- Spring ecosystem (Spring Boot, Spring Cloud, Spring Data, Spring Security)
+- Java: Strong, Soft, Weak and Phantom Reference [https://javapapers.com/core-java/java-weak-reference/]
+- Java-8 (Topics)
+	-- How Lambda function work in JVM (InvokeDynamic concept)
+	-- Optional 
+	-- New Memory Level changes in Java-8
+	-- Steam api
+- Anti-CSRF Tokens [https://blog.insiderattack.net/anti-csrf-tokens-to-prevent-cross-site-request-forgery-csrf-79b9d7a5c079]
+=====================================================
+					MICROSERVICES
+=====================================================
+- 12 Factors microservices 
+	[ https://12factor.net/ ]
+	[ https://blog.scottlogic.com/2017/07/17/successful-microservices-with-12factor-app.html ]
+
+- How to manage authentication in microservice level
+- Transactions across microservices 
+- Data consistancy accross microservices. [ https://dzone.com/articles/data-consistency-in-microservices-architecture ]
+- Microservices health monitoring and observability
+- Highly Available Microservices with Health Checks and Circuit Breakers
+- Microservice Architectures With Spring Cloud and Docker [ https://dzone.com/articles/microservice-architecture-with-spring-cloud-and-do ]
+- Deploying Microservices: Spring Cloud vs. Kubernetes [ https://dzone.com/articles/deploying-microservices-spring-cloud-vs-kubernetes ]
+- JNDI 
+- CQRS (Command Query Responsibility Segregation)
+
+
+- Spring Cloud
+	--Distributed/versioned configuration (Spring Cloud Config Server , Vault)
+	--Service registration and discovery (Netflix-Eureka)
+	--Routing
+	--Service-to-service calls
+	--Load balancing 
+	--Circuit Breakers (Netflix-Histrix)
+	--Global locks
+	--Leadership election and cluster state
+	--Distributed messaging
+	--Spring Cloud Data Streams
+	--Spring Cloud Security
+	--Distributed Tracing with Spring Cloud Sleuth and Zipkin
+	--Spring Cloud Contract
+	--Distributed session
+	--API Gateway (Spring Cloud Zuul Proxy)(https://www.youtube.com/watch?v=vHQqQBYJtLI)
+		-- Separate out cross cutting concerns
+			-- Security (SSL)
+			-- Authentication
+			-- Authorization
+			-- DDoS Protection / Throttling
+			-- Routing
+		-- Replacing multiple client calls with single API call, Instead of sending multiple call from UI, send single logical http call from UI and API Gateway takes resposibilty to break it down on multiple concrete calls and send them to relevent micro-services and consolidate their responses and send back combined response. Also some features of reverse proxy:
+			-- Serving static content
+			-- Caching responses
+		
+		-- Routing based on headers, paths and params etc.  Also some features of load balancer components
+			-- Load Balancing
+			-- A/B Testing
+			-- Canary Releases
+		
+		-- Requests Monitoring
+		-- Protocal Change (API Gateway can handler multiple of protocals. Gateway can convert one protocal to another protocal(http) so that there is no need to changing protocal on micro-services level)  
+		-- Caching (Static Data)
+		-- Easy Backend Services Refactoring
+
+- Microservices Observability
+- Domain Driven Design (DDD) 
+- DevOps 
+
+- Spring Boot
+	-- Actuator
+	-- Health Check
+	-- Security
+	-- Spring boot starter dependencies
+	
+- what is yaml file (Yet Another Markup Language)
+
+- Elastic Search
+
+Links:
+
+Micro-Serivces
+	https://dzone.com/users/230813/sivaprasad.html
+What is API Gateway
+	https://www.youtube.com/watch?v=vHQqQBYJtLI
+	
+
+----------- Microservice IQ------------
+https://www.youtube.com/watch?v=zWWgKlMEDUU
+
+1. What are microservices?
+2. What are advantages of mincroservices architecture?
+3. What are the features of Microservices?
+4. What are the characteristics of Microservices?
+5. What are the best practices to design Microservices?
+6. What is Domain Deriven Desing (DDD)? 
+7. What is Uniquitous language (UL)?
+8. Why there is a need of Domain Deriven Design (DDD)?
+9. How does Microservice Architecture works?
+10. What are the pros and cons of Microservice Architecture?
+11. What is the difference between Monolithic, SOA and Microservice Architecture?
+12. What are the key differences between SOA and Microservices Architecture?
+13. What are the challenges with Microservice Architecture?
+14. What is Cohesion and Coupling?
+15. What is REST/RESTful and what are its uses?
+16. What is actuator in Spring Boot?
+17. What is spring boot?
+18. What is spring cloud?
+19. What problems are solved by spring cloud?
+20. What is differences between REST and Microservices?
+21. What are different types of Tests for Microservices?
+	- Unit Testing
+	- Exloratory Testing
+	- Acceptance Testing
+	- Performance Testing
+22. What is Coupling?
+23. What is a Distributed Transaction?
+24. What is a Idempotence and where it is used?
+25. What is Bounded Context?
+26. What is Two Factor Authentication?
+27. What are client certificates?
+28. What are the types of credentials for Two Factor Authentication?
+29. What is use of PACT in Microservices Architecture?
+30. What is OAuth?
+31. What is Conway's Law?
+32. What is Contract Test?
+33. What is End To End Microservices Testing?
+34. What is use of Container in Microservices?
+35. What is DRY in Microservices Architecture?
+36. What is a Consumer Driven Contract (CDC)?
+37. What is role of Web, RESTful APIs in Microservices?
+38. What is Semantic monitoring in Microservices Architecture?
+39. How cna we Cross-Functional testing?
+40. How to we eradicate non-determinism in tests?
+41. What is the difference between Mock or Stub for Microservices testing?
+42. What is Mike Cohn's Test Pyramid in Microservices?
+43. What is the purposer of Docker?
+44. What is Canary Releaseing?
+45. What do you mean by Continuous Integration (CI)?
+46. What is Continuous Monitoring?
+47. What is the role of architect in Microservices Architecture?
+48. Can we create Microservices as State Machines?
+49. What is Reactive Extensions in Microservices?
+
+
+	
+
+===================================================================
+						KUBERNETES
+===================================================================
+https://www.youtube.com/watch?v=jgmdY73RF6w&list=PLMPZQTftRCS8Pp4wiiUruly5ODScvAwcQ	
+
+Best Kubernetes concepts documentation : https://kubernetes.io/docs/concepts/
+
+#Top Three COE: Kubernetes, Docker Swarm,  Marathon By Apache Mesos
+	
+#Container Orchestration Engine (COE) (Kubernetes)
+	-- Clustering
+	-- Scheduling
+	-- Scalability
+		- Container Scalability
+		- VM (Node) Scalability
+	-- Load balancing
+	-- Fault Tolerance
+	-- Deployment Methods
+	
+# Different ways to installation of Kubernetes
+	-- Play-with-k8s : (https://labs.play-with-k8s.com/) Online Kubernetes cluster to hands-on.
+	-- Minikune : Single machine setup of kubernetes. Both master and work would be running on single machine. (VirtualBox + Minikune + Kubectl)
+	-- Kubeadm : Real multi machine kubernetes cluster
+	
+# Cloud base services available for Kubernetes
+	- AWS = Amazon EKS
+	- Google Cloud = Google Kubernetes Engine (GKE)
+	- Azure = Azure Kubernetes Service (AKS)
+
+# topic 
+	- Docker
+	- Kubelet
+	- Kubeadm
+	- Kubectl (Command line tool)
+	- Pod
+	- Replication Controller (OLD)
+	- ReplicaSet (NEW)
+	- Deployment Controller
+	- DaemonSet Controller
+	- Jobs Controller
+	- CronJob Controller
+	- Services
+		-- ClusterIP (Default & confined to the cluster only) 
+		-- NodePort (To expose to outside cluster)
+			--- Port Types ( NodePort, Port, TargetPort)
+			--- Disadvantages 
+				= You can only have one service per port.
+				= You can only use ports range (30000-32767)
+				= If your Node/VM IP address change, you need to deal with that. therefore it is not suitable for production environment. 
+		-- LoadBalancer (To balance load on multiple exposted nodes)
+		-- ExternalName
+	- Storage Volumes 
+		-- emptyDir Volume 
+		-- HostPath Volume
+		-- GCE Persistent Disk Volume
+		-- Persistent Volume & Persistent Volume Claim
+		-- ConfigMaps ( To manage configuration for each container/ pod)
+		-- Secret (Secret data to expose it to pods)
+		-- etc.
+	- 
+	
+	- DNS for Services and Pods [ https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/ ]
+
+# Ingress implementation with kubernetes
+
+# Setup EKS Kubernetes Cluster on AWS [ https://www.youtube.com/watch?v=6H5sXQoJiso ]
+	
+==================================================================
+						DOCKER
+==================================================================
+# Build (Docker Image)-> Ship (Docker Hub)-> Run (Container)
+
+######  Simple Dockerfile ####
+$ mkdir dockerimage
+$ cd dockerimage
+---- vi editor-----------
+FROM ubuntu
+CMD echo "Hello world !!!"
+-------------
+$ docker image build helloword .
+$ docker image ls
+$ docker history helloword
+$ docker container run helloword
+
+###### Java project Docker image
+
+----Dockerfile-----
+FROM openjdk
+CMD java -version
+------------------
+
+####### COPY and ADD command ####
+-> COPY : COPY command copy file from source to destination directory
+-> ADD : ADD command works same as COPY. Additionaly it will extract source file if it is archive like .tar file.
+
+$ mkdir helloweb
+---- Dockerfile -----
+FROM jboss/wildfly
+COPY webapp.war /opt/jboss/wildfly/standalone/deployments/webapp.war
+---------------------------
+
+######## COPY Jar ###########
+------ Dockerfile -----------
+FROM openjdk:jdk-alpine
+COPY myapp/target/myapp-1.0-SNAPSHOT.jar /deployments/
+CMD java -jar /deployments/myapp-1.0-SNAPSHOT.jar
+---------------------
+
+######### RUN, CMD and ENTRYPOINT etc. ########
+-> RUN: Used for installing software package or Run scipts 
+	$ RUN apt-get update && apt-get insatll -y git
+	$ RUN /opt/jboss/wildfly/bin/add-user.sh admin Admin#007 - silent
+-> CMD: Defaults for executing container, if there are multiple CMD command in Dockerfile last one will be used final execution; CMD can be overridden from CLI
+	$ CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
+	$ docker run mywildfly bash (last bash command from CLI will overridden CMD command of Dockerfile)
+-> ENTRYPOINT: Configures the container executable; can be overridden using --entrypoint from CLI
+	Default value: /bin/sh -call
+	ENTRYPOINT["/entrypoint.sh"]
+-> EXPOSE: Network ports on which the container is listening 
+	For Example: EXPOST 9090
+	Need to explicite publish the host port
+-> VOLUME: Creates a mount point with the specified name
+	VOLUME /opt/couchbase/var
+	docker container run ... -v ~/data:/opt/couchbase/var
+-> USER: Set the user name or UID to use when running the image.
+-> HEALTHCHECK: Perform a healthcheck on the application inside the container.
+	$ HEALTHCHECK --interval=5s --timeout=3s CMD curl --fail http://localhost:8091/pools || exit 1
+	
+########## Docker Compose #############
+Default Docker Compose file names
+	- docker-compose.yml
+	- docker-compose.override.yml
+
+	
+======================================================================
+					KAFKA
+======================================================================
+Link : Videos Tutorials [ https://www.youtube.com/watch?v=gg-VwXSRnmg&list=PLkz1SCf5iB4enAR00Z46JwY9GGkaS2NON ]
+
+-Producer
+-Consumer
+-Broker
+-Cluster
+-Topic
+-Partitions
+-Offset
+-Consumer Groups
+
+======================================================================
+					JAVA-8 Memory Changes
+======================================================================
+- Java-8 memory management changes (https://dzone.com/articles/java-8-permgen-metaspace)
+	-- PermGen have been removed and New Metaspace is introduced
+	-- Where PermGen is part of Heap memory, Metaspace is not part of Heap, instead a part of Native Memory (Process Memory) which is only limited 	by host operating system.
+	-- PermGen is not part of the HEAP and is not controlled by Garbage collection The maximum memory for Metaspace is controlled by -XX:MaxMetaspaceSize
+	--  -XX:MaxMetaspaceSize VM arg which sets the Maximum Metaspace size for your application
+	-- Note that it is no longer sufficient to just monitor the Heap Size. You must also monitor the Metaspace which you can do by just keeping an eye on the ‘process size’ using your Operating System utilities (Example: ‘top’ in Unix/Linux, ‘Task Manager’ in Windows).
+	
+	-- As a result, this native memory region grows automatically by default. Here we also have new flags to tune-up the memory:
+
+		*MetaspaceSize and MaxMetaspaceSize – we can set the Metaspace upper bounds.
+		*MinMetaspaceFreeRatio – is the minimum percentage of class metadata capacity free after garbage collection
+		*MaxMetaspaceFreeRatio – is the maximum percentage of class metadata capacity free after a garbage collection to avoid a reduction in the amount of space
+		
+		Additionally, the garbage collection process also gains some benefits from this change. The garbage collector now automatically triggers cleaning of the dead classes once the class metadata usage reaches its maximum metaspace size.
+
+		Therefore, with this improvement, JVM reduces the chance to get the OutOfMemory error.
+
+		Despite all of this improvements, we still need to monitor and tune up the metaspace to avoid memory leaks.
+	-- Metaspace garbage collection
+		*Garbage collection of the dead classes and classloaders is triggered once the class metadata usage reaches the “MaxMetaspaceSize”.
+		*Proper monitoring & tuning of the Metaspace will obviously be required in order to limit the frequency or delay of such garbage collections. Excessive Metaspace garbage collections may be a symptom of classes, classloaders memory leak or inadequate sizing for your application.
+	
+========================================================================
+						How to Get a job at the Big 4
+========================================================================
+1. Make relevent resume, not more than 2 pages
+2. Apply resume.
+3. Programming Challenges
+https://leetcode.com/explore/learn/card/recursion-ii/4. Referral
+
+
+Books 
+	- Cracking the coding interview 
+	- Programming Interview Exposed
+	
+Website - 
+	- https://www.careercup.com
+	- https://leetcode.com
+	- http://geeksforgeeks.org
+	- hackerrank.com
+	- topcoder.com
+	- glassdoor.com
+	
+	
+============================
+SAPIENT Technical Manger Profile 
+=============================
+You will drive the translation and construction of a client's business problems into innovative technology solutions by creating and owning the technical vision of the project and ensuring that the vision is achieved with a high level of quality. You will also be responsible for mentoring and coaching people and providing technology- related thought leadership, including supporting sales activities.
+
+What will be required of you?
+
+-Responsible for architecture as well as design of the project and works with design team and Clients to create the needed artifacts
+-Represent the organization in customer-facing communication as well as interact with multiple clients (client senior developers and architects) to create technology specifications from the business issues/requirements at an application level pertinent to Publicis Sapient’s technical expertise on the specific platform.
+-Responsible for choosing the needed technology stack based on the functional, non-functional requirements and based on other factors like client drivers, environment and feasibility
+-Estimates the implementation and deployment of the various modules based on each module design and how the module fits into the overall project architecture, construction and testing strategy and overall project plan
+-High-level grouping of responsibilities (broken down into tasks / activities) that a given role needs to perform in order to be successful.
+
+Do you have the following?
+
+-9 - 13 years of overall experience in the software industry with at least 3-5 years of experience as an enterprise / solutions architect
+-Should have played a key role in the creation of logical architecture diagrams for at least two complex applications and/or systems coupled with a hands-on experience on at least 2 project execution models (Agile, Scrum, Iterative, Waterfall)
+-Should know how to capture the various tiers of the architecture and model them in the diagram along with the various external systems and interfaces that the application interacts with in the environment.
+-Should have strong experience in design and coding medium complexity applications leveraging advanced Java 1.8 or above features like Serialization, Cloning, Annotations, Generics, NIO, RMI, Sockets, and multithreading
+-Should have experience in Core Java, Java - Spring Framework, J2EE, Java ORM, Java - Swing Applet, Java - Web Presentation Frameworks, Java - Messaging Implementation, Java Web Services, SQL Development Languages, Enterprise Architecture Planning (REAP), Planning/ Execution & Tracking, Scoping and Estimating, Data Modeling, High Availability and Failover Applications, High Throughput / Transaction Application, Logical Architecture Design, OOAD and UML, Package / Vendor Selection, Performance / Capacity Planning, TDD (JUnit, TestNG, EasyMock, JMock etc. for extensive unit-testing
+-Demonstrates ability to write complex SQL queries and stored procedures and improve performance of queries by applying techniques like explain plan, creating an index, changing data-type, refactoring/consolidating the query, optimization utilities (tkprof, trace) etc.
+-Should know how to evaluate the various tools available in the marketplace (open source and commercial) that support UML and suggests the right tools to use to accomplish the project objectives in terms of documenting the requirements of the project using UML notations.
+-Demonstrated ability for choosing the needed technology stack based on the functional, non-functional requirements and based on other factors like client drivers, environment and feasibility
+
+Education
+
+UG - B.Tech/B.E. - Any Specialization, B.Sc - Any Specialization, BCA - Computers
+PG - M.Sc - Any Specialization, MCA - Computers, M.Tech - Any Specialization
+
+A = Core Java Fundamentals + Data structure + Algorithms + Collection + Memory Management + Database + Unit Testing
+B = Multi-Threading, Concurrency
+C = Spring + ORM + JMS + Web-services
+D = Micro-services
+E = Angular 2 or Above (Min 1 Year-Hands On) OR React (Min 1 Year-Hands On)
+F = Cloud (AWS), NoSQL DB
+	
+- JVM internals
+- Memory leaks
+- Design Patterns
+- Memory Management
+- GC Management
+- Generics
+- Multithreading
+- Oracle Execution Plan
+- Angular 6
+
+-- How to get pairs whose sum is 8 from unsorted array.
+-- 
+
+=============================================================
+					ARCHETECTURE
+=============================================================
+- Agile Development Cycle - 
+- Release process
+- CI/CD
+- Semantic Versioning / Version numbering [ https://semver.org/ ]
+- Overall Load / load on each service per second
+- Service level Security on AWS and Inhouse infra-structure
+- AWS Subnet and IP management
+- Load testing for environment
+- How to manage Docker images on local registery & cloud registery
+- Difference Between Encription and Hashing
+- Symmetric vs Asymmetric Encription [ https://www.ssl2buy.com/wiki/symmetric-vs-asymmetric-encryption-what-are-differences ]
+	- Symmetric Encription Types
+		-- Blowfish
+		-- RC4
+		-- DES
+		-- RC5
+		-- RC6
+		-- AES (Advanced Encryption Standard)
+			-- AES-128, AES-192, and AES-256.
+	- Asymmetric Encription Types
+		-- EIGamal
+		-- RSA
+		-- DSA
+		-- Elliptic curve techniques
+		-- PKCS
+- SSL cerificate mechanism.
+- SSL cerificate installation on Tomcat server
+- SSL cerificate installatoin on Ingress Controller
+
+
+=============================================================
+					AWS
+=============================================================
+
+- VPC
+	-- Subnet
+		--- Public Subnet
+		--- Private Subnet
+	-- Internet Gateway
+	-- NACL 
+	-- Secutiry Groups
+	-- Virtual Private Gateway
+	-- NAT Instance and NAT Gateway
+		
+=============================================================
+					DESIGN PATTERNS
+=============================================================
+
+=============================================================
+					DATA STRUCTURES
+=============================================================
+
+=============================================================
+					COMPANIES LIST
+=============================================================
+- Nagarro 
+- ThoughtWorks
+- Adobe
+- Mphasis
+- Snapdeal
+- Amazon
+- 
+
+
+=====================
+TODO
+========================
+
+1. UBI bank account activation and Branch transfer
+2. PF Transfer status
+3. Sell Equity
+4. 
+
+==============================
+Account Number= 9611813870 
+Account Branch= 0289 / GURGAON - GOLF COURSE 
+Account Nickname= MANOJ KUMAR  Edit
+CRN= 196036331 
+Nominee= YES 
+Account Opening Date = 09/09/2016  
+Mode of Operation = Singly
+Account Status = Active 
+Account Currency = INR 
+Account Type = Corporate Ace Salary Account 

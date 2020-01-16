@@ -1,0 +1,208 @@
+References:
+# https://algorithmsandme.com/category/data-structures/arrays/
+
+## Sorting 
+1. Bubble SOrt
+2. Insertion Sort
+3. Selection Sort
+4. Merge Sort
+5. Quick Sort
+6. Heap Sort
+
+## Array 
+1. Search, insert and delete in an unsorted array
+2. Search, insert and delete in a sorted array
+3. Given an array A[] and a number x, check for pair in A[] with sum as x
+4. Find position of an element in a sorted array of infinite numbers
+5. Leaders in an array
+6. Find Majority element
+7. Check for Majority Element in a sorted array
+8. Find a Peak element
+9. Find a Fixed Point (Value equal to index) in a given array
+10. Find subarray with given sum (Nonnegative Numbers) Unsorted array
+11. Maximum area rectangle in a histogram
+12. Find one missing number in range
+13. Find two missing number in range
+14. Find one repeating number in range
+15. Find two repeating number in range
+16. Find one number which is occurred Odd time
+17. Find two number which is occurred Odd time
+18. Segregate 0s and 1s
+19. Find median in two sorted array
+20. Find Minimum  in sorted rotated array
+21. Find element in sorted rotated array
+22. Find rotation count in sorted rotated array
+
+
+
+## Matrix
+1. Sum of two Matrix
+2. Multiplication of two matrix
+3. Transpose of Matrix
+4. Rotate Matrix by 90 degree anticlockwise
+5. Sort matrix by row wise
+6. Sort matrix by row-col wise
+7. Find row with maximum 1s in row sorted matrix
+8. Find row with maximum 1s in row-col sorted matrix
+9. Find median in row wise sorted matrix
+10. Print a matrix in spiral form
+11. Find maximum element of each row in a matrix
+12. Find the number of islands
+13. Search in a row wise and column wise sorted matrix
+14. Flood Fill algorithm
+15. Print all elements in sorted order from row and column wise sorted matrix
+
+
+
+
+## String 
+1. Reverse string using iterative/Recursion
+2. String anagram
+3. String Palindrome
+4. All substring
+5. String Permutation
+6. String Combination
+7. LCS
+8. LCP
+
+
+## Stack
+1. Implement Stack using array
+2. Implement Stack using Queue/LinkedList
+3. Paranthesis validation
+4. Find Min/Max element with O(1) complexity and O(1) space
+5. Stack reverse
+6. Sort Stack
+7. Implement Stack using Queue push & pop
+8. Implement two stack 
+9. Next Greater Element
+10. Stock span problem
+11. Celebrity problem
+12. Maximum area rectangle in a histogram
+
+
+
+
+## Linked List 
+1. Insert Node at a given position 
+2. Delete Node at a given position
+3. Search a given node
+4. Size of list
+5. Delete given node
+6. Swap two given node
+7. Swap node in pair
+8. Reverse a list (Iterative & Recursive)
+9. Reverser a list in kth group
+10. Detect loop in list
+11. Find starting point in list
+12. Remove loop in list
+13. Sort a list
+14. Merge two sorted list
+15. Check if a list is palindrome
+16. Intersection of two list
+17. Add two list
+18. Rotate a list
+19. Remove duplicate nodes from sorted list
+20. Check if list is Odd or Even
+21. Middle node of list
+22. Next greater node in list
+23. Conver sorted list to Binary Search Tree
+24. Segregate even and odd number in list
+25. Sort a linked list of 0s, 1s and 2s
+26. Find occurrence of a node	
+27. Subtract Two Numbers represented as Linked Lists
+28. Union and Intersection of two Linked Lists
+29. Make middle node head in a linked list
+30. Multiply two numbers represented by Linked Lists
+31. Select a Random Node from a Singly Linked List
+32. Compare two strings represented as linked lists
+33. Rearrange a linked list such that all even and odd positioned nodes are together
+34. Rearrange a Linked List in Zig-Zag fashion
+35. Find a triplet from three linked lists with sum equal to a given number
+36. Flattening a Linked List
+37. Flatten a multilevel linked list
+38. Clone a linked list with next and random pointer
+39. Point to next higher value node in a linked list with an arbitrary pointer
+40. Select a Random Node from a Singly Linked List
+41. Compare two strings represented as linked lists
+42. Add 1 to a number represented as linked list
+43. Check if a linked list of strings forms a palindrome
+44. Sort linked list which is already sorted on absolute values
+45. Delete last occurrence of an item from linked list
+46. Find pair for given sum in a sorted singly linked without extra space
+47. Partitioning a linked list around a given value and keeping the original order
+48. Check linked list with a loop is palindrome or not
+49. Length of longest palindrome list in a linked list using O(1) extra space
+50. Adding two polynomials using Linked List
+51. Implementing Iterator pattern of a single Linked List
+52. Move all occurrences of an element to end in a linked list
+53. Count pairs from two linked lists whose sum is equal to a given value
+54. Find the sum of last n nodes of the given Linked List
+55. Make middle node head in a linked list
+
+
+
+## Backtracking
+1. N Queen problem
+2. Knight's Tour
+3. Rat inmaze
+4. m Coloring problem
+5. Hamiltonian cycle
+6. Sudoku
+7. Print all path from top left to bottom right 2D matrix
+8. Print shortest path from top left to bottom right
+9. Colect maximum points and path from top left to bottom right
+10. Subset sum problem
+
+
+
+
+## Binary Tree 
+1. Add/Delete/Search
+2. PreOrder/InOrder/PostOrder (Iterative & Recursive)
+3. Height of tree
+4. Level/Depth of Tree
+5. Level Order
+6. Delete leaf node
+7. Symmetric two tree
+8. Find path with a given Sum
+9. Maximum path sum
+10. Top View
+11. Bottom View
+12. Left View
+13. Right View
+14. Check if two binary tree are mirror of each other
+15. Lowest Common Ancestor 
+16. Find leaves of binary tree
+17. Sum of all leaves
+18. Sum of left leaves/Right leaves
+19. Diameter of Binary Tree
+20. Vertical order
+21. Print Zig-Zag
+22. Print Diagonal
+23. Reverse level order print
+24. Boundary Traversal of binary tree
+25. Diagonal Sum of a Binary Tree
+
+
+## Binary Search Tree 
+
+## Trie
+
+
+## System Design
+1. Design LRU Cache
+2. Design Tiny URL
+3. Design Parking Lot
+4. Design Elevator
+5. Design Chat system (whatsapp)
+6. Design Social Network (Facebook/Twitter)
+7. Design Video streaming (Netflix)
+8. Design BookMyShow *
+9. Design Ola/Uber
+10. Design Food delivery app
+11. IRCTC
+
+
+
+
