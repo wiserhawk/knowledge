@@ -1,7 +1,11 @@
-=================================
-	AWS
-==================================
-VPC
+##############################################################################
+					AMAZON WEB SERVICES
+##############################################################################
+
+
+================================================
+		VPC
+================================================
  - Internet Gateway
  - Route Table
  - Network Access Control List (NACL)
@@ -19,7 +23,9 @@ VPC
 # Difference between Secutiry Groups vs Network Access Control List (NACL)
 	https://medium.com/awesome-cloud/aws-difference-between-security-groups-and-network-acls-adc632ea29ae
 	
-S3 (Simple Storage Service)
+================================================
+		S3 (Simple Storage Service)
+================================================
 	- Types of S3 
 		-- S3 Standard : General Purpose
 		-- S3 Intelligent-Tiering (S3 Intelligent-Tiering) : Unknown or changing access
@@ -27,32 +33,42 @@ S3 (Simple Storage Service)
 		-- S3 One Zone-Infrequent Access (S3 One Zone-IA) : 
 		-- S3 Glacier : Archive
 		-- S3 Glacier Deep Archive
-		
-CloudFront
+	
+================================================	
+		CloudFront
+================================================
 	- CloudFront is a CDN (Content Delevery Network) on AWS
 	- Edge location: This is the location where content will be cached. This is separate to and AWS Region/AZ.
 	- Origin : This is the origin of all the files that the CDN will distribute. This can be an S3 Bucket, an EC2 instance,  an Elastic Load Balancer or Rount53.
 	- Distribution : This is the name given to CDN which consists of a collection of Edge Locations.
 	- Web Distribution : Typically used for websites.
 	- RTMP : Used for Media Streaming.
-	
-ELB
+
+================================================	
+		ELB
+================================================
 	- Application Load Balancer (Http, Https)
 	- Network Load Balancer (TCP, UDP, High proformace)
 	- Classic Load Balancer (Old generation LB)
 	
 	
-IAM
+================================================	
+		IAM
+================================================
 	- Set users, groups, permission and rolles etc.
 	- Users : End users such as perople, employees of an organization
 	- Groups : A collection of users. Each user in the group will inherit the permissions of the group.
 	- Policies : Polices are made up to documents, called Policy documnets. These documents are in a format called JSON and they give permissions as to what a User/Group/Role is able to do.
 	- Roles : You create roles and then assign them to AWS Resources.
 	
-AWS Batch
+================================================
+		AWS Batch
+================================================
 	- 
 
-AWS Lambda
+================================================
+		AWS Lambda
+================================================
 	- Limitation of Lambda service
 		1. The disk space is limited to 512 MB. 
 		2. The default deployment package size is 50 MB.
@@ -61,15 +77,29 @@ AWS Lambda
 		5. Requests limitations by lambda: Request and response body payload size are maximized to 6 MB.
 		6. Event request body can be up to 128 KB.
 		
-RDS
+================================================		
+		RDS
+================================================
+	-
+	
+================================================
+		API Gateway
+================================================
+	-
+	
+================================================
+		CloudWatch
+================================================
+	-
+	
+================================================
+		Route53
+================================================
+	-
 
-API Gateway
-
-CloudWatch
-
-Route53
-
-ElastiCache
+================================================
+		ElastiCache
+================================================
 	- ElastiCache supports two open-source in-memory caching engines.
 		-- Memcached
 		-- Redis
