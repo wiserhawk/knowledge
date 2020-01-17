@@ -81,12 +81,21 @@
 ================================================
 		API Gateway
 ================================================
-	-
+	- 
 	
 ================================================
 		CloudWatch
 ================================================
-	-
+	- Basic Monitoring
+		-- Is Free
+		-- Polls erery 5 minutes
+		-- 10 metrics
+		-- 5GB of data ingestion
+		-- 5GB of data storage
+	- Detailed Monitoring
+		-- Is Chargeable
+		-- Changed per instance per month
+		-- Polls every minute
 	
 ================================================
 		Route53
@@ -109,5 +118,5 @@
 	https://medium.com/awesome-cloud/aws-difference-between-security-groups-and-network-acls-adc632ea29ae
 # AWS re:Invent 2018: Elastic Load Balancing & NGINX to Create Elastic Ingress & Egress Tier (DEM48)
 	https://www.youtube.com/watch?v=o7FkZFqyGQg&t=16s
-
-
+# AWS CloudWatch Tutorial | What is AWS CloudWatch | AWS Tutorial | AWS Training Videos | Simplilearn
+	https://www.youtube.com/watch?v=_Tqce6pGb44
