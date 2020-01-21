@@ -120,3 +120,74 @@
 	https://www.youtube.com/watch?v=o7FkZFqyGQg&t=16s
 # AWS CloudWatch Tutorial | What is AWS CloudWatch | AWS Tutorial | AWS Training Videos | Simplilearn
 	https://www.youtube.com/watch?v=_Tqce6pGb44
+
+
+================================================
+		AWS ECS (Elasti Container Service)
+================================================
+	- Docker Containers Concepts
+		-- Docker Daemon - Docker engine. Does all work. Manages docker objects such as images, runs containers, manages n/w (networks between conatainers), storage volumes etc.
+		-- Docker Client - Interaction with Docker Daemon using commands like "bulid" , "run" etc. This can be run in same machine as docker daemon or some ohter machine.
+		-- Docker Registry - Stores docker images. It could be Docker Hub or Private Registres.
+	
+	- Docker Commands
+		################ Image Commands ####################
+		-- Build a image from source path 
+			$ docker image build -t first-images:v1 -f /path
+		-- List out all docker images
+			$ docker image ls
+		-- List out running docker containers
+			$ docker container ps
+		-- All information about image
+			$ docker image inspect <imageID>
+		-- Remove image from repository
+			$ docker image rm <imageID>
+		-- To check docker image history
+			$ docker image history <imageID>
+		-- To login on Docker Hub Repository
+			$ docker login
+		-- Tag image with docker hub repository
+			$ docker tag <imageID> <username-of-docker-hub>/<repository>:<tag>
+		-- To push image on Docker Hub
+			$ docker image push <repository>:<tag>
+		-- Pull image from docker hub
+			$ docker image pull <username-of-docker-hub>/<repository>:<tag>
+		-- Run pulled image from docker hub.
+			$ docker container run -d --name image-from-hub -p 8080:8080 <username-of-docker-hub>/<repository>:<tag>
+		
+		################ Container Commands ####################
+		-- List of running conatainers
+			$ docker container ls
+					OR
+			$ docker container ps
+		-- List of all conatainers either running or stopped
+			$ docker container ps -a
+		-- To stop container 
+			$ docker container stop <containerID>
+		-- To start container which is stopped.
+			$ docker container start <containerID>
+		--	To find out error from logs.
+			$ docker container logs <containerID>
+		-- All information about container
+			$ docker container inspect <containerID>
+		-- To rename a container
+			$ docker container rename <old-name>  <new-name>
+		-- To go inside a container box.
+			$ docker container exec -it <container-name> /bin/bash
+		-- To run container in backgroud.
+			$ docker container run --detach --name <container-name> -p 80:8080 <username-of-docker-hub>/<repository>:<tag>
+			
+		################ Network Commands ####################	
+		-- List of all networks created
+			$ docker network ls
+		-- Create network
+			$ docker network create -- attachable -d bridge --internal --subnet =10.20.0.0/16 <network-name>
+		-- All information about network
+			$ docker network inspect <network-name>
+		-- To run container on specific network.
+			$ docker container run -d --name <container-name> --net <network-name> -p 80:8080 <username-of-docker-hub>/<repository>:<tag>
+			
+		################ Volumes and Bind Mounts ####################	
+		# Docker Volumes are way to persist data of conatainers, like mysql conatainers.
+		# Bind mount is mapping VM path with conatainer's volume path. So that it can mount VM location. 
+		
