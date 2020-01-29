@@ -4,7 +4,7 @@
 
 
 ================================================
-		VPC
+		VPC (Virtual Private Cloud)
 ================================================
  - Internet Gateway
  - Route Table
@@ -41,7 +41,7 @@
 	- RTMP : Used for Media Streaming.
 
 ================================================	
-		ELB
+		ELB (Elastic Load Balancer)
 ================================================
 	- Application Load Balancer (Http, Https)
 	- Network Load Balancer (TCP, UDP, High proformace)
@@ -49,7 +49,7 @@
 	
 	
 ================================================	
-		IAM
+		IAM (Identity and Access Management)
 ================================================
 	- Set users, groups, permission and rolles etc.
 	- Users : End users such as perople, employees of an organization
@@ -74,7 +74,7 @@
 		6. Event request body can be up to 128 KB.
 		
 ================================================		
-		RDS
+		RDS (Relational Database Service)
 ================================================
 	-
 	
@@ -125,6 +125,115 @@
 ================================================
 		AWS ECS (Elasti Container Service)
 ================================================
+	- What is ECS?
+		-- Container Orchestrator
+		-- Container Management Service
+		-- Scalable & Highly Available
+		-- Natural fit in the microservice architecture.
+		-- All types of workloads
+		-- Integration with CI/CD tools (AWS Native and 3rd Party tools)
+	
+	- ECS Architecture
+		-- ECS Cluster
+		-- Instances (Launched from ECS Optimized AMIs)
+		-- Each instance will be preinstalled Docker Daemon and ECS Agent
+		-- Task Definition contains multiple components 
+			--- Container
+			--- Volume
+			--- Network
+		-- ECS Service : service is the component which takes responsibility to run task definition.
+		-- ECR (Elastic Container Registry)
+		-- Launch Types
+			--- EC2
+			--- Fargate (Serverless)
+	
+	- ECS Workflow
+		1. Docker Push --> DockerHub / ECR --> Task Definition
+		2. Launch ECS Cluser.
+		3. Run Tasks
+	
+	- ECR Components
+		-- Registry
+		-- Authentication Token
+		-- Repository
+		-- Image
+	- ECR Activites
+		-- Login on ECR uisng AWS CLI.
+		-- Build docker image
+		-- Tag docker image.
+		-- Push docker image to ECR repository
+		-- Pull docker image from ECR repository
+		
+	- ECS Cluster: Grouping of tasks or services or EC2 instances.
+		-- EC2 Launch Type: Define EC2 (Linux/Windows) + Networking + Cluster + VPC + Subnet + ASG (Auto Scaling Group) with AMI
+		-- Fargate Launch Type (Serverless): Networking only -> Cluster + VPC (Optional) + Subnets (Optional)
+		-- Note: To setup cluster you need to provide IAM Role (AmazonEC2ContainerServiceforEC2Role) to ECS Agent to connet with ECS Sevice.
+	
+	- Task Definition: Deployment tasks which are managed by ECS scheduler
+		-- Similar to docker run command.
+		-- Task Definition:
+			--- Docker image --> Image from ECR
+			--- CPU & Memory required
+			--- Launch Type --> EC2 Launch Type / Fargate Launch Type (Serverless)
+			--- Docker Networking Mode --> VPC
+			--- Logging --> 
+			--- Command  (Entrypoint/CMD)
+			--- Volumes --> EBS
+			--- IAM Roles
+	- Task Definition Components
+		-- Family: Name of task definition along with version (Revision)
+		-- Task Role: Role to call AWS services.
+		-- Task Execution Role : Pull images & publish logs.
+		-- Network Mode: bridge, awsvpc & host
+		-- Container Definition: Docker run options used similar docker command options.
+		-- Volumes: Docker Volumes & Bind Mounts.
+		-- Task Placement Constraint: Place tasks on ECS instances.
+		-- Launch Type : EC2 Launch Type / Fargate Launch Type (Serverless)
+		-- Task Size: Total amount of CPU and Memory could be used by task. If multiple conatainers exists in task then memory and CPU size will be shared accross conatainers.
+	
+	- Network Mode
+		-- EXPOSE 80 (Container port exposed outside)
+		-- -p 8080:80 ( -p Host-Port:Container-Port)
+		-- Bridge: Docker inbullt networking mode. This is default driver. Need to mention Container Port and Host Port. (EXPOSE 80 , -p 8080:80)
+		-- Host: Just mention only conatainer port. same port will be used for host port. (EXPOSE 80)
+		-- awsvpc: Provide highest networking performance. Uses Container Port and Dynamic Port Mapping. We don't mention host port, these are mapping dynamically.
+	
+	- Container Definition
+		-- Container definition is similar to docker run command options.
+			--- --attach, -a
+			--- --detach, -d
+			--- --env, -e
+			--- --name
+			--- --net
+			--- --publish, -p
+			--- --volume, -v
+			--- --cpus
+			--- --dns
+			--- --entrypoint
+			--- --health-cmd
+			--- --health-interval
+			--- --health-retries
+			--- --hostname
+			--- --link
+			--- --log-driver
+			--- --log-opt
+			--- --memory
+			--- --memory-reservation
+			--- --workdir
+			--- --ulimit
+			--- --volume-from
+			--- --ip
+			--- --dns-opt
+			--- --mount
+			--- Docker Run Example: $ docker run -d -e DBHOST="empdb" -e DBPORT="3306" -e DBUSER="root" -e DBPASS="abcd1234" -e DATABASE="ëmployeedb" --name empapp --net awsecs -p 80:80 empapp:latest
+				
+	- Volumes (Similar to Docker Volume)
+		-- --volume, -v
+		-- --mount
+		-- Docker Bind Mount Example: $ docker conatainer run -d --name webserver -p 80:80 -v /home/ec2-user/container-volume/:/var/www/html apache:v2
+	
+	
+	
 	- Docker Containers Concepts
 		-- Docker Daemon - Docker engine. Does all work. Manages docker objects such as images, runs containers, manages n/w (networks between conatainers), storage volumes etc.
 		-- Docker Client - Interaction with Docker Daemon using commands like "bulid" , "run" etc. This can be run in same machine as docker daemon or some ohter machine.
@@ -172,10 +281,12 @@
 			$ docker container inspect <containerID>
 		-- To rename a container
 			$ docker container rename <old-name>  <new-name>
-		-- To go inside a container box.
+		-- To go inside a container box with interactive terminal to login inside container VM.
 			$ docker container exec -it <container-name> /bin/bash
-		-- To run container in backgroud.
+		-- To run container in backgroud / detach mode.
 			$ docker container run --detach --name <container-name> -p 80:8080 <username-of-docker-hub>/<repository>:<tag>
+				OR
+			$ docker container run --d --name <container-name> -p 80:8080 <username-of-docker-hub>/<repository>:<tag>
 			
 		################ Network Commands ####################	
 		-- List of all networks created
