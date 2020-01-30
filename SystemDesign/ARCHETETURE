@@ -1,0 +1,84 @@
+============================================================
+					SYSTEM DESIGN & ARCHETETURE
+============================================================
+
+All Aspects To Design Distributed Web Applications
+---------------------------------------------------
+
+Defining Large Scale System
+	- Huge amounts of data.
+	- Concurrent users
+	- Scalability Requirements
+	- Throughput Requirements.
+
+Distributed Systems
+	- Microservices Archeteture
+	- Serverless Archeteture
+
+CAP (Consistency Availablity Partitioning) Theorem
+	- You can have only two features out of three when you want to create a distrubuted archeteture 
+
+Message Queues
+	- Event Sourcing
+	- message Queues
+
+Microservices Archeteture
+	- Domain Driven Design
+	- Service contracts
+	- Monitoring
+	- Logging
+	- Tracing
+
+Development Methedologies
+	- Agile Methedology
+	- Small	team based of microservice level.
+
+Security
+	- OWASP Top 10 : https://www.cloudflare.com/learning/security/threats/owasp-top-10/
+		-- Injection : SQL Injection Attack
+		-- Broken Authentication: 2-factor Authentication, Apptemt Rate Limiting
+		-- Sensitive Data Exposure :  Encryption of sensitive data, Avoid Caching Such data in cookies
+		-- XML External Entities : Avoid XEE attacks using other format like JSON
+		-- Broken Access Control: use Authorization Tokens
+		-- Security Misconfiguarion
+		-- Cross-Site Scripting
+		-- Insecure Deserialization
+		-- Using Components With Known Vulnerabilities
+		-- Insufficient Logging And Monitoring
+	- encryption
+	- I/0 Sanitization
+
+Containerization
+	- Docker
+	- DockerHub / ECR
+
+Test Driven Development
+	- Unit Tests
+	- Component Tests
+	- Contact Tests (Pact Testing)
+	- Integration Tests
+
+Procssing wrokloads
+	- CPU dependent?
+	- I/O dependent?
+	- Both
+
+Non-functional Requirements
+	- Broswer/ General compatibility
+	- Usabilty -> Endusers Prespective
+	- Security 
+	- performace -> SLAs, JMeter, VisualVM
+
+concurrent testing
+	- JUnit
+	- JMeter
+	- VisualVM
+
+Observability
+	- K8s, Grefana, Promethises, 
+	- Logging
+	- Tracing
+	- EFK
+
+------------------------------------------------------------------
+
