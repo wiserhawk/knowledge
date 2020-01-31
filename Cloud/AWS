@@ -18,6 +18,9 @@
  - VPC Endpoints
  - Direct Connect
 
+================================================
+		EC2 (Elastic Compute Cloud)
+================================================
 
 ================================================
 		S3 (Simple Storage Service)
@@ -135,7 +138,7 @@
 	
 	- ECS Architecture
 		-- ECS Cluster
-		-- Instances (Launched from ECS Optimized AMIs)
+		-- Container Instances (Launched from ECS Optimized AMIs)
 		-- Each instance will be preinstalled Docker Daemon and ECS Agent
 		-- Task Definition contains multiple components 
 			--- Container
@@ -194,9 +197,10 @@
 	- Network Mode
 		-- EXPOSE 80 (Container port exposed outside)
 		-- -p 8080:80 ( -p Host-Port:Container-Port)
-		-- Bridge: Docker inbullt networking mode. This is default driver. Need to mention Container Port and Host Port. (EXPOSE 80 , -p 8080:80)
-		-- Host: Just mention only conatainer port. same port will be used for host port. (EXPOSE 80)
-		-- awsvpc: Provide highest networking performance. Uses Container Port and Dynamic Port Mapping. We don't mention host port, these are mapping dynamically.
+		-- Types of Network Mode
+			-- Bridge: Docker inbullt networking mode. This is default driver. Need to mention Container Port and Host Port. (EXPOSE 80 , -p 8080:80)
+			-- Host: Just mention only conatainer port. same port will be used for host port. (EXPOSE 80)
+			-- awsvpc: Provide highest networking performance. Uses Container Port and Dynamic Port Mapping. We don't mention host port, these are mapping dynamically.
 	
 	- Container Definition
 		-- Container definition is similar to docker run command options.
@@ -231,6 +235,10 @@
 		-- --volume, -v
 		-- --mount
 		-- Docker Bind Mount Example: $ docker conatainer run -d --name webserver -p 80:80 -v /home/ec2-user/container-volume/:/var/www/html apache:v2
+	
+	
+	
+	
 	
 	
 	
