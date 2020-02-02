@@ -172,7 +172,7 @@
 		-- Fargate Launch Type (Serverless): Networking only -> Cluster + VPC (Optional) + Subnets (Optional)
 		-- Note: To setup cluster you need to provide IAM Role (AmazonEC2ContainerServiceforEC2Role) to ECS Agent to connet with ECS Sevice.
 	
-	- Task Definition: Deployment tasks which are managed by ECS scheduler
+	- Task Definition: Deployment tasks which are managed by ECS scheduler, Similar to pod deployment task in kubernetes.
 		-- Similar to docker run command.
 		-- Task Definition:
 			--- Docker image --> Image from ECR

@@ -225,6 +225,8 @@ Best Kubernetes concepts documentation : https://kubernetes.io/docs/concepts/
 # Ingress implementation with kubernetes
 
 # Setup EKS Kubernetes Cluster on AWS [ https://www.youtube.com/watch?v=6H5sXQoJiso ]
+# Git Repository Reference for K8S [ https://github.com/groovemonkey/project-based-kubernetes ]
+# Kubernetes Security Best Practices - Ian Lewis (Google) [ https://www.youtube.com/watch?v=v6a37uzFrCw ]	
 	
 ==================================================================
 						DOCKER

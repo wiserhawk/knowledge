@@ -3,3 +3,11 @@
 =============================================-
 Question: Do RDBMS supports database sharding featurs. If yes/no which database supports of which not?
 Question: What are Kafka streams?
+
+System Design Patterns
+	- Sharding Data
+	- Replication Types
+	- Write-Ahead Logging
+	- Separating Data and Metadata Storage
+	- Load Distribution
+	
