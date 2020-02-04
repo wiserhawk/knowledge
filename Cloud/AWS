@@ -236,7 +236,16 @@
 		-- --mount
 		-- Docker Bind Mount Example: $ docker conatainer run -d --name webserver -p 80:80 -v /home/ec2-user/container-volume/:/var/www/html apache:v2
 	
+	- Service Registry & Discovery
+		-- Service discovery is the automatic detection of devices and services offered by these devices on a computer network. A service discovery protocol (SDP) is a network protocol that helps accomplish service discovery. Service discovery aims to reduce the configuration efforts from users.
 	
+	- ECS Service Concepts
+		-- ECS Service is used for Services Registry & Discovery, Load Balancing, Mantain desired state of tasks (Numbers of running tasks on cluster)
+		-- Service Scheduler:  REPLICA & DAEMON
+		-- Service and Task has one to one mapping. Where as replication count for task can very from 1 to N.
+		-- Deployment Strategy: ROLLING UPGRADE & BLUE/GREEN DEPLOYMENT
+		-- Service Auto Scaling
+
 	
 	
 	
