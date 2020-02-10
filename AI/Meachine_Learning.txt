@@ -1,0 +1,12 @@
+===========================================================================
+			MACHINE LEARNING
+===========================================================================
+
+Machine Learning Algorithms
+	- Supervised Learning: Tell computer to how to work 
+	- Unsupervised Learning: Computer learn for its own experience.
+	- Others: Reinforcement Learning, Recommender System.
+	
+Supervised Learning
+	- 
+	
