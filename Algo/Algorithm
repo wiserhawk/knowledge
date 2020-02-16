@@ -12,6 +12,8 @@ References:
 ## Array 
 1. Search, insert and delete in an unsorted array
 2. Search, insert and delete in a sorted array
+2. Search, insert and delete in a sorted array
+2. Search, insert and delete in a sorted array
 3. Given an array A[] and a number x, check for pair in A[] with sum as x
 4. Find position of an element in a sorted array of infinite numbers
 5. Leaders in an array
@@ -153,6 +155,7 @@ References:
 8. Print shortest path from top left to bottom right
 9. Colect maximum points and path from top left to bottom right
 10. Subset sum problem
+11. Amazon Coding Interview Question - Recursive Staircase Problem : https://www.youtube.com/watch?v=5o-kdjv7FD0&t=124s
 
 
 
