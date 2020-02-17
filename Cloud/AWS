@@ -174,7 +174,7 @@
 		-- Fargate Launch Type (Serverless): Networking only -> Cluster + VPC (Optional) + Subnets (Optional)
 		-- Note: To setup cluster you need to provide IAM Role (AmazonEC2ContainerServiceforEC2Role) to ECS Agent to connet with ECS Sevice.
 	
-	- Task Definition: Deployment tasks which are managed by ECS scheduler, Similar to pod deployment task in kubernetes.
+	- Task Definition: Deployment tasks which are managed by ECS scheduler, Similar to POD deployment task in kubernetes.
 		-- Similar to docker run command.
 		-- Task Definition:
 			--- Docker image --> Image from ECR
@@ -205,7 +205,7 @@
 			-- awsvpc: Provide highest networking performance. Uses Container Port and Dynamic Port Mapping. We don't mention host port, these are mapping dynamically.
 	
 	- Container Definition
-		-- Container definition is similar to docker run command options.
+		-- Container definition is similar to docker run command options. Some important options are given below:
 			--- --attach, -a
 			--- --detach, -d
 			--- --env, -e
@@ -243,15 +243,32 @@
 	
 	- ECS Service Concepts
 		-- ECS Service is used for Services Registry & Discovery, Load Balancing, Mantain desired state of tasks (Numbers of running tasks on cluster)
-		-- Service Scheduler:  REPLICA & DAEMON
-		-- Service and Task has one to one mapping. Where as replication count for task can very from 1 to N.
-		-- Deployment Strategy: ROLLING UPGRADE & BLUE/GREEN DEPLOYMENT
-		-- Service Auto Scaling
+		-- Service Scheduler:  Responsibilty of Service Scheduler is to running and manataining REPLICA & DAEMON tasks. REPLICA is number of replication of same task running across EC2 instances. DAEMON is only one task running on each EC2 instance, it is like deamon process which is running on each VM as single process.
+		-- Service and Task has one to one mapping. One type of task can be handle by one service only. Where as replication count for task can very from 1 to N. Even task should have only one container inside to manage proper load balancing.
+		-- Deployment Strategy: ROLLING UPGRADE & BLUE/GREEN DEPLOYMENT (Blue/Green deployment can be handler through AWS CodeDeploy service)
+		-- Service Load Balancing: You can configuration Elastic Load Balancer. You can distribute traffic across tasks, not EC2 instances. ELB can be attached with ECS Service while creating service to balance load across running tasks.
+		-- Service Auto Scaling: Similar to Auto Scaling Grupe in EC2 instances. We can configuration ECS Service with Auto Scaling which can mantain desired replication count for task. It can also be scale up/down based on CloudWatch alerts.
+		-- Service Discovery: AWS provice managed service discovery and repository service using CloudMap. CloudMap is used to map HTTP and DNS namespaces for ECS Service. We can also configure service discovery using ELB (More preferable). 
 
+	 - ECS Auto Scaling
+		-- Cluster Auto Scaling: Scale-in and Scale-out EC2 instances (VMs). You can define Auto Scaling Group with Auto Scaling Polices to scale-in and scale-out using CloudWatch alerts.
+		-- Service Auto Scaling: Scale-in and Scale-out ECS Tasks (Containers). You can setup Service Auto Scaling while creating ECS Service. You specify min and max number of tasks and Automatic Task Scaling Polices to auto scale tasks (containers). CloudWatch alerts can be use to manage auto scaling.
 	
-	
-	
-	
+	- Hints & Tips
+		-- Integration with IAM - Roles at Task(Container) level. Avoid at EC2 instance (VM) level
+		-- Classic Load Balancer cannot be used with "AWSVPC" networking mode.
+		-- If you want to see conatainer logs using "docker conatainer logs <conatainer_id>" command, then the log driver should be mentioned as "json-file" in task definition.
+		-- NAT Gateway required if EC2 instances are in Private Subnet. Private EC2 instances need to be communicate with ECS Service to register them with ECS Cluster and to manage tasks as well.
+		-- Best practice is to use Application Load Balancer with Auto Scaling.
+		-- Minimum EC2 instance and task should be always be 1 as part of auto scaling.
+		-- SSH key pair if you need to login to the EC2 instances and use native docker commands.
+		-- "Task Role" and "Task Execution Role" are different.
+		-- Remember the docker run command OPTIONS mapping with "Container Definition" in "Task Definition".
+		-- Use of Volume (Docker Volume, Bind Mount) diligently.
+		-- If database usage is necessary, ALWAYS use RDS.
+		-- Service type can be REPLICA & DAEMON - use the proper one.
+		-- One service is mapped with a Task Definition only.
+		
 	
 	- Docker Containers Concepts
 		-- Docker Daemon - Docker engine. Does all work. Manages docker objects such as images, runs containers, manages n/w (networks between conatainers), storage volumes etc.

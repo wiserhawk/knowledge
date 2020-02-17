@@ -1,13 +1,11 @@
 =============================================
 	SYSTEM DESIGN
-=============================================
+=============================================-
 Question: Do RDBMS supports database sharding featurs. If yes/no which database supports of which not?
 Question: What are Kafka streams?
 Question: What is Eventual consistency and Strong Consistency? 
 	[ https://hackernoon.com/eventual-vs-strong-consistency-in-distributed-databases-282fdad37cf7 ]
 Question: What is Event Sourcing Architecture?
-Question: Cache writing policies: write-through, write-around or write-back? 
-	https://shahriar.svbtle.com/Understanding-writethrough-writearound-and-writeback-caching-with-python 
 
 System Design Patterns
 	- Sharding Data
