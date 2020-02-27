@@ -284,7 +284,11 @@
 			2 vCPU			Min. 4GB and Max. 16GB, in 1GB increments
 			4 vCPU			Min. 8GB and Max. 30GB, in 1GB increments
 		 
-			
+	- Automated Deployment (CI/CD)
+		-- CodePipeline similar to Jenkins
+		-- CodeCommit similar to Git
+		-- CodeBuild similar to Maven & Junit
+		-- CodeDeploy or ECS for code deployement
 			
 			
 	
