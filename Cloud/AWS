@@ -360,3 +360,96 @@
 		# Docker Volumes are way to persist data of conatainers, like mysql conatainers.
 		# Bind mount is mapping VM path with conatainer's volume path. So that it can mount VM location. 
 		
+
+==================================================================
+		AWS EKS (Elasti Service for Kubernetes)
+==================================================================
+	- Kubernetes on AWS before EKS
+		- Kubernetes is taking IT by strom, with termendous adoption.
+		- IT perfessional need to be able to create and operate K8s cluster.
+		- Treditionally that meant deploy kubernetes yourself:
+			- Deploy Master Nodes
+			- Deploy Etcd
+			- Setup CA for TCL encryption
+			- Setup monitoring / auto scaling / self healing
+			- Setup security such as authentication and authorization
+			- Finally setup the worker nodes
+		- After all this you'r finally done. (Just for setup)
+	
+	- Kubernetes with AWS EKS
+		- Its handles all hard kubernetes setup for you.
+			- Master nodes in HA (High Availability)
+			- Etcd esembled in HA
+			- API server
+			- KubeDNS
+			- Scheduler
+			- Controller Manager
+			- Cloud Controller
+		- And you just need to deploy the Worker Nodes and Your application.
+		- Finally authentication will be handled through IAM !
+		
+	- EKS Setup Process (under the hood)
+		- EKS will setup and manage out Kubernetes masters.
+		
+						>>>>>>>>>>>>>>>>>>> Internal AWS Creation Process >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+		Create EKS	=> 	K8s Master	=> 	Etcd 	=> 	IAM Plugin	=> 	CA setup	=> 	Auto Scaling	=>	Load Balancer 
+		Cluster			in HA			in HA		Setup			(for TLS)							(NLB & ELB)
+		
+	- Deep Integration with AWS
+		- API calls can be audited in CloudTrail
+		- Authentication is through IAM while authorization through RBAC
+		- CloudFormation templates to manage your cluster
+		- You can customize the AMI for your nodes.
+		- Load Balancers, EBS Volumes, EFS, etc...
+		- Container registries on ECR
+		- Network is handled with a per-pod IP address with attached ENI
+		- CLI integration
+		
+		- But its still the Kubernetes Opensource Project!
+	
+	- Amazon EKS use cases
+		- You can create as many clusters you want as per your need.
+		- Microservices in conatainers
+		- Platform as a Service / Website
+		- Migrate on-permise cluster to cloud Kubernetes cluster
+		- Machine Learning cluster (Support for GPU instances)
+		- And rest is you imagination 
+		
+	- What We will Learn from This Course 
+		- Deploy your EKS cluster using CloudFormation
+		- Scale your Kubernetes cluster
+		- Setup KubeCtl properly to access your cluster
+		- Learn how EKS works under the hood and its integrations with AWS
+		- Setup administration using the Kubernetes Dashboard
+		- Deploy a stateless application on EKS and expose it with a public ELB
+		- Deploy a stateful application on EKS and bind it with EBS volumes
+		- Deploy a stateful application (such as wordpress) with EFS network drives
+		- Manage your Kubernetes cluster using the AWS CLI and EksCtl CLI
+		
+	- Amazon EKS Architecture in HA		
+	
+									KubeCtl
+										|
+										|
+						mycluster.eks.amanzonaws.com
+						/				|			\	
+					   /				|			 \
+			AZ-A 					AZ-B					AZ-C
+		================		================		================
+			Master Node				Master Node				Master Node
+			Etcd					Etcd					Etcd
+			K8s Worker Nodes		K8s Worker Nodes		K8s Worker Nodes
+		
+		- Master node and Etcd is managed by EKS where as Worker Nodes are managed by user itself
+		
+	- EKS Pricing - Warning
+		- Each EKS cluster cost $0.20 per hour
+		- That's $144 per month
+		- There is no free tier for EKS
+		- On top of it, you will pay for worker nodes EC2 instances, EBS volumes, Load Balancers etc.
+		
+	- IAM User for EksCtl
+		
+		
+		
+		

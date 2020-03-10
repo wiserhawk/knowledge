@@ -1,6 +1,8 @@
 References:
 # https://algorithmsandme.com/category/data-structures/arrays/
 # Time and Space Complexity : https://www.youtube.com/playlist?list=PLEbnTDJUr_IeHYw_sfBOJ6gk5pie0yP-0
+# Some Geate Problems : https://www.youtube.com/watch?v=u5-ss5kKy7g&list=PLfBJlB6T2eOshO8-LYaMt-Pes1IFojJ_l
+# DSU (Disjoint Set Union) : https://cp-algorithms.com/data_structures/disjoint_set_union.html
 
 ## Sorting 
 1. Bubble SOrt
@@ -82,6 +84,7 @@ References:
 10. Stock span problem
 11. Celebrity problem
 12. Maximum area rectangle in a histogram
+13. Score of Parentheses [Stack & Recursion] https://leetcode.com/problems/score-of-parentheses/
 
 
 
