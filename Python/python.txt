@@ -1,0 +1,98 @@
+=============================================================
+						PYTHON
+=============================================================
+	- Python-3 Installation on Windows
+		-- go to https://www.python.org/downloads
+		-- Download python installer with python 3
+		-- While installing python check the checkbox 'Add Python 3.x to PATH'
+		-- Complete installation of python on Windows
+	
+	- Start Working on Python Command Line
+		-- To open interactive prompt for python
+			$ python 
+		-- Print Hello World
+			$ print('Hello World !!')
+		-- Set variable
+			$ x = 10
+			$ print(x)
+		-- To exit interactive prompt
+			$ exit()
+	
+	- Work on default python editor (IDLE)
+		-- you can create new python file to execute python program with *.py name
+		-- Run python file from given path
+			$ python c:/python-source/firstprogram.py
+		-- Comment on python file
+			# Add comment here.
+	
+	- Some popular editors
+		-- Sublime Text
+		-- ATOM
+		-- PyCharm
+	
+	- Strings : Working with Textual Data
+		-- Print string
+			$ message = 'Hello World'
+			$ print(message)
+		-- Print string with double qoutes
+			$ message = "Maddy's World !!"
+			$ print(message)
+		-- Print string with single & double qoutes together in some cases
+			$ message = 'He sail "Hello!!!"'
+			$ print(message)
+		-- Print string multiline string using triple quotes
+			$ message = """Cool these three quotes
+							Works well with multiline case"""
+			$ print(message)
+		-- Print length of string
+			$ message = 'Hello World'
+			$ print(len(message))
+		-- Access string element using index
+			$ print(message[0])
+		-- Getting substring using indices; First index is inclusive but Second index is exlusive
+			$ print(message[0:5]
+		-- Getting substring from start index to extreme end
+			$ print(message[6:])
+		-- Getting substring from end index to extreme right
+			$ print(message[:5])
+		-- lower case
+			$ print(message.lower())
+		-- upper case
+			$ print(message.upper())
+		-- Count numbers of substring occurrence in string
+			$ print(message.count('Hello'))
+		-- Find index of first occurrence; Return -1 if not found
+			$ print(message.find('o'))
+		-- Replacement
+			$ message = 'Hello World'
+			$ message = message.replace('World', 'Úniverse')
+			$ print(message)
+		-- Multiple string concatination
+			$ greeting = 'Hello'
+			$ name = 'Manoj'
+			$ message = greeting + ' ' + name
+			$ print(message)
+		-- Formated string
+			$ greeting = 'Hello'
+			$ name = 'Manoj'
+			$ message = '{} {}. Welcome !!!'.format(greeting, name)
+			$ print(message)
+		-- fstring in above python 3.6
+			$ $ greeting = 'Hello'
+			$ name = 'Manoj'
+			$ message = f'{greeting} {name}. Welcome !!!'
+			$ print(message)
+		-- To help regarding string
+			$ print(dir(message))
+		-- For complete help for string class
+			$ print(help(str))
+		-- For specific function help
+			$ print(help(str.find))
+			
+	- Integer & Float : Working with Numeric Data
+		-- 
+			
+			
+	
+	
+		
