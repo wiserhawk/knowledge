@@ -449,7 +449,20 @@
 		- On top of it, you will pay for worker nodes EC2 instances, EBS volumes, Load Balancers etc.
 		
 	- IAM User for EksCtl
-		
+		- IAM user need to be create with suficient permission, which can manage entire EKS cluster.
+		- There are verious roles and policies need to be granted to this user. AdminstartorAccess, EKS, CloudFormation etc.
+	
+	- AWS EKS Cluster Setup
+		- Prerequisites to grant access to IAM User
+			-- Create IAM Role : K8s assumes this role to create AWS resources.
+			-- Create SSH Key : To be able to SSH to you EC2 instances.
+			-- Create Access Key+Secret : Enable authentication for API access.
+			
+		- Setup CommandLine CLI Tool
+			-- aws ctl : Required as dependency of eksctl to grab authentication token (Version 1.16.156 or greater). Prerequisites: Python & Python pip
+			-- eksctl : setup and operation of EKS cluster.
+			-- kubectl : interaction with K8s API server.
+				
 		
 		
 		
