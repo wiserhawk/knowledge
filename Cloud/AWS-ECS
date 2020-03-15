@@ -1,0 +1,235 @@
+================================================
+		AWS ECS (Elasti Container Service)
+================================================
+	- What is ECS?
+		-- Container Orchestrator
+		-- Container Management Service
+		-- Scalable & Highly Available
+		-- Natural fit in the microservice architecture.
+		-- All types of workloads
+		-- Integration with CI/CD tools (AWS Native and 3rd Party tools)
+	
+	- ECS Architecture
+		-- ECS Cluster
+		-- Container Instances (Launched from ECS Optimized AMIs)
+		-- Each instance will be preinstalled Docker Daemon and ECS Agent
+		-- Task Definition contains multiple components 
+			--- Container
+			--- Volume
+			--- Network
+		-- ECS Service : service is the component which takes responsibility to run task definition.
+		-- ECR (Elastic Container Registry)
+		-- Launch Types
+			--- EC2
+			--- Fargate (Serverless)
+	
+	- ECS Workflow
+		1. Docker Push --> DockerHub / ECR --> Task Definition
+		2. Launch ECS Cluser.
+		3. Run Tasks
+	
+	- ECR Components
+		-- Registry
+		-- Authentication Token
+		-- Repository
+		-- Image
+	- ECR Activites
+		-- Login on ECR uisng AWS CLI.
+		-- Build docker image
+		-- Tag docker image.
+		-- Push docker image to ECR repository
+		-- Pull docker image from ECR repository
+		
+	- ECS Cluster: Grouping of tasks or services or EC2 instances.
+		-- EC2 Launch Type: Define EC2 (Linux/Windows) + Networking + Cluster + VPC + Subnet + ASG (Auto Scaling Group) with AMI
+		-- Fargate Launch Type (Serverless): Networking only -> Cluster + VPC (Optional) + Subnets (Optional)
+		-- Note: To setup cluster you need to provide IAM Role (AmazonEC2ContainerServiceforEC2Role) to ECS Agent to connet with ECS Sevice.
+	
+	- Task Definition: Deployment tasks which are managed by ECS scheduler, Similar to POD deployment task in kubernetes.
+		-- Similar to docker run command.
+		-- Task Definition:
+			--- Docker image --> Image from ECR
+			--- CPU & Memory required
+			--- Launch Type --> EC2 Launch Type / Fargate Launch Type (Serverless)
+			--- Docker Networking Mode --> VPC
+			--- Logging --> 
+			--- Command  (Entrypoint/CMD)
+			--- Volumes --> EBS
+			--- IAM Roles
+	- Task Definition Components
+		-- Family: Name of task definition along with version (Revision)
+		-- Task Role: Role to call AWS services.
+		-- Task Execution Role : Pull images & publish logs.
+		-- Network Mode: bridge, awsvpc & host
+		-- Container Definition: Docker run options used similar docker command options.
+		-- Volumes: Docker Volumes & Bind Mounts.
+		-- Task Placement Constraint: Place tasks on ECS instances.
+		-- Launch Type : EC2 Launch Type / Fargate Launch Type (Serverless)
+		-- Task Size: Total amount of CPU and Memory could be used by task. If multiple conatainers exists in task then memory and CPU size will be shared accross conatainers.
+	
+	- Network Mode
+		-- EXPOSE 80 (Container port exposed outside)
+		-- -p 8080:80 ( -p Host-Port:Container-Port)
+		-- Types of Network Mode
+			-- Bridge: Docker inbullt networking mode. This is default driver. Need to mention Container Port and Host Port. (EXPOSE 80 , -p 8080:80)
+			-- Host: Just mention only conatainer port. same port will be used for host port. (EXPOSE 80)
+			-- awsvpc: Provide highest networking performance. Uses Container Port and Dynamic Port Mapping. We don't mention host port, these are mapping dynamically.
+	
+	- Container Definition
+		-- Container definition is similar to docker run command options. Some important options are given below:
+			--- --attach, -a
+			--- --detach, -d
+			--- --env, -e
+			--- --name
+			--- --net
+			--- --publish, -p
+			--- --volume, -v
+			--- --cpus
+			--- --dns
+			--- --entrypoint
+			--- --health-cmd
+			--- --health-interval
+			--- --health-retries
+			--- --hostname
+			--- --link
+			--- --log-driver
+			--- --log-opt
+			--- --memory
+			--- --memory-reservation
+			--- --workdir
+			--- --ulimit
+			--- --volume-from
+			--- --ip
+			--- --dns-opt
+			--- --mount
+			--- Docker Run Example: $ docker run -d -e DBHOST="empdb" -e DBPORT="3306" -e DBUSER="root" -e DBPASS="abcd1234" -e DATABASE="ëmployeedb" --name empapp --net awsecs -p 80:80 empapp:latest
+				
+	- Volumes (Similar to Docker Volume)
+		-- --volume, -v
+		-- --mount
+		-- Docker Bind Mount Example: $ docker conatainer run -d --name webserver -p 80:80 -v /home/ec2-user/container-volume/:/var/www/html apache:v2
+	
+	- Service Registry & Discovery
+		-- Service discovery is the automatic detection of devices and services offered by these devices on a computer network. A service discovery protocol (SDP) is a network protocol that helps accomplish service discovery. Service discovery aims to reduce the configuration efforts from users.
+	
+	- ECS Service Concepts
+		-- ECS Service is used for Services Registry & Discovery, Load Balancing, Mantain desired state of tasks (Numbers of running tasks on cluster)
+		-- Service Scheduler:  Responsibilty of Service Scheduler is to running and manataining REPLICA & DAEMON tasks. REPLICA is number of replication of same task running across EC2 instances. DAEMON is only one task running on each EC2 instance, it is like deamon process which is running on each VM as single process.
+		-- Service and Task has one to one mapping. One type of task can be handle by one service only. Where as replication count for task can very from 1 to N. Even task should have only one container inside to manage proper load balancing.
+		-- Deployment Strategy: ROLLING UPGRADE & BLUE/GREEN DEPLOYMENT (Blue/Green deployment can be handler through AWS CodeDeploy service)
+		-- Service Load Balancing: You can configuration Elastic Load Balancer. You can distribute traffic across tasks, not EC2 instances. ELB can be attached with ECS Service while creating service to balance load across running tasks.
+		-- Service Auto Scaling: Similar to Auto Scaling Grupe in EC2 instances. We can configuration ECS Service with Auto Scaling which can mantain desired replication count for task. It can also be scale up/down based on CloudWatch alerts.
+		-- Service Discovery: AWS provice managed service discovery and repository service using CloudMap. CloudMap is used to map HTTP and DNS namespaces for ECS Service. We can also configure service discovery using ELB (More preferable). 
+
+	 - ECS Auto Scaling
+		-- Cluster Auto Scaling: Scale-in and Scale-out EC2 instances (VMs). You can define Auto Scaling Group with Auto Scaling Polices to scale-in and scale-out using CloudWatch alerts.
+		-- Service Auto Scaling: Scale-in and Scale-out ECS Tasks (Containers). You can setup Service Auto Scaling while creating ECS Service. You specify min and max number of tasks and Automatic Task Scaling Polices to auto scale tasks (containers). CloudWatch alerts can be use to manage auto scaling.
+	
+	- Hints & Tips
+		-- Integration with IAM - Roles at Task(Container) level. Avoid at EC2 instance (VM) level
+		-- Classic Load Balancer cannot be used with "AWSVPC" networking mode.
+		-- If you want to see conatainer logs using "docker conatainer logs <conatainer_id>" command, then the log driver should be mentioned as "json-file" in task definition.
+		-- NAT Gateway required if EC2 instances are in Private Subnet. Private EC2 instances need to be communicate with ECS Service to register them with ECS Cluster and to manage tasks as well.
+		-- Best practice is to use Application Load Balancer with Auto Scaling.
+		-- Minimum EC2 instance and task should be always be 1 as part of auto scaling.
+		-- SSH key pair if you need to login to the EC2 instances and use native docker commands.
+		-- "Task Role" and "Task Execution Role" are different.
+		-- Remember the docker run command OPTIONS mapping with "Container Definition" in "Task Definition".
+		-- Use of Volume (Docker Volume, Bind Mount) diligently.
+		-- If database usage is necessary, ALWAYS use RDS.
+		-- Service type can be REPLICA & DAEMON - use the proper one.
+		-- One service is mapped with a Task Definition only.
+	
+	- Monitoring & Logging
+		-- CloudWatch can be use for monitoring on Cluster, Service and Container level 
+		-- If TaskDefination log type is mentioned "awslogs" and CloudWatch access permission Role is attached as Task Execution Role then running container will send conatainer logs to Clou logs using Cloudwatch Logs Agent.
+		
+	- ECS Fargate
+		-- ECS Fargate is serverless deployement for ECS Cluster only. Everything in ECS Cluster will remain same i.e. Cluster, ECR, TaskDef, ECS Service except EC2 instances which will become serverless. Here we don't manage EC2 instances ourself.
+		-- Task Defination Network Mode can only be - awsvpc
+		-- There are also Task Size limit, given below:
+			CPU				Memory Values
+			0.25 vCPU		0.5GB, 1GB, and 2GB
+			0.5 vCPU		Min. 1GB and Max. 4GB, in 1GB increments
+			1 vCPU			Min. 2GB and Max. 8GB, in 1GB increments
+			2 vCPU			Min. 4GB and Max. 16GB, in 1GB increments
+			4 vCPU			Min. 8GB and Max. 30GB, in 1GB increments
+		 
+	- Automated Deployment (CI/CD)
+		-- CodePipeline similar to Jenkins
+		-- CodeCommit similar to Git
+		-- CodeBuild similar to Maven & Junit
+		-- CodeDeploy or ECS for code deployement
+			
+=========================================================================
+		DOCKER COMMANDS
+=========================================================================			
+	
+	- Docker Containers Concepts
+		-- Docker Daemon - Docker engine. Does all work. Manages docker objects such as images, runs containers, manages n/w (networks between conatainers), storage volumes etc.
+		-- Docker Client - Interaction with Docker Daemon using commands like "bulid" , "run" etc. This can be run in same machine as docker daemon or some ohter machine.
+		-- Docker Registry - Stores docker images. It could be Docker Hub or Private Registres.
+	
+	- Docker Commands
+		################ Image Commands ####################
+		-- Build a image from source path 
+			$ docker image build -t first-images:v1 -f /path
+		-- List out all docker images
+			$ docker image ls
+		-- List out running docker containers
+			$ docker container ps
+		-- All information about image
+			$ docker image inspect <imageID>
+		-- Remove image from repository
+			$ docker image rm <imageID>
+		-- To check docker image history
+			$ docker image history <imageID>
+		-- To login on Docker Hub Repository
+			$ docker login
+		-- Tag image with docker hub repository
+			$ docker tag <imageID> <username-of-docker-hub>/<repository>:<tag>
+		-- To push image on Docker Hub
+			$ docker image push <repository>:<tag>
+		-- Pull image from docker hub
+			$ docker image pull <username-of-docker-hub>/<repository>:<tag>
+		-- Run pulled image from docker hub.
+			$ docker container run -d --name image-from-hub -p 8080:8080 <username-of-docker-hub>/<repository>:<tag>
+		
+		################ Container Commands ####################
+		-- List of running conatainers
+			$ docker container ls
+					OR
+			$ docker container ps
+		-- List of all conatainers either running or stopped
+			$ docker container ps -a
+		-- To stop container 
+			$ docker container stop <containerID>
+		-- To start container which is stopped.
+			$ docker container start <containerID>
+		--	To find out error from logs.
+			$ docker container logs <containerID>
+		-- All information about container
+			$ docker container inspect <containerID>
+		-- To rename a container
+			$ docker container rename <old-name>  <new-name>
+		-- To go inside a container box with interactive terminal to login inside container VM.
+			$ docker container exec -it <container-name> /bin/bash
+		-- To run container in backgroud / detach mode.
+			$ docker container run --detach --name <container-name> -p 80:8080 <username-of-docker-hub>/<repository>:<tag>
+				OR
+			$ docker container run --d --name <container-name> -p 80:8080 <username-of-docker-hub>/<repository>:<tag>
+			
+		################ Network Commands ####################	
+		-- List of all networks created
+			$ docker network ls
+		-- Create network
+			$ docker network create -- attachable -d bridge --internal --subnet =10.20.0.0/16 <network-name>
+		-- All information about network
+			$ docker network inspect <network-name>
+		-- To run container on specific network.
+			$ docker container run -d --name <container-name> --net <network-name> -p 80:8080 <username-of-docker-hub>/<repository>:<tag>
+			
+		################ Volumes and Bind Mounts ####################	
+		# Docker Volumes are way to persist data of conatainers, like mysql conatainers.
+		# Bind mount is mapping VM path with conatainer's volume path. So that it can mount VM location. 
+		

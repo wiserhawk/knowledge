@@ -1,97 +1,585 @@
 =============================================================
 						PYTHON
 =============================================================
+	
+	# Python Tutorial : https://www.youtube.com/watch?v=YYXdXT2l-Gg&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU
+	
+	
 	- Python-3 Installation on Windows
+		
 		-- go to https://www.python.org/downloads
+		
 		-- Download python installer with python 3
+		
 		-- While installing python check the checkbox 'Add Python 3.x to PATH'
+		
 		-- Complete installation of python on Windows
 	
 	- Start Working on Python Command Line
+		
 		-- To open interactive prompt for python
 			$ python 
+		
 		-- Print Hello World
 			$ print('Hello World !!')
+		
 		-- Set variable
 			$ x = 10
 			$ print(x)
+		
 		-- To exit interactive prompt
 			$ exit()
 	
 	- Work on default python editor (IDLE)
+		
 		-- you can create new python file to execute python program with *.py name
+		
 		-- Run python file from given path
 			$ python c:/python-source/firstprogram.py
+		
 		-- Comment on python file
 			# Add comment here.
 	
 	- Some popular editors
+		
 		-- Sublime Text
 		-- ATOM
 		-- PyCharm
 	
 	- Strings : Working with Textual Data
+		
 		-- Print string
 			$ message = 'Hello World'
 			$ print(message)
+		
 		-- Print string with double qoutes
 			$ message = "Maddy's World !!"
 			$ print(message)
+		
 		-- Print string with single & double qoutes together in some cases
 			$ message = 'He sail "Hello!!!"'
 			$ print(message)
+		
 		-- Print string multiline string using triple quotes
 			$ message = """Cool these three quotes
 							Works well with multiline case"""
 			$ print(message)
+		
 		-- Print length of string
 			$ message = 'Hello World'
 			$ print(len(message))
+		
 		-- Access string element using index
 			$ print(message[0])
+		
 		-- Getting substring using indices; First index is inclusive but Second index is exlusive
 			$ print(message[0:5]
+		
 		-- Getting substring from start index to extreme end
 			$ print(message[6:])
+		
 		-- Getting substring from end index to extreme right
 			$ print(message[:5])
+		
 		-- lower case
 			$ print(message.lower())
+		
 		-- upper case
 			$ print(message.upper())
+		
 		-- Count numbers of substring occurrence in string
 			$ print(message.count('Hello'))
+		
 		-- Find index of first occurrence; Return -1 if not found
 			$ print(message.find('o'))
+		
 		-- Replacement
 			$ message = 'Hello World'
 			$ message = message.replace('World', 'Úniverse')
 			$ print(message)
+		
 		-- Multiple string concatination
 			$ greeting = 'Hello'
 			$ name = 'Manoj'
 			$ message = greeting + ' ' + name
 			$ print(message)
+		
 		-- Formated string
 			$ greeting = 'Hello'
 			$ name = 'Manoj'
 			$ message = '{} {}. Welcome !!!'.format(greeting, name)
 			$ print(message)
+		
 		-- fstring in above python 3.6
 			$ $ greeting = 'Hello'
 			$ name = 'Manoj'
 			$ message = f'{greeting} {name}. Welcome !!!'
 			$ print(message)
+		
 		-- To help regarding string
 			$ print(dir(message))
+		
 		-- For complete help for string class
 			$ print(help(str))
+		
 		-- For specific function help
 			$ print(help(str.find))
 			
 	- Integer & Float : Working with Numeric Data
-		-- 
+		
+		-- Check type of variable
+			$ num = 3
+			$ print(type(num))
+			$ num = 3.14
+			$ print(type(num))
+		
+		-- Arithmetic Operations
+			Addition		: 3 + 2 	= 5 
+			Subtraction 	: 3 - 2		= 1
+			Multiplication 	: 3 * 2		= 6
+			Division 		: 3 / 2		= 1.5
+			Floor Division 	: 3 // 2	= 1
+			Exponent 		: 3 ** 2	= 9
+			Modulus 		: 3 % 2		= 1
+		
+		-- Absolute value
+			$ print(abs(-3))
+		
+		-- Round value
+			$ print(round(3.75))
+			$ print(round(3.75, 1))
+		
+		-- Comparisions Operators
+			Equal			:	3 == 2	= False	
+			Not equal		:	3 != 2	= True
+			Greater Than	:	3 > 2 	= True
+			Less Than		: 	3 < 2	= False
+			Greater or Equal: 	3 >= 2	= True
+			Less or Equal	: 	3 <= 2	= False
+		
+		-- Casting
+			$ num_1 = '100'
+			$ num_2 = '200'
+			$ num-1 = int(num_1)
+			$ num_2 = int(num_2)
+			$ print(num_1 + num_2)
+	
+	- Collections : Lists, Tuples & Sets
+		
+		-- List: Provide sequencial data and lot more functionality with mutability
+			$ courses = ['History', 'Math', 'Physics', 'CompSci']
+			$ print(courses)
+			$ print(len(courses))
+			$ print(courses[0])
+			$ print(courses[-1]) # Get item from last index; output = CompSci
+			$ print(courses[0:2])
+			$ print(courses[:2])
+			$ print(courses[2:])
+			## Add item to List
+			$ courses.append('Art')
+			$ print(courses)
+			## Add at particular location
+			$ courses.insert(0, 'Art')
+			$ print(courses)
+			## Insert List to Another List
+			$ courses = ['History', 'Math', 'Physics', 'CompSci']
+			$ courses_2 = ['Art', 'Education']
+			$ courses.insert(0, courses_2) 
+			$ print(courses)
+			## Extend List 
+			$ courses.extend(courses_2)
+			$ print(courses)
+			## Remove item 
+			$ courses.remove('Math')
+			$ print(courses)
+			## Remove from last; Work like Stack
+			$ popped = courses.pop()
+			$ print(popped)
+			$ print(courses)
+			## Reverse list
+			$ courses.reverse()
+			$ print(courses)
+			## Sort List
+			$ courses.sort()
+			$ print(courses)
+			## Sort on descending order
+			$ nums = [1,4,2,5,6]
+			$ nums.sort(reverse=True)
+			$ courses.sort(reverse=True)
+			$ print(nums)
+			$ print(courses)
+			## Sort using sorted function
+			$ sorted_courses = sorted(courses)
+			$ print(sorted_courses)
+			## Some Aggrigation functions
+			$ nums = [1,4,2,5,6]
+			$ print(min(nums))
+			$ print(max(nums))
+			$ print(sum(nums))
+			## To find index for any item
+			$ print(courses.index('CompSci'))
+			$ print(courses.index('Algo')) # If not in list: ERROR = ValueError: Alog is not in list
+			## To check if item in list
+			$ print('Algo' in courses) # False
+			$ print('Math' in courses) # True
+			## Print items using loop
+			$ for item in courses:
+				print(item)
+			## Print index and item using enumerate & loop
+			$ for index, item in enumerate(courses):
+				print(index, item)
+			## To set start value for index in enumerate
+			$ for index, item in enumerate(courses, start=1):
+				print(index, item) # Now index will get started from 1 instead of 0.
+			## Join function : For example to create comma separated string
+			$ course_str = ', '.join(courses)
+			$ print(course_str)
+			## Split comma separated string and create list
+			$ course_str = ', '.join(courses)
+			$ list = course_str.split(', ')
+			$ print(list)
+		
+		-- Tuple: Provide sequencial data and lot more functionality with immutability 
+			$ tuple = ('History', 'Math', 'Physics', 'CompSci')
+			$ tuple_1[0] = 'Art' # Throw Error because it immutable
+		
+		-- Set : Unorder values with no duplicates
+			$ cs_courses = {'History', 'Math', 'Physics', 'CompSci'}
+			$ print(cs_courses)
+			## To check if item exists
+			$ print('Math' in set) # True
+			## Get intersection for two sets
+			$ cs_courses = {'History', 'Math', 'Physics', 'CompSci'}
+			$ art_courses = {'History', 'Math', 'Art', 'Design'}
+			$ print(cs_courses.intersection(art_courses))
+			## Get difference for two sets
+			$ print(cs_courses.difference(art_courses))
+			## Get union of two sets
+			 print(cs_courses.union(art_courses))
+		
+		-- Declairing empty List, Tuple & Set
+			## Empty List
+			$ empty_list = []
+			$ empty_list = list()
+			## Empty Tuple
+			$ empty_tuple = ()
+			$ empty_tuple = tuple()
+			## Empty Set
+			$ empty_set = {} # This is NOT RIGHT; its a dictionary 
+			$ empty_set = set()
 			
+	- Dictionaries : Working with Key & Value Pairs
+		-- Create dictionary using key & value
+			$ student = {'name':'John', 'age':'25', 'courses':['Math', 'CompSci']}
+		-- Get value by key
+			$ print(student['name']) # If key doesn't exists; will throw 'KeyError'
+					or
+			$ print(student.get('name')) # If key doesn't exists; will give 'None'
+			$ print(student.get('hello', 'Not Found')) # If key doesn't exists; will give 'Not Found'
+		-- Set/Update new key & value
+			$ student['phone'] = '555-55555-55' # Can update or add single pair
+			$ student.update({'name':'Manoj', 'age':'36', 'phone':'999-99999-99', 'class':'PHD'}) # Can add, update multiple pair in one go.
+		-- Delete from dictionary
+			$ del student['class'] 
+					or
+			$ age = student.pop('age')
+			$ print(age)
+			$ print(student)
+		-- Get numbers of elements in dictionary
+			$ print(len(student))
+		-- Get all keys 
+			$ print(student.keys())
+		-- Get all values 
+			$ print(student.values())
+		-- Get all keys & values 
+			$ print(student.items())
+		-- Loop over dictionary
+			$ for key in student:
+				print(student[key])
+			
+			$ for key, value in student.items():
+				print(key, value)
+	
+	- Conditionals & Booleans : If, Else and Elif Statements
+		-- Comparisions Operators
+			# Equal 			: 	==
+			# Not Equal			:	!=
+			# Greater Than		:	>
+			# Less Than			:	<
+			# Greater Than Equal:	>=
+			# Less Than Equal	:	<=
+			# Object Identity	:	is
+		
+		-- 	Some conditional examples
+			-------------------------------------------
+			if True:
+				print('Condition is True')
+			
+			-------------------------------------------	
+			language = 'python'
+			if language == 'Python':
+				print('Language is python')
+			else:
+				print('Language is ' + language)
+			
+			--------------------------------------------
+			language = 'java'
+			if language == 'Python':
+				print('Language is python')
+			else:
+				print('Language is ' + language)
+			
+			--------------------------------------------
+			language = 'java'
+			if language == 'Python':
+				print('Language is python')
+			elif language == 'java':
+				print('Language is java')
+			else:
+				print('No match')
+			
+			--------------------------------------------
+			user = 'Admin'
+			logged_in = True
+
+			if user == 'Admin' and logged_in:
+				print('Admin Page')
+			else:
+				print('Bad Creds')
+			
+			--------------------------------------------
+			user = 'Admin'
+			logged_in = False
+
+			if user == 'Admin' or logged_in:
+				print('Admin Page')
+			else:
+				print('Bad Creds')
+			
+			--------------------------------------------
+			logged_in = False
+
+			if not logged_in:
+				print('Please Log in')
+			else:
+				print('Welcome!!')
+			
+			--------------------------------------------
+			a = [1,2,3]
+			b = [1,2,3]
+			
+			print(a == b) 			# True : check equality of objects
+			print(a is b)			# False : check object identity of objects
+			
+			print(id(a))    		# Check id of a 
+			print(id(b))    		# Check id of b
+			
+			a = b					# Assign same object to a as b
+			print(a is b)   		# True 
+			print(id(a) == id(b)) 	# True
+			
+			print(id(a))    		# Check id of a 
+			print(id(b))    		# Check id of b
+		
+			--------------------------------------------
+			# Below Given values in Python evaluated as False
+			# False
+			# None
+			# Zero of any numeric type
+			# Any empty sequence; For example, '', (), []
+			# Any empty mapping; For example, {}	
+			
+			condition = {}
+
+			if condition:
+				print('Evaluated to True')
+			else:
+				print('Evaluated to False')
+			----------------------------------------------
+	
+	- Loops & Iterations : For/While Loops
+		
+		-- For loop variants
+		---------------------------------------
+			nums = [1,2,3,4,5,6]
+
+			for num in nums:
+				print(num)
+		
+		---------------------------------------
+			nums = [1,2,3,4,5,6]
+
+			for num in nums:
+				if num == 4:
+					print('Found 4')
+					break
+				print(num)
+		
+		---------------------------------------
+			nums = [1,2,3,4,5,6]
+
+			for num in nums:
+				if num == 4:
+					continue
+				print(num)
+		
+		---------------------------------------
+			nums = [1,2,3,4,5,6]
+
+			for num in nums:
+				for letter in 'abc':
+					print(num, letter)
+		
+		---------------------------------------
+			for i in range(10):		# 0 to 9
+				print(i)
+		
+		---------------------------------------
+			for i in range(1,11): 	# 1 to 10
+				print(i)
+		
+		---------------------------------------
+			for i in range(1,11,2): # Incremnet by +2
+				print(i)
+		
+		--------------------------------------
+		
+		-- While loop variants
+		---------------------------------------
+			x = 0
+			while x < 10:
+				print(x)
+				x += 1
+		
+		---------------------------------------
+			x = 0
+			while x < 10:
+				print(x)
+				if (x == 5):
+					break;
+				x += 1
+		---------------------------------------	
+	
+	- Functions 
+		
+		# Non-parameterized functions
+		----------------------------------------
+			def print_hello():
+				print('Hello Print Function')
+
+			print_hello()
+		
+		----------------------------------------
+			def hello():
+				return 'Hello Function'
+
+			print(hello()) 
+		
+		----------------------------------------
+			def hello():
+				return 'Hello Function'
+
+			print(hello().upper())
+		
+		----------------------------------------
+		
+		# Parameterized functions
+		----------------------------------------
+			def hello(greeting):
+				return '{} Function'.format(greeting)
+
+			print(hello('Hi'))
+		
+		----------------------------------------
+			# Default value for parameter
+			
+			def hello(greeting, name='You'):
+				return '{} {}'.format(greeting, name)
+
+			print(hello('Hi'))
+			print(hello('Hi', 'Manoj'))
+		
+		----------------------------------------
+			# *args : Take arbitrary numbers of arguments
+			# **kwargs : Take arbitrary numbers of keywords arguments
+			
+			def student_info(*args, **kwargs):
+				print(args)
+				print (kwargs)
+
+			student_info('Math', 'CompSci', name='Manoj', age='36')
+		
+		----------------------------------------
+			# *args : Take arbitrary numbers of arguments
+			# **kwargs : Take arbitrary numbers of keywords arguments
+
+			def student_info(*args, **kwargs):
+				print(args)
+				print (kwargs)
+
+			courses = ['Math', 'CompSci']
+			info = {'name':'Manoj', 'age':'36'}
+
+			student_info(*courses, **info) 		# Unpack arguments so that function can under stand it better
+		
+		---------------------------------------
+			# Utility Function to check leap year and days in given month and year
+
+			month_days = (0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+
+			def is_leap(year):
+				"""Returns True for leap years, False for non-leap years"""
+
+				return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+
+			def days_in_month(year, month):
+				"""Returns number of days in that month in that year"""
+
+				if not 1 <= month <= 12:
+					return 'Invalid Month'
+
+				if month == 2 and is_leap(year):
+					return 29
+
+				return month_days[month]
+
+
+			print(days_in_month(2019, 2))   # Not a leap year
+			print(days_in_month(2020, 2))    # leap year
+		
+		----------------------------------------
+	
+	- Import Modules & Exploring The Standard Libraries
+		
+		-- Import complete module to current file
+			$ import module_name as alias
+						or
+			$ from module_name import *
+		
+		-- Import particular function from module to current file
+			$ from module_name import func_name_1, func_name_2
+						or
+			$ from module_name import func_name_1 as func_1, func_name_2 as func_2
+		
+		-- Python check multiple locations to import any module. Those location are mention is sys.path
+			$ import sys
+			$ print(sys.path)
+			
+		-- You can append any path manually in sys.path; but is not recommended
+			$ import sys
+			$ sys.path.append('c:/xyz')
+		
+		-- You can append any path manually in sys.path by added path in Environment Variable.
+			-- Create a environment variable call PYTHONPATH=c:/xyz and restart python terminal
+			-- you can see your path appened in sys.path
+			
+		-- To find location of any module used.
+			$ import os
+			$ print(os.__file__)
+			
+	-
+		
+	
 			
 	
 	
