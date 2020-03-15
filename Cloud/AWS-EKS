@@ -95,10 +95,27 @@
 			-- Create SSH Key : To be able to SSH to you EC2 instances.
 			-- Create Access Key+Secret : Enable authentication for API access.
 			
-		- Setup CommandLine CLI Tool
+		- Setup CommandLine CLI tools to your machine to interact with AWS, EKS and K8s Cluster. Install all below given tools.
 			-- aws ctl : Required as dependency of eksctl to grab authentication token (Version 1.16.156 or greater). Prerequisites: Python & Python pip
-			-- eksctl : setup and operation of EKS cluster.
+			-- eksctl : setup and interact with EKS to manage EKS cluster and perform operatoins on them.
 			-- kubectl : interaction with K8s API server.
+		
+		- Create EKS cluster via eksctl (https://eksctl.io)
+			-- eksctl 
+				--- eksctl is created by Weaveworks, then promoted to official AWS EKS cli (announcement summer 2019)
+				--- creation & management of EKS cluster.
+				--- create ymal file to provide a template to create EKS cluster using eksctl 
+				--- take help of eksctl documentations (https://eksctl.io) for how to setup EKS cluster via eksctl.
+				
+			-- initial cluster inforamation
+				--- region: us-east-1
+				--- one nodegroup
+				--- 3 worker nodes, type t2.small
+				--- ssh access
+		
+	- AWS EKS Operations using eksctl
+		- 
+			
 				
 		
 		

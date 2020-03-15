@@ -257,7 +257,7 @@
 			## Get union of two sets
 			 print(cs_courses.union(art_courses))
 		
-		-- Declairing empty List, Tuple & Set
+		-- Declaring empty List, Tuple & Set
 			## Empty List
 			$ empty_list = []
 			$ empty_list = list()
