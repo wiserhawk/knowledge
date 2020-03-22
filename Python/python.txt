@@ -577,8 +577,157 @@
 			$ import os
 			$ print(os.__file__)
 			
-	-
+	- Install Pip Package Manager 
 		
+		-- Once you’ve confirmed that Python is correctly installed, you can proceed with installing Pip.
+
+			--- Download get-pip.py(https://bootstrap.pypa.io/get-pip.py) to a folder on your computer.
+			--- Open a command prompt and navigate to the folder containing get-pip.py.
+			---	Run the following command:
+				$ python get-pip.py
+			
+			--- Pip is now installed!
+			--- You can verify that Pip was installed correctly by opening a command prompt and entering the following command:
+				$ pip -V
+			
+			---	You should see output similar to the following:
+				$ pip 18.0 from c:\users\administrator\appdata\local\programs\python\python37\lib\site-packages\pip (python 3.7)
+			
+			--- Now that Pip is installed and configured, you can begin using it to manage your Python packages. For a brief overview of the available commands and syntax for Pip, open a command prompt and enter:
+				$ pip help
+	
+	- Pip : An In-depth look in at Packages Manager System 
+		
+		-- Search any package 
+			$ pip search pympler
+			
+		-- Install any package
+			$ pip install pympler
+			
+		-- List of all installed packages
+			$ pip list
+		
+		-- Uninstall any package
+			$ pip uninstall pympler
+			
+		-- Check outdated version packages
+			$ pip list --outdated
+			
+		-- Update any package 
+			$ pip install -U setuptools
+		
+		-- Print package in requirement file
+			$ pip freeze
+			
+		-- Create requirement file using pip
+			$ pip freeze > requirement.txt
+			
+		-- Installing packages using requirement file
+			$ pip install -r requirement.txt
+		
+		-- Update all installed packages to latest version in one go. Even though there is not direct option to do so, but there is workaround for that
+			$ pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U
+			
+	- virtualenv and why you should use virtual environments
+		
+		-- virtualenv is package to keep multiple environment setups for multiple projects
+		
+		-- Install virtualenv 
+			$ pip install virtualenv
+			
+		-- Setup virtual environment
+			
+			--- make empty environments directory
+				$ mkdir environments
+				
+				$ cd environments
+				
+			--- create virtual environment for any projects
+				$ virtualenv first_app_env
+			
+			--- activate virtual environment
+				$ cd first_app_env/Scripts
+				$ activate
+				
+				NOTE: 	you will see active environment at start of you prompt e.g (first_app_env). 
+						Now every command like pip will locallly work for first_app_env.
+						You can list out packages install for this current environment or
+						you can install new packages for this current environment.
+				$ pip list
+				$ pip install numpy
+				$ pip install pytz
+				$ pip install psutil
+				$ pip list
+				
+			--- create requirement file from this local virtualenv to create another environment for some other project.
+				$ pip freeze --local > requirement.txt
+				
+				NOTE: --local mean only virtualenv's local depenencies will be moved to requirement file; not those which are coming from globally.
+				
+			--- Deactivate your current virtualenv
+				$ deactivate
+				
+			--- delete virtualenv using DOC command; Follow corresponding OS commands to remove virtualenv directory.
+				$ rmdir /S first_app_env	
+				
+			--- Creatae virtual environment and use different Python version
+				
+				NOTE: Just use the --python (or short -p) option when creating your virtualenv instance to specify the Python executable 
+				you want to use, e.g.:
+
+				# virtualenv --python=/usr/bin/python2.6 test_env
+				
+			--- create virtual environment using requirement file
+				$ virtualenv test_evn
+				$ cd test_env
+				$ cd Scripts
+				$ activate
+				$ cd..
+				$ cd..
+				$ pip install -r requirement.txt
+				
+	- Anaconda: Installation & Using Conda
+	
+		-- Anconda is data science platform which comes lots of stuff out of box. Its provide python distrubution to handle lots of problems for beginer. 
+			Anaconda python distrubution contains wide range of preinstalled packages to support wide varieties of featues and issues.
+		
+		-- Anconda comes with its packages manager call Conda. Conda is useful because it can install non python packages. It can install something
+			which no necessarily make sence with pip.
+			
+		-- Conda commands
+			
+			--- Conda help
+				$ conda --help
+				
+			--- List out packages
+				$ conda list
+				
+			--- Create virtual environment with some staring packages; You need atleast one package to create virtual environment
+				$ condata create --name my_env flask sqlalchemy
+			
+			--- You can activate virtual environment similar to virtualenv
+			
+			--- You can deactivate virtual environment similar to virtualenv
+			
+			--- List of all virtual environments create via Conda
+				$ conda env list
+				
+			--- Remove virtual environment: use option --all if want to remove all packages otherwise mention packages names
+				$ conda remove --name my_env --all
+				
+	- How to manage Mutiple Projects, Virtual Environments & Environment Variables
+		
+		-- 
+				
+				
+			
+				
+				
+			
+			
+			
+		
+						
 	
 			
 	
