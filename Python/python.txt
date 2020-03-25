@@ -4,7 +4,7 @@
 	
 	# Python Tutorial : https://www.youtube.com/watch?v=YYXdXT2l-Gg&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU
 	
-	
+	===================================
 	- Python-3 Installation on Windows
 		
 		-- go to https://www.python.org/downloads
@@ -15,6 +15,7 @@
 		
 		-- Complete installation of python on Windows
 	
+	=======================================
 	- Start Working on Python Command Line
 		
 		-- To open interactive prompt for python
@@ -30,6 +31,7 @@
 		-- To exit interactive prompt
 			$ exit()
 	
+	=======================================
 	- Work on default python editor (IDLE)
 		
 		-- you can create new python file to execute python program with *.py name
@@ -40,12 +42,15 @@
 		-- Comment on python file
 			# Add comment here.
 	
+	=======================
 	- Some popular editors
 		
 		-- Sublime Text
 		-- ATOM
 		-- PyCharm
+		-- Eclipse with PyDev Plugin
 	
+	======================================
 	- Strings : Working with Textual Data
 		
 		-- Print string
@@ -124,7 +129,8 @@
 		
 		-- For specific function help
 			$ print(help(str.find))
-			
+	
+	==============================================
 	- Integer & Float : Working with Numeric Data
 		
 		-- Check type of variable
@@ -164,6 +170,7 @@
 			$ num_2 = int(num_2)
 			$ print(num_1 + num_2)
 	
+	=====================================
 	- Collections : Lists, Tuples & Sets
 		
 		-- List: Provide sequencial data and lot more functionality with mutability
@@ -268,7 +275,9 @@
 			$ empty_set = {} # This is NOT RIGHT; its a dictionary 
 			$ empty_set = set()
 			
+	================================================
 	- Dictionaries : Working with Key & Value Pairs
+		
 		-- Create dictionary using key & value
 			$ student = {'name':'John', 'age':'25', 'courses':['Math', 'CompSci']}
 		-- Get value by key
@@ -300,7 +309,9 @@
 			$ for key, value in student.items():
 				print(key, value)
 	
+	=========================================================
 	- Conditionals & Booleans : If, Else and Elif Statements
+		
 		-- Comparisions Operators
 			# Equal 			: 	==
 			# Not Equal			:	!=
@@ -397,6 +408,7 @@
 				print('Evaluated to False')
 			----------------------------------------------
 	
+	=======================================
 	- Loops & Iterations : For/While Loops
 		
 		-- For loop variants
@@ -458,8 +470,8 @@
 				if (x == 5):
 					break;
 				x += 1
-		---------------------------------------	
 	
+	=============
 	- Functions 
 		
 		# Non-parameterized functions
@@ -549,6 +561,7 @@
 		
 		----------------------------------------
 	
+	====================================================
 	- Import Modules & Exploring The Standard Libraries
 		
 		-- Import complete module to current file
@@ -577,6 +590,7 @@
 			$ import os
 			$ print(os.__file__)
 			
+	==============================
 	- Install Pip Package Manager 
 		
 		-- Once you’ve confirmed that Python is correctly installed, you can proceed with installing Pip.
@@ -596,6 +610,7 @@
 			--- Now that Pip is installed and configured, you can begin using it to manage your Python packages. For a brief overview of the available commands and syntax for Pip, open a command prompt and enter:
 				$ pip help
 	
+	=======================================================
 	- Pip : An In-depth look in at Packages Manager System 
 		
 		-- Search any package 
@@ -628,6 +643,7 @@
 		-- Update all installed packages to latest version in one go. Even though there is not direct option to do so, but there is workaround for that
 			$ pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U
 			
+	=========================================================
 	- virtualenv and why you should use virtual environments
 		
 		-- virtualenv is package to keep multiple environment setups for multiple projects
@@ -686,6 +702,7 @@
 				$ cd..
 				$ pip install -r requirement.txt
 				
+	=======================================
 	- Anaconda: Installation & Using Conda
 	
 		-- Anconda is data science platform which comes lots of stuff out of box. Its provide python distrubution to handle lots of problems for beginer. 
@@ -715,9 +732,18 @@
 			--- Remove virtual environment: use option --all if want to remove all packages otherwise mention packages names
 				$ conda remove --name my_env --all
 				
+	===============================================================================
 	- How to manage Mutiple Projects, Virtual Environments & Environment Variables
 		
-		-- 
+		-- you can used pip, virtualenv or conda to manage and activate/deactivate virtual environments based of requirements
+
+		-- good example shown here : https://www.youtube.com/watch?v=cY2NXB_Tqq0&t=737s
+		
+		
+	
+	
+	
+	
 				
 				
 			
