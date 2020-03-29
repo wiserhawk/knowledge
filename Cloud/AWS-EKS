@@ -155,17 +155,76 @@
 			-- Deleting a NodeGroup
 				$ eksctl delete nodegroup --config-file=eks-course.ymal -include=ng-2 --approve
 				
-	====================================
+	===================================================
 	- AWS EKS Cluster AutoScaler Theory: How its works
 		
 		- Responsible for dynamically scale the nodes within a nodegroup, in & out
-		- Run as k8s deployment. (https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler)
+		- Run as K8s deployment. (https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler)
 		- Decides based on CPU & RAM availablity / Requestes.
 		- Multiple-AZ vs Single-AZ scaling
 			-- nodegroup with single-AZ --> for stateful workloads
 			-- nodegroup with multiple-AZ --> for stateless workloads
 		- Mixture of on-demand & spot-instances possible
 				
+	======================================
+	- Cluster AutoScaler: Hands On
+	
+		- Create dedicated nodegroups with autoscaling enabled
+			-- 2 NodeGroups with single AZ (e.g. for stateful workloads)
+			-- 1 NodeGroup access 3 AZs using spot instances (e.g. for stateless workloads)
+			
+		- Deploy the autoscaler
+			-- Create K8s deployment
+			-- Add annotation to the deployment to prevent from being evicted.
+			-- Set matching image version and cluster name in deployment 
+			
+		- Create nginx image K8s deployment and scale it up/down
+		
+		- View autoscaler logs
+	
+	==================================================
+	- CloudWatch Logging for EKS Cluster Service
+		
+		- ControlPlane logging to CloudWatch:
+			-- AWS ControlPlane is fully managed service for EKS cluster. You don't have any access to host which serving this ControlPlane.
+			-- enable/disable per log type.
+			-- log types:
+				- api
+				- audit
+				- authenticator
+				- controllerManager
+				- scheduler
+			-- view logs
+				- each log type creates its own CloudWatch log steam.
+				- name prefix /aws/eks/cluster-name/
+			-- CloudWatch logging adds additional cost. (Storage & Collection)
+	
+	
+		- Added cloudwatch configuration in cluster-config yaml file
+		- YMAL example:
+			cloudwatch:
+				clusterlogging:
+					enableTypes: ["api", "audit", "authentication"]
+									or
+					enableTypes: ["*"] # If you want all types enabled
+					
+		- Apply updated cluster-config yaml to EKS cluster
+			$ eksctl utils update-cluster-logging --config-file eks-course.yaml --approve
+			
+		- Disable all enabled cluster logging types.	
+			$ eksctl utils update-cluster-logging --name=EKS-course-cluster --disable-types all --approve
+			
+	==================================================
+	- CloudWatch Containers Insights for EKS
+	
+		- CloudWatch metrics: Container insights
+			-- add IAM policy (CloudWatchAgentServerPolicy) for access to cloudwatch agent to nodegroup role(s)
+			-- deploy cloudwatch agent. one agent per node to collect logges from each node.
+			-- view metrics
+			
+		- CloudWatch metrics adds additional cost. (Storage & Collection)
+	
+			
 		
 		
 		
