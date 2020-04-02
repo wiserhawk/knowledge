@@ -78,6 +78,8 @@
 		5. Requests limitations by lambda: Request and response body payload size are maximized to 6 MB.
 		6. Event request body can be up to 128 KB.
 		
+	- Lambda Layers
+		
 ================================================		
 		RDS (Relational Database Service)
 ================================================

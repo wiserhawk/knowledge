@@ -738,8 +738,11 @@
 		-- you can used pip, virtualenv or conda to manage and activate/deactivate virtual environments based of requirements
 
 		-- good example shown here : https://www.youtube.com/watch?v=cY2NXB_Tqq0&t=737s
+	
+	=======================================================
+	- Jupyter Notebook: Introduction , Setup & Walkthrough
 		
-		
+		-- 
 	
 	
 	
