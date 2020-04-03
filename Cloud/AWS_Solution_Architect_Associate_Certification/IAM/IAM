@@ -1,3 +1,54 @@
 ======================================
-	AM (Identity Access Management)
+	IAM (Identity Access Management)
 ======================================
+
+	=============
+	What is IAM
+	=============
+	- IAM allows you to manage users and their level of accesses to aws console.
+	- It is important to understand IAM and how it works, both for the exam and for administrating a company's AWS accounts in real life.
+	
+	==========================
+	Key Terminologies of IAM
+	==========================
+	- Users: End users as as people, employees of an organization etc.
+	- Groups: A collection of users. Each user in a group will inherit the permissions of the group.
+	- Polices: Polices are made up of documents, called policy documents. These documents are in a format called JSON and they give permissions as to what a User/Group/Role is able to do.
+	- Roles: You create a role and then assign them to AWS Resources. Role are something you allow one part of AWS to do something on another part e.g. allow EC2 instance to write file on S3 bucket.
+	
+	=======================
+	Key Features of IAM
+	=======================
+	- Centralised control of your AWS account
+	- Shared access to your AWS account
+	- Granular permissions
+	- Identity Federation (including Active Directory, Facebook, Linkedin etc.)
+	- Multifactor Authentication
+	- Provide temporary access for users/devices and servies where necessary
+	- Allow you to setup your own password rotation policy
+	- Integrates with many different AWS servies
+	- Supports PCI DSS compliance. PCI DSS is compliance framework, e.g. if you taking credit card information you have to be PCI DSS compliance.
+	- IAM doesn't not required region selection. It only works on "Global" region.
+	- The "root account" is simply the account created when first setup your AWS account. It has complete admin access.
+	- New user has NO permissions when first created.
+	- New users are assigned Access Key ID & Secret Access Keys when first created. This all allows user to access AWS ecosystem programmaticaly. User permissions are completely optional, you can assign programmatic access or console access or both.
+	- Access Key ID & Secret Access Keys are not same as a password. You cannot use these to login in to th console. You can use this to access AWS via the APIs and Command Lines, however.
+	- You can only view these credentails once on console. If you lose them, you have to regenerate them. So, downlaod and save csv in some secured location.
+	
+	=============================
+	What We Have Learnt So Far?
+	=============================
+	- Alwary setup multifactor Authentication on your root account to proectect it from any kind of hacking.
+	- You can create and customise your own password rotation policy.
+	
+	===========================
+	How to Setup Billing Alarm?
+	===========================
+	- Go to AWS CloudWatch service.
+	- Start creating alarm.
+	- Provide all inforamtion regarding amount limit after that you want to generate alarm. 
+	- Provide time period in which CloudWatch will check billing details. e.g. evary 5 hours.
+	- Create an SNS topic or use existing SNS topic.
+	- Enter your email on which you want to receive alarm.
+	- Press Create topic button it will send verification and topic subscription email. Just open link and subscribe topic to receive billing alarm.
+	
