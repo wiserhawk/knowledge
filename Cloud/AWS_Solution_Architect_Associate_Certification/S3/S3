@@ -1,0 +1,129 @@
+=======================================
+	S3 (SIMPLE STORAGE SERVICE)
+=======================================
+
+	===========================
+	What is S3?
+	===========================
+	- S3 provides developers an IT teams with secure, durable, highly-scalable object storage.
+	- Amazon S3 is easy to use, with simple web serevice interface to store and retrieve any amount of data from anywhere on the web.
+	- S3 is safe place to store your files.
+	- It is object based storage. i.e allows you to upload files.
+	- Data is shared across multiple devices and facilities.
+	- File cab be from 0 Bytes to 5 TB.
+	- There is unlimited storage.
+	- Files are stored in Buckets. Bucket is just a directory to store files.
+	- S3 is a universal namespace. That means bucket names must be unique globally. for example,
+		Global: https://uniquebucket.s3.amazonaws.com/
+		Regional: https://uniquebucket.eu-west-1.amazonaws.com/
+	- When you upload a file to S3 bucket, you will receive a HTTP 200 status code if the file upload was successful.
+	
+	============================
+	S3 Objects
+	============================
+	- S3 is object based. Think of Objects just as files.
+	- Objects consist of the following:
+		- Key (This is simply the name of the object)
+		- Value (This is simply the data and is made up of a sequence of bytes)
+		- VersionID (Important of versioning, S3 allows mutiple versions of a file)
+		- Metadata (Data about data you are storing)
+		- Subresources:
+			- Access Control Lists
+			- Torrent
+	
+	============================
+	S3 Obejcts Consistency
+	============================
+	- Read After Write consistency for PUTS of new objects. It means if you upload a new file to S3 you can read its data immediately.
+	- Eventual Consistency for overwrite PUTS and DELETES (can take some time to propagate). 
+	  That means if you update file (overwrite with new version) or delete file and try to read it immediately 
+	  in that case you may read older version or may not. Basically changes to objects can take a little bit of time to propagate.	
+	  
+	============================
+	S3 Guarantees
+	============================
+	- Built for 99.99% availability for the S3 platform.
+	- Amazon Guarantee 99.9% availability.
+	- Amazon guarantees 99.999999999% durability for S3 data (Remember 11x9s).
+	
+	============================
+	S3 Features
+	============================
+	- Tiered Storage Available: Multiple tier types are available to stored data based on it usages and costs.
+	- Lifecycle Management: Data can be move from one bucket to another bucket or one tier to another tier as a data lifecycle.
+	- Versioning: Single data file can have multiple versions of it by enabling versioning on bucket.
+	- Encryption: You can encrypt your data files at rest using multiple encryption types.
+	- MFA Delete: You can enable Multy Factor Authentication to delete objects.
+	- Secure data using Access Control Lists and Bucket Policies.
+	
+	======================================================================
+	S3 Storage Classes (Tiers) https://aws.amazon.com/s3/storage-classes/
+	======================================================================
+	- S3 STANDARD: 99.99% availability, 99.999999999% durability, stored redundantly across multiple devices in multiple facilities, 
+	  and is designed to sustain the loss of 2 facilities concurrently.
+	- S3-IA (Infrequently Accessed): For the data that is accessed less frequently, but requires rapid access when needed. 
+	  Lower fee than S3 Standard, but you are charged a retrieval fee.
+	- S3 ONE ZONE-IA: For where you want lower-cost option for infrequently accessed data, 
+	  but don't require the multiple Availability Zone data resiliency.
+	- S3 INTELLIGENT-TIERING: Designed to optimize costs by automatically moving data to the most cost-effective access tier, 
+	  without performance impact or operational overhead. It use machine learning to identify how often you use particular data 
+	  and move them to its suitable S3 tier.
+	- S3 GLACIER: S3 Glacier is a secure, durable, and low-cost storage class for data archiving. 
+	  You can reliably store any amount of data at costs that are competitive with or cheaper then on-permises solutions. 
+	  Retrieval times configurable from minutes to hours.
+	- S3 GLACIER DEEP ARCHIVE: S3 Glacier Deep Archive is  mazon S3's lowest-cost storage class where a retrieval time of 12 hours is acceptable.
+	
+	===========================================
+	Performance Across the S3 Storage Classes
+	===========================================
+	- https://aws.amazon.com/s3/storage-classes/
+	
+	============================
+	S3 Charges
+	============================
+	- You are charged for S3 in the following ways:
+		- STORAGE: Based on size of data stored.
+		- REQUESTES: Based on how many I/O requests gone to S3 bucket.
+		- STORAGE MANAGEMENT CHARGES: Data management charges for managing data on S3 for long times.
+		- DATA TRANSFER CHARGES: Based on amount of data transfered in or out over S3.
+		- TRANSFER ACCELERATION: Amazon S3 Transfer Acceleration enables fast, easy and secure transfers of files over long distances 
+		  between your end users and a S3 bucket. Transfer Acceleration takes advantage of Amazon CloudFront's (CDN) globally distributed 
+		  edge locations, data is routed to Amazon S3 over an optimized network path.
+		- CROSS REGION REPLICATION CHARGES: You can replicate data over differnt region buckets for high availability and disaster management.
+		  you can turn on cross region replicate for auto replication. 
+		  
+	============================
+	Exam Tips
+	============================
+	- READ THE S3 FAQs BEFORE TAKING THE EXAM. IT COMES UP A LOT!!!!!!!!	
+	- Remember that S3 is Obejct-based. i.e. allow you to to upload files.
+	- Files can be from 0 Bytes to 5 TB.
+	- There is unlimited storage.
+	- Files are stored in buckets.
+	- S3 is a universal namespace. That is, name must be unique globally.
+	- A unique DNS name get created for bucket.
+	- It is only for files storage, Not suitable to install an operating systems / databases on.
+	- Successful upload will generate a HTTP 200 status code.
+	- You can turn on MFA on delete object. To protect from accidental delete.
+	- Objects consist of the following:
+		- Key (This is simply the name of the object)
+		- Value (This is simply the data and is made up of a sequence of bytes)
+		- VersionID (Important of versioning, S3 allows mutiple versions of a file)
+		- Metadata (Data about data you are storing)
+		- Subresources:
+			- Access Control Lists
+			- Torrent
+	- Read After Write Consistency for PUTS of new objects.
+	- Eventual Consistency for overwrite PUTS and DELETES (can take some time to propagate). 
+	- Storage Classes
+		- S3 Standard
+		- S3-IA (Infrequently Accessed)
+		- S3 One Zone-IA
+		- S3 Intelligent-Tiering	
+		- S3 Glacier
+		- S3 Glacier Deep Archive
+	
+	
+	
+	
+	
