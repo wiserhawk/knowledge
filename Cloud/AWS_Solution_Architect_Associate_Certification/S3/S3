@@ -11,6 +11,10 @@
 	- It is object based storage. i.e allows you to upload files.
 	- Data is shared across multiple devices and facilities.
 	- File cab be from 0 Bytes to 5 TB.
+	- The largest object that can be uploaded in a single PUT is 5 gigabytes. For objects larger than 100 MB, 
+	  customers should consider using the Multipart Upload capability. The multipart upload API is designed to improve 
+	  the upload experience for larger objects. You can upload objects in parts. These object parts can be uploaded independently, 
+	  in any order, and in parallel. You can use a multipart upload for objects from 5 MB to 5 TB in size. 
 	- There is unlimited storage.
 	- Files are stored in Buckets. Bucket is just a directory to store files.
 	- S3 is a universal namespace. That means bucket names must be unique globally. for example,
@@ -28,8 +32,12 @@
 		- VersionID (Important of versioning, S3 allows mutiple versions of a file)
 		- Metadata (Data about data you are storing)
 		- Subresources:
-			- Access Control Lists
-			- Torrent
+			- Access Control Lists: Amazon S3 access control lists (ACLs) enable you to manage access to buckets and objects. 
+			  Each bucket and object has an ACL attached to it as a subresource. It defines which AWS accounts or groups are 
+			  granted access and the type of access. When a request is received against a resource, Amazon S3 checks the 
+			  corresponding ACL to verify that the requester has the necessary access permissions.
+			- Torrent: The torrent subresource to return torrent files from a bucket. BitTorrent can save you bandwidth when 
+			  you're distributing large files
 	
 	============================
 	S3 Obejcts Consistency
@@ -122,6 +130,8 @@
 		- S3 Intelligent-Tiering	
 		- S3 Glacier
 		- S3 Glacier Deep Archive
+		- Comparison among all classes - https://aws.amazon.com/s3/storage-classes/
+	
 	
 	
 	
