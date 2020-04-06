@@ -13,8 +13,10 @@
 	==========================
 	- Users: End users as as people, employees of an organization etc.
 	- Groups: A collection of users. Each user in a group will inherit the permissions of the group.
-	- Polices: Polices are made up of documents, called policy documents. These documents are in a format called JSON and they give permissions as to what a User/Group/Role is able to do.
-	- Roles: You create a role and then assign them to AWS Resources. Role are something you allow one part of AWS to do something on another part e.g. allow EC2 instance to write file on S3 bucket.
+	- Polices: Polices are made up of documents, called policy documents. These documents are in a format called JSON 
+	  and they give permissions as to what a User/Group/Role is able to do.
+	- Roles: You create a role and then assign them to AWS Resources. Role are something you allow one part of AWS 
+	  to do something on another part e.g. allow EC2 instance to write file on S3 bucket.
 	
 	=======================
 	Key Features of IAM
@@ -31,9 +33,12 @@
 	- IAM doesn't not required region selection. It only works on "Global" region.
 	- The "root account" is simply the account created when first setup your AWS account. It has complete admin access.
 	- New user has NO permissions when first created.
-	- New users are assigned Access Key ID & Secret Access Keys when first created. This all allows user to access AWS ecosystem programmaticaly. User permissions are completely optional, you can assign programmatic access or console access or both.
-	- Access Key ID & Secret Access Keys are not same as a password. You cannot use these to login in to th console. You can use this to access AWS via the APIs and Command Lines, however.
-	- You can only view these credentails once on console. If you lose them, you have to regenerate them. So, downlaod and save csv in some secured location.
+	- New users are assigned Access Key ID & Secret Access Keys when first created. This all allows user to access AWS ecosystem programmaticaly. 
+	  User permissions are completely optional, you can assign programmatic access or console access or both.
+	- Access Key ID & Secret Access Keys are not same as a password. You cannot use these to login in to th console. 
+	  You can use this to access AWS via the APIs and Command Lines, however.
+	- You can only view these credentails once on console. If you lose them, you have to regenerate them. 
+	  So, download and save csv in some secured location.
 	
 	=============================
 	What We Have Learnt So Far?
