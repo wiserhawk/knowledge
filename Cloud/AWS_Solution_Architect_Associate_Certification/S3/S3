@@ -10,7 +10,7 @@
 	- S3 is safe place to store your files.
 	- It is object based storage. i.e allows you to upload files.
 	- Data is shared across multiple devices and facilities.
-	- File cab be from 0 Bytes to 5 TB.
+	- File can be from 0 Bytes to 5 TB.
 	- The largest object that can be uploaded in a single PUT is 5 gigabytes. For objects larger than 100 MB, 
 	  customers should consider using the Multipart Upload capability. The multipart upload API is designed to improve 
 	  the upload experience for larger objects. You can upload objects in parts. These object parts can be uploaded independently, 
@@ -166,10 +166,78 @@
 	- Can be used in conjunction with versioning.
 	- Can apply to current versions and previous versions. 
 	
-	===============================================
-	AWS Organizations & Consolidated Billing
-	===============================================
-	- 
+	===================================================
+	AWS Organizations Service & Consolidated Billing
+	===================================================
+	- What is AWS Organizations?
+		- AWS Organizations is an account management service that enables you to consolidate multiple AWS accounts 
+		  into an organization that you create and centrally manage.
+		- Billing of different AWS accounts can be consolidate together as an Organization level. Basic idea behind this
+		  is that in AWS "more you use, less you pay". So if you group entire aws accounts under one organization. 
+		  You can save more by consolidating entire usages of accounts.
+	- Advantages of Consolidated Billing
+		- One bill per AWS account.
+		- Very easy to track charges and allocate costs.
+		- Volume pricing discounts.
+	- Some Best Practices with AWS Organizations
+		- Always enable multi-factor authentication on root account.
+		- Always use a strong and complex password for root account.
+		- Paying account should be used for billing purposes only. Don't deploy resources into the paying account.
+		- Enable/Disable AWS services using Service Control Policies (SCP) either on OU (Operational Units) or on individual accounts.
+		
+	=============================================
+	Sharing S3 Buckets Across Accounts
+	=============================================
+	- 3 different ways to share S3 buckets across accounts
+		- Using Bucket Policies & IAM (Applies across the entire bucket). Programmatic Access Only.
+		- Using Bucket ACL & IAM (Individual Objects). Programmatic Access Only.
+		- Cross-account IAM Roles. Programmatic AND Console access.
+	=============================================
+	Cross Region Replication of S3 Buckets
+	=============================================
+	- You can replicate S3 buckets across regions. To create rule for cross region replication, versioning MUST be enabled on bucket.
+	- While creating replication rule:
+		- You can select to apply rule on entire bucket or objects using Prefix or Tags.
+		- You can select destination bucket either by "Bucket in same Account" or "Bucket in another Account".
+		- You need to select/create an IAM role. Provide access to S3 application on distination bucket.
+	- Replication DO NOT work for already existing objects on source bucket. 
+	  All newly uploaded objects on source bucket will get replicated on destination bucket.
+	- Once a file get replicated among buckets. DELETE operation DO NOT get replicate across buckets.
+	  This is done by AWS deliberately to protect objects from accidental deletes. If you want to delete objects,
+	  you have to delete them manually.
+	- Delete individual versions or delete markers will not be replicated.
+	
+	=============================================
+	S3 Transfer Acceleration
+	=============================================
+	- What is S3 Transfer Acceleration?
+		- S3 Transfer Acceleration utilises the CloudFront Edge Location Network to accelerate your uploads to S3.
+		  Instead of uploading files directly to your S3 bucket, you can user distinct URL to upload directly to an edge location
+		  which will then transfer that file to S3. You will get a distinct URL to upload to. e.g. https://thebucket.s3.accelerate.amazonaws.com
+	
+	=============================================
+	CloudFront Overview
+	=============================================
+	- What is CloudFront?
+		- CloudFront is a Content Delivery Network (CDN) for AWS. CDN is a system of distributed servers (network) that deliver webpages
+		  and other web content to a user based on the geographic locations of the user, the origin of the webpage and a content delivery server.
+		  CloudFront can be used to deliver you entire website, including dynamic, static, streaming and interactive content using global network
+		  of Edge Locations. Requests for your content are automatically routed to the nearest Edge Location, so content is delivered with best
+		  possible performance.
+	- CloudFront Key Terminology
+		- Edge Location: This is the server location where content will be cached. This is separate to an AWS Region/AZ.
+		- Origin: This the origin of all files that the CDN will distribute. This can be a S3 bucket, an EC2 instance, 
+		  an Elastic Load Balancer or Route53.
+		- Distribution: This is the name given to CDN which consists of a collection of Edge Locations.
+	- Types of Distribution using CloudFront
+		- Web Distribution - Typically used for websites.
+		- RTMP - Used for Media Streaming.
+	- Remember
+		- Edge Locations are NOT just READ only. You can write to them too. i.e. put an object on to them.
+		- Objects are cached for the life of the TTL (Time to Live).
+		- You can clean cached objects, but you will be charged for this.
+	
+		
 	
 	
 		
