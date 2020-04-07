@@ -1008,7 +1008,91 @@
 	=============================================
 	- Sorting Lists, Tuples and Objects
 	=============================================
-		
+			
+		-- Sorting Lists Solutions
+		----------------------------
+		li = [8,5,2,5,6,4,3,7,3,1,9]
+		s_li = sorted(li)
+		print('Sorted list = ', s_li)
+		print('Original List = ', li)
+
+		li.sort()
+		print('Original List = ', li)
+
+		# Sorting on reverse order
+
+		li = [8,5,2,5,6,4,3,7,3,1,9]
+		s_li = sorted(li, reverse=True)
+		print('Reverse Sorted list = ', s_li)
+		print('Original List = ', li)
+
+		li.sort(reverse=True)
+		print('Reverse Original List = ', li)
+
+		-- Sorting Tuples Solution
+		------------------------------
+		tup = (8,5,2,5,6,4,3,7,3,1,9)
+		s_tup = sorted(tup)
+		print('Sorted Tuple = ', tup)
+
+		-- Sorting Disctionary Solution
+		-----------------------------------
+		dic = {'name' : 'Maddy', 'job' : 'Programmer', 'age' : None, 'os' : 'Mac'}
+		# Return sorted keys
+		s_dic = sorted(dic)
+		print('Sorted Dictionary Keys= ', s_dic)
+
+		-- Sorting based on Bulit-in functions
+		-----------------------------------
+		li = [-6, -5, -4, 1, 2, 3] 
+		s_li = sorted(li, key=abs, reverse=False)
+		print('Print Absolute Number Sorting = ', s_li)
+
+		-- Sorting of Objects
+		-----------------------------------
+		class Employee():
+			
+			def __init__(self, name, age, salary):
+				self.name = name
+				self.age = age
+				self.salary = salary
+			
+			def __repr__(self):
+				return f'name={self.name}, age={self.age}, salary={self.salary}'
+			
+		e1 = Employee('John', 28, 50000)
+		e2 = Employee('Wills', 25, 80000)
+		e3 = Employee('Adam', 35, 90000)
+
+		emp_list = [e1, e2, e3]
+
+		def emp_sort(emp):
+			return emp.name
+
+		# Sorted using custom function
+		s_emp_list = sorted(emp_list, key=emp_sort, reverse=False)
+		print('Sorted Employees List on name = ', s_emp_list)
+
+		# Sorted using lambda 
+		s_emp_list = sorted(emp_list, key=lambda e: e.salary, reverse=False)
+		print('Sorted Employees List on salary= ', s_emp_list)
+
+		# Sorting using attrgetter from operator module
+		from operator import attrgetter
+		s_emp_list = sorted(emp_list, key=attrgetter('age'), reverse=False)
+		print('Sorted Employees List on age= ', s_emp_list)
+
+	=================================================================================
+	- String Formatting: Advanced Operations for Dicts, Lists, Numbers and Dates
+	=================================================================================
+
+
+
+
+
+
+
+
 	
 	
 	
