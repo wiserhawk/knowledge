@@ -231,16 +231,120 @@
 		- Distribution: This is the name given to CDN which consists of a collection of Edge Locations.
 	- Types of Distribution using CloudFront
 		- Web Distribution - Typically used for websites.
-		- RTMP - Used for Media Streaming.
+		- RTMP - Used for Media Streaming using Adobe Flash Media Server's RTMP protocol.
 	- Remember
 		- Edge Locations are NOT just READ only. You can write to them too. i.e. put an object on to them.
 		- Objects are cached for the life of the TTL (Time to Live).
-		- You can clean cached objects, but you will be charged for this.
+		- You can clean/invalidate cached objects, but you will be charged for this.
+		- CloudFront is global service, not specific to any region.
+		- You can restrict viewer access by enabling "Use Signed URLs or Signed Cookies".
+		- You can invalidate data on CloudFront based on pattern (any object, or directory). It will not let objects to be distribute to edge locations.
 	
+	===============================================
+	Snowball
+	===============================================
+	- What is Snowball?
+		- Snowball is a petabyte-scale data transfer solution that use secure appliances to transfer large amount of data into and out of AWS.
+		  Using Snowball addresses common challenges with large-scale data transfers including high network costs, long transfer times and securty
+		  concerns. Transferring data with Snowball is simple, fast, secure and can be as little as one-fifth the cost of high-speed internet.
+		- Snowball comes in either a 50TB or 80TB size. Snowball uses multiple layers of security designed to protect your data including 
+		  tamper-resistant enclosures, 256-bit encryption, and an industry-standard Trusted Platform Module (TPM) designed to ensure both security and 
+		  full-chain-custody of your data. Once the data transfer job has been processed and verified, AWS performs a software erasure of the Snowball
+		  appliances.
+		- Snowball can import/Export from S3.
+	- What is Snowball Edge?
+		- Snowball Edge is a 100TB data transfer device with on-board storage and compute capabilities. You can use Snowball Edge to move large amount
+		  of data into and out of AWS, as a temporary storage tier for large local datasets, or to support local workloads in remote or offline locations.
+		- Snowball Edge connects to your existing applications and infrastructure using standard storage interfaces, streamlining the data transfer process
+		  and minimizing setup and integration. Snowball Edge can cluster together to form a local storage tier and process your data oo-premises, helping 
+		  ensure your applications continue to run even when they are not able to access clould.
+	- What is Snowmobile?	
+		- AWS Snowmobile is an Exabyte-scale data transfer service used to move extermely large amounts of data to AWS. You can transfer up to 100PB 
+		  per Snowmobile, a 45-foot long ruggedized shipping container, pulled by semi-trailer truck. Snowmobile make it easy to move massive volumes
+		  of data to the cloud, including video libraries, image repositories, or even a complete data center migration. Transferring data with Snowmobile
+		  is secure, fast and cost effective.
+	- When should I use Snowball?
 		
-	
-	
+		Available Internet			Theoretical Min. Number of days to Transfer			When to consider AWS
+		Connection						100TB at 80% Network Utilization				Import/Export Snowball?
+		===================			===========================================			=========================
+		T3 (44.736 Mbps)				269 days											2TB or more
+		100 Mbps						120 days											5TB or more
+		1000 Mbps						12 days												60TB or more
+	  
+	========================================================
+	Storage Gateway
+	========================================================
+	- What is Storage Gateway?
+		- AWS Storage Gateway is a service that connects an on-premises software appliance with cloud based storage to provide seamless and secure
+		  integration between an organization's on-permises IT environment and AWS's storage infrastructure. The service enables you to securely store
+		  data to the AWS cloud for scalable and cost-effective storage.
+		- AWS Storage Gateway's software appliance is available for download as a virtual machine (VM) image that you install on a host	in your datacenter.
+		  Storage Gateway support either VMware ESXi or Microsoft Hyper-V. Once you have installed you gateway and associate it with your AWS account through
+		  the activation process, you can use the AWS Management Console to create the storage gateway option that is right for you.
+	- Storage Gateway Types (Three Types)?
+		- File Gateway (NFS & SMB): Way of storing files in S3.
+		- Volume Gateway (iSCSI): Way to storing copies of you hard-disc drive or virtual hard-disc drive S3.
+			- Stored Volumes
+			- Cached Volumes
+		- Tape Gateway
+	- File Gateway?
+		- Files are stored as objects in your S3 buckets, accessed through a Network File System (NFS) mount point. Ownership, permissions and 
+		  timestamps are durably stored in S3 in the user-metadata of the object associated with the file. Once objects are transferred to S3, they
+		  can be managed as native S3 objects and bucket policies such as versioning, lifecycle management, and cross-region replication apply 
+		  directly to objects stored in your bucket.
+	- Volume Gateway?
+		- The volume interface presents your applications with disk volumes using the iSCSI block protocol.
+		  Data written to these volumes can be asynchronously backed up as point-in-time snapshots of your volumes, and stored in the cloud as
+		  Amazon EBS snapshots.
+		  Snapshots are incremental backups that capture only changed blocks. All Snapshots storage is also compressed to minimize your storage charges.
+	- Stored Volume?
+		- Stored Volumes let you store your primary data locally, while asynchronously backing up that data to AWS. Stored Volumes provide your on-permises
+		  applications with low-latency access to their entire datasets, while providing durable, off-site backups. You can create storage volumes and mount 
+		  them as iSCSI devices from your on-permises application servers. Data written to your stored volumes is stored on your on-premises storage hardware.
+		  This data is asynchronously backed up to S3 in form of EBS snapshots. 1GB to 16TM is size for stored Volumes.
+	- Cached Volumes?
+		- Cached Volumes let you use Amazon S3 as your primary data storage while retaining frequently accessed data locally in your storage gateway.
+		  Cached Volumes minimize the need to scale your on-premises storage infrastructure, while still providing your applications with low-latency
+		  access to their frequently accessed data. You can create storage volumes up to 32TB in size and attach to them as iSCSI devices from your
+		  on-premises application servers. Your gateway stores data that your write to these volumes in S3 and retains recently read data in on-permises
+		  storage gateway's cache and upload buffer storage. 1GB to 32TB is size for Cached Volumes.
+	- Tape Gateway?
+		- Tape Gateway offers durable, cost effective solution to archive your data in the AWS cloud. The (Virtual Tape Library)VTL interface it provides 
+		  lets you leverage your existing tape-based backup application infrastructure to store data on virtual tape cartridges that you create on your 
+		  tape gateway. Each tape gateway is preconfigured with a media changer and tape devices, which are available to your existing client backup 
+		  applications as iSCSI devices. You add tape cartridges as you need to archive your data. Supported by NetBackup, Backup Exec, Veeam etc.
+
+	================================================
+	Athena vs Macie
+	================================================
+	- What is Athena?
+		- Interactive query service which enables you to analyse and query data located in S3 using standard SQL
+			- Serverless, nothing to provision, pay per query / per TB scanned.
+			- No need to setup complex Extract/Transform/Load (ETL) processes.
+			- Works directly with dats stored in S3.
+	- What can Athena be used for?
+		- Can be used to query log files stored in S3, e.g. ELB logs, S3 access logs etc.
+		- Generate business reports on data stored in S3.
+		- Analyse AWS cost and usage reports.
+		- Run queries on click-stream data.
+	- What is PII (Personally Identifiable Information)?
+		- Personal data used to establish an individual's identity.
+		- This data could be exploited by criminals, used in identity theft and financial fraud.
+		- Home address, email, SSN.
+		- Passport number, driver's license number.
+		- DOB, phone number, bank account, credit card number.
+	- What is Macie?
+		- Macie is a security service which uses Machine Learning and NLP to discover, classify and protect sensitive data stored in S3.
+			- Uses AI to recongnise if your S3 Objects contain sensitive data such as PII.
+			- Dashboard, reporting and alerts.
+			- Works directly with data stored in S3.
+			- Can be analyze CloudTrail logs for suspicious API activities.
+			- Great for PCI-DSS and preventing ID theft.
 		
+		
+		
+		  
 		
 	
 	
