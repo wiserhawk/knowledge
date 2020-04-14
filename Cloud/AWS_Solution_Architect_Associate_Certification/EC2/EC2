@@ -1,0 +1,65 @@
+======================================
+	EC2 (Elastic Compute Cloud)
+======================================
+
+	=========================
+	What is EC2?
+	=========================
+	- Amazon EC2 is web service that provides resizable compute capacity in the cloud. Amazon EC2 reduces the time required to obtain and
+	  boot new server instances to minutes, allowing you to quickly scale capacity, both up & down, as your computing requirement changes.
+	
+	=========================
+	EC2 Pricing Models
+	=========================
+	- On Demand
+		- Allow you to pay a fixed rate by the hour (or by the second) with no commitment.
+		- Users that want to low cost and flexibility of EC2 without any up-front payment or long-term commitment.
+		- Applications with short term, spiky, or unpredictable workloads that cannot be interrupted.
+		- Applications being developed or tested on EC2 for first time.
+	- Reserved
+		- Provides you with a capacity reservation, and offer a significant discount on the hourly charges for a instance. 
+		  Contract Terms are 1 year or 3 years Terms.
+		- Applications with steady state or predictable usage.
+		- Applications that required reserved capacity.
+		- Users able to make up-front payments to reduce their total computing costs even further.
+		- Reserved Pricing Types
+			- Standard Reserved Instances
+				- These offer upto 75% off on demand instances. The more you pay up-front and the longer the contract, the greater the discount.
+			- Convertible Reserved Instances
+				- These offer upto 54% off on demand capability to change the attributes of the Reserved Instances as long as the exchanges 
+				  results in the creation of Reserved Instances of equal or greater value.
+			- Scheduled Reserved Instances
+				- These are available to launch within the time windows you reserve. This option allows you to match your capacity reservation
+				  to a predictable recurring schedule that only requires a fraction of a day, a week, or a month.
+	- Spot
+		- Enable you to bid whatever price you want for instance capacity, providing for even greater savings.
+		- Applications that have flexible start & end times.
+		- Applications that are only feasible at very low compute prices.
+		- Users with urgent computing needs for large amounts of additional capacity.
+		- If the Spot instance is terminated by Amazon EC2, you will not be charged for a partial hour of usage.
+		  However, if you terminate the instance yourself, you will be charged for any hour in which the instance ran.
+	- Dedicated Hosts
+		- Physical EC2 server dedicated for your use. Dedicated Hosts can help you reduce costs by allowing you to use your
+		  existing server-bound software licenses. If you have strict licensing condition for example Oracle etc. 
+		- Useful for regulatory requirements that may not support multi-tenant virtualization.
+		- Greate for licensing which does not support multi-tenant or cloud deployments.
+		- Can be purchased On-Demand (hourly).
+		- Can be purchased as a Reservation for upto 70% off on On-Demand price.
+	
+	================================
+	EC2 Instances Types - Mnemonic
+	================================
+	- F	- For FPGA
+	- I - For IOPS
+	- G - Graphics
+	- H - High Disk Throughput 
+	- T - Cheap general purpose (Think T2 Micro)
+	- D - For Density
+	- R - For RAM
+	- M - Main choice for your general purpose apps
+	- C - For Compute
+	- P - Graphics (Thic Pics)
+	- X - Extreme Memory
+	- X - Extreme Memory & CPU
+	- A - Arm-based workloads
+	- U - Bare Metal
