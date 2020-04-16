@@ -63,3 +63,26 @@
 	- X - Extreme Memory & CPU
 	- A - Arm-based workloads
 	- U - Bare Metal
+	
+	==================================
+	EC2 Exam Tips
+	==================================
+	- Termination protection is Turned Off by default, must turned it on if you want to protect your EC2 instance from actidental termination.
+	- EC2 Storage Type Root can be encrypted now, but earlier it was not possible. You can also use a third party tool (such as bit locker etc)
+	  to encrypt the root volume, or this can be done when creating AMI's in the AWS console or using the API.
+	- EC2 Storage Type Root is by default set true for "Delete on Instance Termination"
+	- EC2 Storage Type EBS has more volumes types available then Root. 
+	- EC2 Storage Type EBS is by default set false for "Delete on Instance Termination". That means after instance termination EBS volume 
+	  can be attached with other EC2 Instance.
+	- Additional volumes can be encrypted.
+	
+	===================================
+	Security Groups
+	===================================
+	- All Inbound traffic is blocked by default.
+	- All Outbound traffic is allowed.
+	- Security Groups are stateful. If enable some IPs & Ports for Inbound traffic, outbound traffic will be enabled automatically.
+	- You can attach one Security Group to many EC2 instances.
+	- You can attach more than one Security Groups to your single EC2 instance.
+	- Changes to Security Groups take effect immediately.
+	- You cannot blocked specific IP addresses using Security Groups, instead use NACL (Network Access Control Lists).
