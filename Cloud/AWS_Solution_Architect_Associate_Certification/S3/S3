@@ -113,6 +113,8 @@
 	- It is only for files storage, Not suitable to install an operating systems / databases on.
 	- Successful upload will generate a HTTP 200 status code.
 	- You can turn on MFA on delete object. To protect from accidental delete.
+	- By default, you can create up to 100 buckets in each of your AWS accounts. If you need additional buckets, 
+	  you can increase your account bucket limit to a maximum of 1,000 buckets by submitting a service limit increase.
 	- Objects consist of the following:
 		- Key (This is simply the name of the object)
 		- Value (This is simply the data and is made up of a sequence of bytes)

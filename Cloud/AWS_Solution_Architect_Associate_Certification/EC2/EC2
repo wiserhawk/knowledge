@@ -86,3 +86,36 @@
 	- You can attach more than one Security Groups to your single EC2 instance.
 	- Changes to Security Groups take effect immediately.
 	- You cannot blocked specific IP addresses using Security Groups, instead use NACL (Network Access Control Lists).
+	- You can specify allow rules, but not deny rules.
+	
+	===================================
+	EBS (Elastic Block Store)
+	===================================
+	- What is EBS?
+		- Amazon Elastic Block Store (EBS) provides persistent block storage volumes for use with Amazon EC2 instances in the AWS cloude.
+		  Each EBS volume is automatically replicated with its Availibility Zone to protect you from component failure, offering high 
+		  availibility and durability. These are general purpose virtual hard disk drives.
+	
+	===================================
+	EBS Volumes
+	===================================
+	- 5 Different Types of EBS Storages:
+		- General Purpose (SSD): For general purpose. Its Solid-State Drive (SSD)
+		- Provisioned IOPS (SSD): For fast input/output per secnond. Its Solid-State Drive (SSD)
+		- Throughput Optimized Hard Disk Drive: Physical hard disk drives (HDD); its now SSD its magnetic and optimized for throughput.
+		- Cold Hard Disk Drive: Lowest cost HDD volume designed for less frequently accessed workloads.
+		- Magnetic: Previous generation HDD. For less frequently accessed workloads.
+		
+	- API Names of EBS Volume Types: REMEMBER API NAMES FOR EXAM
+		- General Purpose (SSD) = gp2
+		- Provisioned IOPS (SSD) = io1
+		- Throughput Optimized (HDD) = st1
+		- Cold Hard Disk Drive (HDD) = sc1
+		- Magnetic (HDD) = standard
+		
+	- Compare EBS Volume Types	
+		- Check out comparision table for more clear understanding using below link.
+		- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html
+		
+	
+		
