@@ -92,7 +92,7 @@
 	EBS (Elastic Block Store)
 	===================================
 	- What is EBS?
-		- Amazon Elastic Block Store (EBS) provides persistent block storage volumes for use with Amazon EC2 instances in the AWS cloude.
+		- Amazon Elastic Block Store (EBS) provides persistent block storage volumes for use with Amazon EC2 instances in the AWS cloud.
 		  Each EBS volume is automatically replicated with its Availibility Zone to protect you from component failure, offering high 
 		  availibility and durability. These are general purpose virtual hard disk drives.
 	
@@ -117,5 +117,138 @@
 		- Check out comparision table for more clear understanding using below link.
 		- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html
 		
+	===================================
+	Volumes & Snapshots
+	===================================
+	- You can go to Volumes section of EC2 service to see and made changes on EBS volumes
+	- Your EBS Volume will be on same Availibility Zone (AZ) as your EC2 instance to reduce latency.
+	- 
+	- You can change EBS volume size (increase/decrease Hard disk size) or storage type at runtime when EBS volume in use. 
+	  It may impact you EC2 performance and may take time to propagate changes. 
+	- You can changes EBS Volume Type for EC2 Root Volume at runtime. 
+	  It may impact you EC2 performance and may take time to propagate changes.
+	- When you terminate EC2 instance, Root volume attached to instance will also be terminated. 
+	  Where as all other additional EBS volumes attached to instance will still be persisted.
+	- You can migrate EBS volume Availibility Zone (AZ) by using snapshots.
+	- Snapshot are stored in S3. Snapshot is a image of EBS volumes. You can create Amazon Machine Image (AMI) using snapshot. 
+	  Later on you can launch new EC2 instance by using this AMI.
+	- Snapshots are point in time copies of Volumes.
+	- Snapshots are incremental - This means that only blocks that have changed since your last snapshot are moved to S3.
+	- If this is your first snapshot, it may take some time to create.
+	- To create a snapshot of EBS volumes that serve as Root devices. You should stop the instance before taking the snapshot.
+	- However you can take a snapshot while instance is running.
+	- You can create AMI from Snapshot.
+	- 
 	
+	- EXAM QUESTIONS: You have your EC2 instance and EBS volume in us-east-1b AZ and you want to migrate it to us-east-1c AZ. How can you do that?
+		- Goto EC2 Service, Volumes Section.
+		- Select EBS volume you want to change AZ.
+		- Goto Actions and select Create Snapshot and give it name and create a snapshot out of it.
+		- Goto Snapshots section to see newly created snapshot.
+		- Now goto Actions under Snapshots section and select Create Image. You can use this image (AMI) to deploy on another AZs.
+		- Create image (AMI) by giving it a name and select Vitrualization Type as Hardware-assisted virtualization . 
+		  Vitrualization Type Hardware Virtual Machine (HVM) will give you more options of EC2 instances type to select than a Paravirtual (PV). 
+		- Now you can see your image (AMI) under AMIs section of EC2 service.
+		- You can now configure & launch a new EC2 instance from AMIs section by selecting an Image.
+		- While EC2 instance launch configuration you can select entirly different Subnet of AZ to launch EC2 instance in another AZ.
+		- This is way you can migrate you EC2 and EBS volume from one AZ to another AZ.
+		
+		- You can move a copy of your AMI from one Region to another region.
+			- Goto AMIs section of EC2 service.
+			- Goto Actions and select Copy AMI.
+			- Now you can select Destination Region. You can also encrypt snapshot of image. 
+			- After creating a copy of your AMI you can goto another Region and Launch a EC2 instance using newly copied AMI.
+	
+	===================================
+	AMI Types (EBS vs Instance Store)
+	===================================
+	- INSTANCE STORE: Some Amazon EC2 instance types come with a form of directly attached, 
+		block-device storage known as the instance store. The instance store is ideal for temporary storage, because the data stored 
+		in instance store volumes is not persistent through instance stops, terminations, or hardware failures.	 
+	
+	- EBS: For data you want to retain longer, or if you want to encrypt the data, use Amazon Elastic Block Store (Amazon EBS) volumes. 
+		EBS volumes preserve their data through instance stops and terminations, can be easily backed up with EBS snapshots, can be removed from
+		one instance and reattached to another, and support full-volume encryption.
+		
+	- Difference between EBS vs Instance Store Volumes
+		- EBS volume is network attached drive which results in slow performance but data is persistent meaning even if you reboot 
+		  the instance data will be there. Instance Store is physically attached device which gives better performance but data 
+		  will be lost once instance stops, terminations, or hardware failures.
+
+	- You can select your AMI based on:
+		- Region (see Regions and Availibility Zone)
+		- Operation System
+		- Architecture (32-bit or 64-bit)
+		- Launch Permission
+		- Storage for the Root Device (Root Device Volume)
+			- Instance Store (EPHEMERAL STORAGE)
+			- EBS Backed Volumes
+			
+	- EBS vs Instance Store Volumes Launch
+		- All AMIs are categorized as either backed by Amazon EBS or backed by Instance Stored.
+		- FOR EBS Volumes: The root device for a instance lauched from the AMI, is an EBS volume created from an Amazon EBS snapshot.
+		- FOR INSTANCE STORE VOLUMES: The root device for an instance launched from the AMI, is an instance store volume created 
+		  from template stored in Amazon S3.
+		  
+	- Exam Tips
+		- Instance Store Volumes are sometimes called Ephemeral Storage.
+		- Instance Store Volume backed instances cannot be stopped. There is no option to STOP. If underlying host fails, you will lose your data.
+		- EBS backed instances can be stopped. You will not lose the data on this instance if it is stopped.
+		- You can reboot both, you will not lose your data.
+		- By default, both ROOT volumes will be deleted on termination. However with EBS volumes, you can tell AWS to keep the root device volume.
+	
+	===================================
+	ENI vs EN (ENA & VF) vs EFA
+	===================================
+	- ENI: Elastic Network Interface - essentially a virtual network card.
+	- EN:  Enhanced Networking (EN). Uses single root I/O virtualization (SR-IOV) to provide high performance networking 
+		   capability on supported instance types.
+	- EFA: Elastic Fabric Adapter is a network device that you can attach to your Amazon EC2 instance to accelerate High Performace Computing (HPC)
+		   and Machine learning applications.
+		   
+	- Elastic Network Interface
+		- An ENI is simple a virtual network card for your EC2 instances. It allows:
+			- A primary private IPv4 address from the IPv4 address range of your VPC.
+			- One or more secondary private IPv4 addresses from the IPv4 address range of your VPC.
+			- One Elastic IP address (IPv4) per private IPv4 address.
+			- One public IPv4 address.
+			- One or more IPv6 addresses.
+			- One of more Security Groups.
+			- A MAC address.
+			- A source/destination check flag.
+			- A description
+		- Scenarios for ENI:
+			- Create a management network.
+			- Use network and security appliances in your VPC.
+			- Create dual-homed instances with workloads/roles on distinct subnets.
+			- Create a low budget, high-availibility solution.
+	
+	- Enhanced Networking 
+		- It uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities on supported instance types.
+		  SR-IOV is a method of device virtualization that provide higher I/O performance and lower CPU utilization when compared to
+		  traditional virtualized network interfaces.
+		- Enhanced networking provides higher bandwidth, higher packets per second (PPS) performance, and consistently lower inter-instance 
+		  latencies. There is no additional charges for using Enhanced Networking.
+		- Use where you want good network performance.
+		
+		- Enhanced Networking depending on your instance type. It can be enabled using:
+			- ENA - Elastic Network Adapter (ENA), which supports network speeds of upto 100 Gbps for supported instance types.
+			- VF- Intel 82599 Virtual Function (VF) interface, which supports network speeds of upto 10 Gbps for supported instance types. 
+				  this is typically used on older instances.
+		- In any scenario question, you probably want to choose ENA over VF if given the option.
+		
+	- Elastic Fabric Adapter
+		- An EFA is a network device that you can attach to your Amazon EC2 instance to accelerate High Performace Computing (HPC) and 
+		  machine learning applications.
+		- EFA provides lower and more consistent latency and high throughput than the TCP transport traditionally used in cloud-based HPC system.
+		- EFA can use OS-bypass. OS-bypass enable HPC and machine learning applications to bypass the operating system kernel and to communicate 
+		  directly with the EFA device. It makes it a lot faster with a lot lower latency. Not supported with Windows currently, only Linux.
+		   
+	- Exam Tips
+		- In the exam you will be given different scenarios and you will be asked to choose whether you should use an ENI, EN or EFA.
+			- Elastic Network Interface for basic networking. Perhaps you need a separate management network to your production network 
+			  or a seperate logging network and you need to do this a low cost. In this scenario use multiple ENIs for each network.
+			- Enhanced Networking for when you need speeds between 10 Gbps to 100 Gbps. Anywhere you need reliable, high throughput.
+			- Elastic Fabric Adapter for when you need to accelerate High Performace Computing (HPC) and machine learning applications or 
+			  if you see scenario question mentioned HPC or ML and asking for what netwrok adapter you want, choose EFA.
 		
