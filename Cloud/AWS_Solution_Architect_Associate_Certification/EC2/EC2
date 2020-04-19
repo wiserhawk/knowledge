@@ -267,4 +267,44 @@
 	- These unencrypted snapshots can be shared with other AWS accounts or made public.
 	- You can now encrypt root device volume upon creation of the EC2 instance.
 	
-		
+	=================================================
+	CloudWatch (Important for Exam, It Comes a lot)
+	=================================================
+	- What is Amazon CloudWatch?
+		- Amazon CloudWatch is a monitoring service to monitor your AWS resources, as well as the applications that you run on AWS.
+		- CloudWatch monitor performance, monitor things like:
+			- Compute
+				- EC2 Instances
+				- Autoscaling Groups
+				- Elastic Load Balancers
+				- Route53 Health Checks
+			- Storage & Content Delivery
+				- EBS Volumes
+				- Storage Gateways
+				- CloudFront
+	
+	- CloudWatch & EC2
+		- CloudWatch with EC2 will monitor events every 5 minutes by default.
+		- You can have 1 minute interval by turning on detailed monitoring
+		- You can create CloudWatch alarms which trigger notification.
+		- Host Level Metrics Consist of:
+			- CPU
+			- Network
+			- Disk
+			- Status Check
+			
+	- What is AWS CloudTrail? (Try to confuse you between CloudWatch & CloudTrail)
+		- AWS CloudTrail increases visibility into your user and resource activities by recording AwS Management Console actions and API calls.
+		  You can identify which users and accounts called AWS, the source IP address from which calls were made, and when the calls occurred.
+		  You can think CloudTrail as CCTV camera, which record all activity around, and CloudWatch as Gym Trainer which monitor its client and take
+		  appropriate actions if required.
+		  
+	- CloudWatch is all about Performace. CloudTrail is all about auditing.
+	
+	- What we can do with CloudWatch?
+		- Dashboard - Create awesome  dashboards to see what is happening with your AWS environment.
+		- Alarms - Allows you to set Alarms that notify you when particular thresholda are hit.
+		- Events - CloudWatch Events helps you to respond to state changes in your AWS resources.
+		- Logs - CloudWatch Logs helps you to aggregate, monitor, and store logs.
+	
+	
