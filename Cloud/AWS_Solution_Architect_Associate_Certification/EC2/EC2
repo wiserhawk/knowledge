@@ -306,5 +306,33 @@
 		- Alarms - Allows you to set Alarms that notify you when particular thresholda are hit.
 		- Events - CloudWatch Events helps you to respond to state changes in your AWS resources.
 		- Logs - CloudWatch Logs helps you to aggregate, monitor, and store logs.
+		
+	================================================================
+	AWS Command Line Interface (AWL CLI) -  Good to see lab section
+	================================================================
+	- You can interact with AWS from anywhere in the world just by using the command line (CLI).
+	- You need to setup user and give it to progarmmatic access in IAM. You can apply AdminstarativeAccess policy to it.
+	- You have to login on any EC2 instance using CLI. After that you can use AWS CLI commands, but you have to configure 
+      AWS credential (Access Key ID & Secret Access Keys) on your EC2 instance, this will store your credentail inside .aws directory 
+	  under root directory, which is not safe as per AWS. After that you can access other AWS services and resources.
+	- Another way to provide AWS CLI access to IAM user by creating a IAM role with AdminstarativeAccess policy and apply it to EC2 Instance.
+	  This more prefered and secure way to get AWS CLI access on AWS. See next section for more detail. 
+	- Commands themselves are not in the exam, but some basic commands will be useful to know for real life.
 	
+	==============================================
+	IAM Roles with EC2 - Good to see lab section
+	==============================================
+	- You can create a IAM Role for EC2 by applying AdminstarativeAccess policy.
+	- Apply new IAM Role to any EC2 instance.
+	- Login on any EC2 instance using CLI. After that you can use AWS CLI commands.
+	- Now there is no need to configure AWS credential (Access Key ID & Secret Access Keys) on your EC2 instance. 
+	- There is not need to store your credentail inside .aws directory under root directory. Everything will be handled by IAM Role.
+	- Roles are more secure than storing your acess key and secret access key on individual EC2 instances.
+	- Roles are much easier to manage.
+	- Roles can be assigned to an EC2 instance after it is created using both the Console & Command Line.
+	- Roleas are universal - You can use them in any Region.
+	
+	===================================
+	
+	===================================
 	
