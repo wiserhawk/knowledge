@@ -138,7 +138,6 @@
 	- To create a snapshot of EBS volumes that serve as Root devices. You should stop the instance before taking the snapshot.
 	- However you can take a snapshot while instance is running.
 	- You can create AMI from Snapshot.
-	- 
 	
 	- EXAM QUESTIONS: You have your EC2 instance and EBS volume in us-east-1b AZ and you want to migrate it to us-east-1c AZ. How can you do that?
 		- Goto EC2 Service, Volumes Section.
@@ -233,7 +232,7 @@
 		
 		- Enhanced Networking depending on your instance type. It can be enabled using:
 			- ENA - Elastic Network Adapter (ENA), which supports network speeds of upto 100 Gbps for supported instance types.
-			- VF- Intel 82599 Virtual Function (VF) interface, which supports network speeds of upto 10 Gbps for supported instance types. 
+			- VF - Intel 82599 Virtual Function (VF) interface, which supports network speeds of upto 10 Gbps for supported instance types. 
 				  this is typically used on older instances.
 		- In any scenario question, you probably want to choose ENA over VF if given the option.
 		
@@ -251,4 +250,21 @@
 			- Enhanced Networking for when you need speeds between 10 Gbps to 100 Gbps. Anywhere you need reliable, high throughput.
 			- Elastic Fabric Adapter for when you need to accelerate High Performace Computing (HPC) and machine learning applications or 
 			  if you see scenario question mentioned HPC or ML and asking for what netwrok adapter you want, choose EFA.
+			  
+	============================================
+	Encrypted Root Device Volumes & Snapshots 
+	============================================
+	- You can choose encryption option for Root Device Volume while attaching it to EC2 instance at the time of instance launch. Earlier there was no option
+	  available to encrypt Root Device Volume at time of provisioning of EC2 instance.
+	- There is another and old method of Root Device Volume encryption. Steps are:
+		- Create a snapshot of Root Device Volume of EC2 instance.
+		- Create a encrypted snapshot while creating copy of snapshot. You can enable encryption at time of creating a copy of snapshot.
+		- Now create a new image (AMI) from encrypted snapshot.
+		- After that you can provision a new EC2 instance using encrypted Root Device Volume image (AMI).
+	- Snapshots of encrypted volumes are encrypted automatically.
+	- Volumes restored from encrypted snapshots are encrypted automatically.
+	- You can share snapshots, but only if they are unencrypted.
+	- These unencrypted snapshots can be shared with other AWS accounts or made public.
+	- You can now encrypt root device volume upon creation of the EC2 instance.
+	
 		
