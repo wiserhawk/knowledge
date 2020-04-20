@@ -333,6 +333,31 @@
 	- Roleas are universal - You can use them in any Region.
 	
 	===================================
+	Boot Strap Scripts
+	===================================
+	- You can write/attach and bash script in 'Additional Detail' section at time of provisioning a new EC2 instance. 
+	- This script will be run, when EC2 instance will be boot.
+	- You can write something in bootstrap script, what you need to execute before EC2 instance get ready for actual use. e.g. yum update 
+	- You can also execute AWS CLI commands in this script. e.g. aws s3 mb s3://bucketname 
+	- But make sure if you want to use any other service of aws from EC2, you need to provied IAM Role for this. 
+	  As in about AWS CLI command we are creating s3 bucket from EC2 instance using command. Therefore need IAM Role.
 	
 	===================================
+	EC2 Instance Meta Data
+	===================================
+	- You can see User Data and Instance Meta Data by SSH on EC2 instance.
+	- You can execute CURL command to see User Data. i.e. Bootstrap script we have applied on EC2 instance. e.g. you can see scripts by calling CURL
+		- curl http://169.254.169.254/latest/user-data/
+	- Similarly you can Meta Data of an Instance by SSH on EC2 instance.
+	- You can execute CURL command to see Meta Data of instance. e.g.
+		- curl http://169.254.169.254/latest/meta-data/
+		- As output you will see lots of endpoints to fetch meta data of instance. 
+		- You can append that endpoint at end of your curl command to get specific meta data e.g.
+			- curl http://169.254.169.254/latest/meta-data/public-hostname
+			- This will give you public hostname of EC2 instance.
+	
+	===================================
+	EFS (Elastic File System)
+	===================================
+	- 
 	
