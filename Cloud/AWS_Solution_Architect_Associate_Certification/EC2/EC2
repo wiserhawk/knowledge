@@ -359,5 +359,43 @@
 	===================================
 	EFS (Elastic File System)
 	===================================
-	- 
+	- What is EFS?
+		- Amazon Elastic File System is a file storage service for EC2 instances. EFS is easy to use and provide a simple interface 
+		  that allows you to create and configure file systems quickly and easily. With EFS storage capacity is elastic, growing and
+		  shrinking automatically as you add and remove files, so your applications have the storage they need, when they need it.
+		- There is difference between EBS and EFS. With EBS you attach one EBS volume with One EC2 instance. You cannot attach one EBS volume
+		  with multiple EC2 instances. But on other side EFS is a shared storage volume which can be share among multiple EC2 instances. You can
+		  create mount a directory or location on each EC2 instances and can store your data at that mount directory which can be Read/Write from
+		  other insta as well.
+		- EFS service comes under Storage section.
+		- EFS Infrequent Access (EFS IA) is a file system where you can stored infrequently access file. Its a low price storage than EFS.
+		- EFS support life cycle management, that means you can move your files to EFS IA storage after certain time period.
+		- There are two throughput mode for EFS.
+			- Bursting : Its default & recommend by AWS for most of file systems. 
+			- Provisioned: Use Provisioned throughput mode for applications that required more throughput than allowed by Bursting throughput.
+		- There are tow performance mode for EFS:
+			- General Purpose: AWS recommend General Purpose mode for most file system. 
+			- Max I/O: Its is optimized for applications where tens, hundreds, or thousands of EC2 instances are accessing the file system. 
+		- You can enable encryption for your data.
+		- You only pay for the storage you use (no pre-provisioning required).
+		- Can scale up to petabytes
+		- Can support thousands of concurrent NFS connections.
+		- Data is stored in multiple AZ's within a region.
+		- Read After Write consistency.
 	
+	- How to Create & User EFS on EC2?
+		- Goto EFS service
+		- Create a File System. 
+		- Goto EC2 service.
+		- Provision new EC2 instances.
+		- Install amazon-efs-utils using bootstrap bash script. e.g. yum install -y amazon-efs-utils
+		- Make sure Security Group attached with EC2 instances must enable NFS type, because EC2 with amazon-efs-utils interact to EFS using
+		  Network File System protocol. You have to enable NFS type, TCP protocol on Port number 2049.
+		- Goto EFS service and goto File System you have created. You will find a link there "Amazon EC2 mount instructions (for local VPC)"
+		  There are some commands and instructions are given to create mount directory on your EC2 instances. 
+		- SSH your EC2 instances and execute commands on EC2 instances to create a mount directory.
+		- Now if you add any file in mound directory on one EC2 instance that will be reflect to other EC2 instance as well because of mounting.
+		
+	===================================
+	FSx for Windows & FSx for Lustre
+	===================================
