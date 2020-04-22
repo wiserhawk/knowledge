@@ -227,6 +227,22 @@ Best Kubernetes concepts documentation : https://kubernetes.io/docs/concepts/
 # Setup EKS Kubernetes Cluster on AWS [ https://www.youtube.com/watch?v=6H5sXQoJiso ]
 # Git Repository Reference for K8S [ https://github.com/groovemonkey/project-based-kubernetes ]
 # Kubernetes Security Best Practices - Ian Lewis (Google) [ https://www.youtube.com/watch?v=v6a37uzFrCw ]	
+# Full MicroSerivces Architecture Setup on Kubernetes [
+	# The API Gateway
+	https://medium.com/jeroen-rosenberg/from-monolith-to-microservice-architecture-on-kubernetes-part-1-the-api-gateway-eb82f8c2d10c
+	
+	# Authentication With JWT
+	https://medium.com/jeroen-rosenberg/from-monolith-to-microservice-architecture-on-kubernetes-part-2-authentication-with-jwt-934ea030923
+	
+	# Deploying Applications as MicroSerivces
+	https://medium.com/jeroen-rosenberg/from-monolith-to-microservice-architecture-on-kubernetes-part-3-deploying-our-scala-app-as-a-d4d799e01ab6
+	
+	# Monitoring, health checks, logging & tracing
+	https://medium.com/jeroen-rosenberg/from-monolith-to-microservice-architecture-on-kubernetes-part-4-monitoring-health-checks-32c441741ca6
+	
+	# Deployment Automation & Continuous Delivery
+	https://medium.com/jeroen-rosenberg/from-monolith-to-microservice-architecture-on-kubernetes-part-5-deployment-automation-a7d8529d813
+]
 	
 ==================================================================
 						DOCKER
