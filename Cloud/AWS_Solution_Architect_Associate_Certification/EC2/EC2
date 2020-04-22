@@ -366,7 +366,7 @@
 		- There is difference between EBS and EFS. With EBS you attach one EBS volume with One EC2 instance. You cannot attach one EBS volume
 		  with multiple EC2 instances. But on other side EFS is a shared storage volume which can be share among multiple EC2 instances. You can
 		  create mount a directory or location on each EC2 instances and can store your data at that mount directory which can be Read/Write from
-		  other insta as well.
+		  other instances as well.
 		- EFS service comes under Storage section.
 		- EFS Infrequent Access (EFS IA) is a file system where you can stored infrequently access file. Its a low price storage than EFS.
 		- EFS support life cycle management, that means you can move your files to EFS IA storage after certain time period.
@@ -399,3 +399,100 @@
 	===================================
 	FSx for Windows & FSx for Lustre
 	===================================
+	- FSx for Windows
+		- Amazon FSx for Windows File System provides a fully managed native Microsoft Windows file system so you can easily move your Windows-based
+		  applications that required file storage to AWS. FSx is built on Windows Server.
+		- Its designed to use with Microsoft applications. e.g. MS-SQL Server, Active Directory, IIS, SharePoint etc.
+		- AWS does not support EC2 instances that running Windows to connect to EFS, because EFS is UNIX & LINUX based file system. Therefore FSx is
+		  most sutable for these type of applications.
+		
+	- How Windows FSx different to EFS?
+				-------------------										-----------
+					Windows FSx												EFS
+		---------------------------------------				----------------------------------------
+		- A managed Windows Server that runs				- A managed NAS filer for EC2 instances
+		  Windows Server Message Block (SMB)				  based on Network File System (NFS)
+		  based file services.								  version 4.
+		 
+		- Designed for Windows & Windows					- One of the first network file sharing  
+		  applications.										  protocol native to UNIX & LINUX.
+		  
+		- Supports AD users, access control
+		  lists, groups & security policies
+		  along with Distributed File
+		  System (DFS) namespaces & replication.
+		  
+	- FSx for Lustre
+		- Amazon FSx for Lustre is a fully managed file system that is optimized for compute-intensive workloads, such as high-performance computing,
+		  machine learning, media data processing workflows, and electronic design automation (EDA)
+		- With FSx for Lustre, you can launch and run a Lustre File System that can process massive data sets at upto hundreds of gigabytes per second
+		  of throughput, millions of IOPS, and sub-milliseconds latencies. 
+		  
+	- How Lustre FSx different to EFS?
+				------------------										-----------
+					Lustre FSx												EFS
+		--------------------------------------------		----------------------------------------
+		- Designed specifically for fast processing			- A managed NAS filer for EC2 instances
+		  of workloads such as machine learning,			  based on Network File System (NFS)
+		  high-performance computing (HPC), videos			  version 4.
+		  processing, financial modeling , and 
+		  electronic design automation (EDA).				- One of the first network file sharing
+															  protocol native to UNIX & LINUX.
+		- Lets you launch and run a file system that 
+		  provides sub-milliseconds access to your 
+		  data and allows you to read and write data
+		  at speeds of upto hundreds of gigabytes
+		  per second of throughput and millions of 
+		  IOPS.
+		  
+	- Exam Tips
+		- In the exam you will be given different scenarios and asked to choose whether you should use an EFS, FSx for Windows or FSx for Lustre.
+		- EFS
+			- When you need distributed, high resilient storage for LINUX instances and Linux-based applications.
+		- FSx for Windows
+			- When you need centeralised storage for Windows-based applications such as SharePoint, MS-SQL Server, Workspaces, IIS Web Server or
+			  any other native Microsoft applications.
+		- FSx for Lustre
+			- When you need high-speed, high-capability distributed storage. That will be for applications that do High Performace Compute (HPC),
+			  financial modeling etc. Remember that FSx for Lustre can store data directly on S3.
+			  
+	===================================
+	EC2 Placement Groups
+	===================================
+	- What is EC2 Placement Groups?
+		- This is way of placeing your EC2 instances in group
+		
+	- Three Types of Placement Groups
+		- Clustered Placement Group
+		- Spread Placement Group
+		- Partitioned Placement Group
+		
+	- Clustered Placement Group
+		- A Clustered Placement Group is a grouping of instances within a single Availibility Zone. Placement Groups are recommended for applications
+		  that need low network latency, high network throughput, or both.
+		- Only certain instances can be launched in to a Clustered Placement Groups
+		
+	- Spread Placement Group
+		- A Spread Placement Group is a group of instances that are each placed on distinct underlying hardware. Separate rackes, network inputs and 
+		  power requirement.
+		- Spread Placement Group are recommended for applications that have a small number of critical instances that shoulld be kept separate from
+		  each other. You can have instances on different AZs in one region.
+		- Think individual instance
+		  
+	- Partitioned Placement Group
+		- When using Partitioned Placement Group, EC2 divides each group into logical segments called partitions. EC2 ensures that each partition within
+		  a placement group has its own set of racks. Each rack has its own network and power source. No two partitions within a placement group share 
+		  the same rack, allowing you to isolate the impact of hardware failure with in appliance. You can have instances on different AZs in one region.
+		- Think multiple instances.
+		
+	- The name of placement group must be unique with your AWS account.
+	- Only certain types of instances can be launched in a placement group (Compute Optimized, GPU, Memory Optimized, Storage Optimized).
+	- AWS recommend homogenous instances within Clustered Placement Groups.
+	- You can merge placement groups.
+	- You can move an existing instance into a placement group. Before you move instance, the instance must be 	in the stopped state. You can move or 
+      remove an instance using the AWS CLI or an AWS SDK, you cann't do it via the console yet.
+	  
+	===================================
+	AWS WAF
+	===================================
+	
