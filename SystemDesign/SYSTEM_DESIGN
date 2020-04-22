@@ -14,3 +14,36 @@ System Design Patterns
 	- Separating Data and Metadata Storage
 	- Load Distribution
 	
+	
+=============================================================
+					ARCHETECTURE & SYSTEM DESIGN TOPICS
+=============================================================
+- Release process
+- CI/CD
+- Semantic Versioning / Version numbering [ https://semver.org/ ]
+- Overall Load / load on each service per second
+- Service level Security on AWS and Inhouse infra-structure
+- AWS Subnet and IP management
+- Load testing for environment
+- How to manage Docker images on local registery & cloud registery
+- Difference Between Encription and Hashing
+- Symmetric vs Asymmetric Encription [ https://www.ssl2buy.com/wiki/symmetric-vs-asymmetric-encryption-what-are-differences ]
+	- Symmetric Encription Types
+		-- Blowfish
+		-- RC4
+		-- DES
+		-- RC5
+		-- RC6
+		-- AES (Advanced Encryption Standard)
+			-- AES-128, AES-192, and AES-256.
+	- Asymmetric Encription Types
+		-- EIGamal
+		-- RSA
+		-- DSA
+		-- Elliptic curve techniques
+		-- PKCS
+- SSL cerificate mechanism.
+- SSL cerificate installation on Tomcat server
+- SSL cerificate installatoin on Ingress Controller
+- Cache writing policies: write-through, write-around or write-back? https://shahriar.svbtle.com/Understanding-writethrough-writearound-and-writeback-caching-with-python
+- Cache eviction policies.
