@@ -495,4 +495,26 @@
 	===================================
 	AWS WAF
 	===================================
+	- What is AWS WAF?
+		- AWS WAF is a Web Application Firewall that lets you intercept the HTTP and HTTPS requests that are farwarded to Amazon CloudFront,
+		  an Application Load Balancer or API Gateway.
+		- AWS WAF also lets you control access to your content.
+		- You can configure conditions such as what IP addresses are allowed to make this request or what query string parameters need to be passed
+		  for request to be allowed.
+		- Then the application load balancer or CloudFront or API Gateway will either allow this content to be received or to be give a HTTP 403 code.
+		
+	- At its most basic level, AWS WAF allows 3 different behaviours:
+		- Allow all requests except the ones you specify.
+		- Block all requests except the once you specify.
+		- Count the requests that match the properties you specify.
 	
+	- WAF Protection
+		- Extra protection against web attacks using conditions you specify. You can define conditions by using characteristics of web requests such as:
+			- IP addresses that requests originate from.
+			- Country that requests originate from.
+			- Values in request headers.
+			- Strings that appear in requests, either specific string or string that match regular expression (regex) patterns.
+			- Length of requests.
+			- Presence of SQL code that is likely to be malicious (Known as SQL Injection).
+			- Presence of a script that is likely to be malicious (Known as Cross-Site Scripting).
+			
