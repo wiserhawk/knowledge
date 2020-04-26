@@ -1,0 +1,57 @@
+=========================================
+	RDS (Relational Database Service)
+=========================================
+
+	===================================
+	Databases on AWS
+	===================================
+	- RDS (OLTP) Relational Databases on AWS
+		- MS SQL Server
+		- Oracle
+		- MySQL
+		- Aurora
+		- PostgreSQL
+		- Maria DB
+	
+	- RDS has two key features:
+		- Multi-AZ: For Disaster Recovery
+		- Read Replicas: For Performance
+		
+	- RDS Non-Relational (NoSQL) Databases on AWS
+		- DynamoDB
+		
+	- RDS (OLAP) Data Warehousing on AWS
+		- Redshift
+		
+	- What is Data Warehousing?
+		- Used for business intelligence . Tools like Cognos, Jaspersoft, SQL Server Reporting Services, Oracle Hyperion, SAP NetWeaver.
+		- Used to pull in very large and complex data sets. Usually used by management to do queries on data (such as performance vs target etc).
+		
+		- OLTP vs OLAP
+			- Online Transaction Processing (OLTP) differs from Online Analytics Processing (OLAP) in terms of types of queries you will run.
+			- OLTP Example:
+				- Order number 21234322
+				- Pull up a row of data such as Name, Date, Address to deliver to, Delivery Status etc.
+			- OLAP Example: Much complex
+				- Net Profit for EMEA and Pacific for the Digital Radio Product.
+				- Pull in large number of records.
+				- Sum of Radios Sold in EMEA.
+				- Sum of Radios Sold in Pacific.
+				- Unit Cost of Radio in each region
+				- Sale price of each radio
+				- Sale Price - Unit Cost
+		
+		- Data Warehousing databases use different type of architecture both from a database perspective and infrastructure layer.
+		- Amazon's Data Warehouse Solution is called Redshift
+	
+	- What is ElastiCache?
+		- ElastiCache is a web service that make it easy to deploy, operate, and scale an in-memory cache in the cloud. The service improves the performance of
+		  web applicaitons by allowing you to retrieve information from fast, managed , in-memory caches, instead of relying entirely on slower disk-based databases.
+		- ElastiCache supports two fully managed open-source in-memory caching engines:
+			- Redis
+			- Memcached
+			
+	===================================
+	
+	===================================
+	
