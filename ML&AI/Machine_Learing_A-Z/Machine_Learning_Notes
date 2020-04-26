@@ -1,0 +1,31 @@
+
+Google Drive Link for Machine Learning Codes & Datasets
+https://drive.google.com/drive/folders/1OFNnrHRZPZ3unWdErjLHod8Ibv2FfG1d?usp=sharing
+
+====================================================
+Data Processing in Python
+====================================================
+- Features
+- Dependent Varibale
+
+- Feature Scaling : Scaling feature values in meaningful range, which make data model easy and much effecient for ML.
+- Feature Scaling Types
+	- Standardisation: generate values between -3 to +3, Recommended for almost every case.
+	- Normalisaton: generate values between -1 to +1
+
+====================================================
+Regression
+====================================================
+
+Regression models (both linear and non-linear) are used for predicting a real value, like salary for example. 
+If your independent variable is time, then you are forecasting future values, otherwise your model is predicting present but unknown values. 
+Regression technique vary from Linear Regression to SVR and Random Forests Regression.
+
+In this part, you will understand and learn how to implement the following Machine Learning Regression models:
+
+1. Simple Linear Regression
+2. Multiple Linear Regression
+3. Polynomial Regression
+4. Support Vector for Regression (SVR)
+5. Decision Tree Classification
+6. Random Forest Classification

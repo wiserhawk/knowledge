@@ -1,0 +1,29 @@
+===========================================================================
+			MACHINE LEARNING
+===========================================================================
+
+Course: Machine Learning
+Tuter: Andrew Ng
+link: https://www.youtube.com/watch?v=PPLop4L2eGk&list=PLLssT5z_DsK-h9vYZkQkYNWcItqhlRJLN
+
+Machine Learning Algorithms
+	- Supervised Learning: Tell computer to how to work 
+	- Unsupervised Learning: Computer learn for its own experience.
+	- Others: Reinforcement Learning, Recommender System.
+	
+Supervised Learning
+	- This kind of algorithms to which we provide large data sets and algorithms try to produce more accurate results by learing from datasets. 
+	For example, predicting house pices based on large number of dataset of sold houses.
+	
+	- Regression Problem: Predicting continuous valued outputs (prices). 
+		This kind of problems works of identical types of dataset and try to predict continuous value outputs from that
+		For example, predicting house pices based on large number of dataset of sold houses.
+	- Classification Problem:  Discrete valued output ( 0 or 1). 
+		This kind problems works on different types of dataset and try to categories data into different categories.
+		For example, pridecting Breast Cancer is Malignant (serious) or Benign (not harmful).
+
+Unsupervised Learning
+
+	
+	
+	
