@@ -5,6 +5,8 @@
 Course: Machine Learning
 Tuter: Andrew Ng
 link: https://www.youtube.com/watch?v=PPLop4L2eGk&list=PLLssT5z_DsK-h9vYZkQkYNWcItqhlRJLN
+Machine Learning Notes: https://www.holehouse.org/mlclass/
+
 
 Machine Learning Algorithms
 	- Supervised Learning: Tell computer to how to work 

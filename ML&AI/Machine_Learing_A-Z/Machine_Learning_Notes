@@ -29,3 +29,39 @@ In this part, you will understand and learn how to implement the following Machi
 4. Support Vector for Regression (SVR)
 5. Decision Tree Classification
 6. Random Forest Classification
+
+	- Simple Linear Regression
+		- Y = C0 + C1 * X
+		- Y is Dependent Varibale (DV)
+		- X is Independent Varibale (IV)
+		- C1 is Coefficient 
+		- C0 is Constant
+	
+	- Multiple Linear Regression
+		- Y = B0 + B1*X1 + B2*X2 + ... + Bn*Xn
+		- Y is Dependent Varibale (DV)
+		- X is Independent Varibale (IV)
+		- B1...Bn is Coefficient 
+		- B0 is Constant
+		
+		- A Caveat
+			Assumptions of a Linear Regression; Before going with Linear Regression make sure below assumptions are true:
+			- Linearity
+			- Homoscedasticity
+			- Multivariate normality
+			- Independence of errors
+			- Lack of multicollinearity
+			
+		- What is P Value?
+			- https://www.mathbootcamps.com/what-is-a-p-value/
+			- https://www.wikihow.com/Calculate-P-Value
+			
+		- Dummy Variable Trap
+		
+		- 5 methods of building models:
+			- All in 
+			- Backward Elimination
+			- Forward Selection
+			- Bidirectional Elimination
+			- Score Comparison
+			
