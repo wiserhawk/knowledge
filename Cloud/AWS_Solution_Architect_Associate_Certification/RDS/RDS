@@ -126,4 +126,27 @@
 	===================================
 	DynamoDB
 	===================================
+	- What is DynamoDB?
+		- Amazon DynamoDB is a fast and flexible NoSQL database service for all applicaitons that need consistent, single-digit millisecond latency at any scale.
+		  It is fully managed database and supports both document and key-value data models. Its flexible data model and reliable performance makes it a great
+		  fit for mobile, web, gaming, ad-tech, IoT and many other applicaitons
+		  
+	- Basics of DynamoDB:
+		- Stored on SSD storage.
+		- Spread across 3 geographically distinct data centres
+		- Eventual Consistent Reads (Default)
+		- Strongly Consistent Reads
+		
+	- Eventual Consistent Reads
+		- Consistency across all copies of data is usually reached within a second. Repeating a read after a short time should return the updated data. 
+		  This is Best Read Peformance and enabled by default.
+		 
+	- Strongly consistent Reads
+		- Strongly consistent read returns a result that reflects all writes that received a successful response prior to the read. If you need updated data less
+		  than one second you should opt for Strongly consistent reads.
+		  
+	===================================
+	Redshift
+	===================================
+		
 	
