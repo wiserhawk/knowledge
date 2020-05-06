@@ -148,5 +148,65 @@
 	===================================
 	Redshift
 	===================================
+	- What is Redshift?
+		- Amazon Redshift is a fast and powerful, fully managed, petabyte-scale data warehouse service in the cloud. Customers can start small for 
+		  just $0.25 per hour with no commitments or upfront costs and scale to a petabyte or more for $1000 per terabyte per year, less than a tenth 
+		  of most other data warehouse solutions.
+		  
+	- OLTP vs OLAP
+		- Online Transaction Processing (OLTP) differs from Online Analytics Processing (OLAP) in terms of types of queries you will run.
+		- OLTP Example:
+				- Order number 21234322
+				- Pull up a row of data such as Name, Date, Address to deliver to, Delivery Status etc.
+		- OLAP transaction Example:
+			- Net Profit for EMEA and Pacific for the Digital Radio Product.
+			- Pulls in large numbers of records.
+			- Sum of Radios Sold in EMEA.
+			- Sum of Radios Sold in Pacific.
+			- Unit Cost of Radios in each region.
+			- Sales price of each radio
+			- Sales price - unit cost.
+		- Data warehouse databases use different type of architecture both from a database perspective and infrastructure layer.
 		
+	- Redshift Configuration: Redshift can be configured as follows:
+		- Single Node (160GB)
+		- Multi-Node
+			- Leader Node (manages client connections and receives queries)
+			- Compute Node (store data and perform queries and computations). Upto 128 Compute Nodes.
+	
+	- Advanced Compression:
+		- Columnar data stores can be compressed much more than row-based data stores because similar data is stored sequentially on disk. Amazon Redshift employs
+		  multiple compression techniques and can be often achieve significant compression relative to traditional relational data store. In addition, Amazon Redshift
+		  doesn't required indexes or materialized views, and so uses less space than traditional relational database systems. When loading data into an empty table, 
+		  Redshift automatically samples your data and selects the most appropriate compression scheme.
+		  
+	- Massively Parallel Processing (MPP):
+		- Amazon Redshift automatically distributes data and query load across all nodes. Amazon Redshift makes it easy to add nodes to your data warehouse and
+		  enables you to maintain fast query performance as your data warehouse grows.
+		  
+	- Redshift Backups:
+		- Enabled by default with a 1 day retention period.
+		- Maximum retention period is 35 days.
+		- Redshift always attempts to maintain at least three copies of your data (the original and replica on the compute nodes and a backup in Amazon S3).
+		- Redshift can also asynchronously replicate your snapshots to S3 in another region for disaster recovery.
+	
+	- Redshift Pricing:
+		- Compute Node Hours (total number of hours you run across all your compute nodes for the billing period. You are billed for 1 unit per node per hour,
+		  so a 3-nodes data warehouse cluster running persistently for an entire month would incur 2,160 instance hours. You will not be charged for leader node
+		  hours; only compute nodes will incur charges.)
+		  
+	- Security Considerations:
+		- Encrypted in transit using SSL.
+		- Encrypted at rest using AES-256 encryption.
+		- By default Redshift takes care of key management.
+			- Manage your own keys through HSM
+			- AWS key Management Service
+			
+	- Redshift Availability:
+		- Currently only available in AZ
+		- Can restore snapshots to new AZs in the event of an outage.
+		
+	===================================
+	Aurora
+	===================================
 	
