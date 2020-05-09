@@ -209,4 +209,71 @@
 	===================================
 	Aurora
 	===================================
+	- What is Aurora?
+		- Amazon Aurora is a MySQL and PostgreSQL compatible relational database engine that combines the speed and availability of high-end commercial databases
+		  with the simplicity and cost-effectiveness of open source database.
+		- Aurora provides upto five times better performance than MySQL and three times better performance than PostgreSQL database at a much lower cost, whilst
+		  delivering similar performance and availability.
+		  
+	- Things to know about Aurora:
+		- Start with 10GB, Scales in 10GB increments to 64TB (Storage Autoscaling)
+		- Compute resources can scale upto 32vCPUs and 244GB of Memory.
+		- 2 Copies of your data is contained in each availability zone, with minimum of 3 availability zones. 6 copies of your data.
+		
+	- Scaling Aurora
+		- Aurora is designed to transparently handle the loss(failure) of upto two copies of data without affecting database write availability and upto three copies without
+		  affecting read availability.
+		- Aurora storage is also self-healing. Data blocks and disks are continuouslly scanned errors and repaired automatically.
+		
+	- Tree Types of Aurora Read Replicas are available:
+		- Aurora Replicas (currently 15)
+		- MySQL Read Replicas (currently 5)
+		- PostgreSQL (currently 1)
+		
+	- Replication Feature Comparission:
+		-----------------									---------------------------								-------------------------
+			Features											Aurora Replicas											MySQL Replicas
+		-----------------									---------------------------								-------------------------
+		- Number of replicas								- Upto 15												- Upto 5
+		- Replication Types									- Asynchronous (milliseconds)							- Asynchronous(seconds)
+		- Performance impact of primary						- Low													- High
+		- Replica Location									- In-region												- Cross-region
+		- Act as failure target								- Yes (no data loss)									- Yes (Potentially minutes of data loss)
+		- Automated failover								- Yes													- No
+		- Support for user-defined replication delay		- No													- Yes
+		- Support for different data or schema vs. primary	- No													- Yes
+		
+	- Backups with Aurora:
+		- Automated backups are always enabled on Aurora DB instance. Backups don't impact database performance.
+		- You can also take snapshots with Aurora. This also does not impact performance.
+		- You can share Aurora snapshots with other AWS accounts.
+		
+	- Aurora Serverless:
+		- Amazon Aurora Serverless is an on-demand, autoscaling configuration for the MySQL-compatible and PostgreSQL-compatible editions of Aurora. An Aurora
+		  Serverless DB cluster automatically starts up, shuts down and scales capacity up or down based on your applicaiton's needs.
+		- Aurora Serverless provides a relatively simple, cost-effective option for infrequent, intermittent, or unpredictable workloads.
+		
+	===================================
+	ElastiCache
+	===================================
+	- What is ElastiCache?
+		- ElastiCache is a web service that make it easy to deploy, operate, and scale an in-memory cache in the cloud. The service improves the performance of
+		  web applicaitons by allowing you to retrieve information from fast, managed , in-memory caches, instead of relying entirely on slower disk-based databases.
+		- ElastiCache supports two fully managed open-source in-memory caching engines:
+			- Redis
+			- Memcached
+			
+	- Memcached vs Redis
+		----------------------					--------------------		------------------											
+			Requirement								Memcached					Redis
+		----------------------					--------------------		------------------
+		- Simple Cache to offload DB				- Yes						- Yes
+		- Ability to scale horizontally				- Yes 						- Yes
+		- Multi-threaded performance				- Yes 						- No
+		- Advanced Data Types						- No						- Yes
+		- Ranking/Sorting data set 					- No 						- Yes
+		- Pub/Sub capabilities 						- No 						- Yes
+		- Persistence								- No						- Yes
+		- Multi-AZ									- No						- Yes
+		- Backup and Restore Capabilities			- No						- Yes
 	
