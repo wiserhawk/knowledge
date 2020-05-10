@@ -1,0 +1,74 @@
+=============================================
+	Route53
+=============================================
+
+	===================================
+	DNS (Domain Name Server)
+	===================================
+	- What is DNS?
+		- DNS is used to convert human friendly name (such as http://google.com) into an Internet Protocol (IP) address (such as http://82.124.53.2).
+		- IP addresses are used by computers to identify each other on the network. IP addresses commonly come in 2 different forms, IPv4 and IPv6.
+
+	- IPv4 vs IPv6
+		- IPv4 addresses are running out.
+		- IPv4 space is a 32 bit field and have over 4 billion different addresses (4,294,967,296 to be precise).
+		- IPv6 was create to solve this depletion issue and has a address sapce of 128 bits, which in theory is 340,282,366,920,938,463,463,374,607,431,768,211,456
+		  addresses or 340 undecillion addresses.
+	
+	- Top Level Domains
+		- If we look at common domain names such as google.com, amazon.com, bbc.co.uk etc. You will notice a string of characters separated by dots. The last work
+		  in a domain name represent the "Top Level Domain" e.g. google.com. Second work in a domain name is known as a Second Level Domain name (This is optional though and depend on
+		  domain name like bbc.co.uk, where uk is top level and co is second level domain)
+		- These Top Level Domain names are controlled by the Internet Assigned Number Authority (IANA) in a root zone database which is essentially a database of all
+		  availble top level domains. You can view this database by visiting: http://www.iana.org/domains/root/db
+		  
+	- Domain Registration
+		- Because all of the names in a given domain name have to be unique there need to be a way to organize this all so that domain names are not duplicated. This is
+		  where domain registrars comes in. A registrar is an authority that can assign domain name directly under one or more top-level domains. These domains are 
+		  registered  with InterNIC, a service of ICANN, which enforces uniqueness of domain names across the internet. Each domain name becomes registered in a central
+		  database known as WhoIS database.
+		  Popular damain registrars include: Amazon, GoDaddy.com, 123-reg.co.uk etc.
+		  
+	- Start Of Authority Record (SOA)
+		- The SOA record stores information about:
+			- The name of the server that supplies the data for the zone.
+			- The administrator of the zone.
+			- The current version of the data file.
+			- The default number of seconds for the time-to-live file on resource records.
+			
+	- NS (Name Server) Records
+		- They are used by Top Level Domain servers to direct traffic to the Content DNS server which contains the authoritative DNS records.
+		- For Example:
+			getfiteat.com -> .com (Top Level Domain) -> NS Records -> SOA
+	
+	- A Records
+		- An "A" Record is the fundamental type of DNS record. The "A" is A record stands for "Address". The A record is used by computer to translate the name of
+		  the domain to an IP address. For exmaple, http://google.com to http://123.10.10.80
+		  
+	- TTL
+		- The length that a DNS record is cached on either the Resolving Server or the users own local PC is equal to the value of the "Time To Live" (TTL) in seconds.
+		  The lower the time to live, the faster changes to DNS records take to propagate throughout the internet.
+		  
+	- CNAME
+		- A Canonical Name (CNAME) can be used to resolve one domain name to another. For exmaple, you may have mobile website with the domain name http://m.getfiteat.com 
+		  that is used for when users browse to your domain name on their mobile device. You may also want to name http://mobile.getfiteat.com to resolve to this same address.
+		
+	- Alias Records
+		- Alias records are used to map resource record sets in your hosted zone to Elastic Load Balancers, CloudFront distributions, or S3 buckets that are configured
+		  as websites.
+		- Alias records work like a CNAME record in that you can map one DNS name (www.example.com) to another target DNS name (elb1234.elb.amazonaws.com).
+		- Key difference - A CNAME cann't be used for naked domain names (zone apex record). You cann't have a CNAME for http://getfiteat.com, it must be either an
+		  A Record or an Alias.
+		  
+	- Route53 Exam Tips:
+		- ELBs do not have pre-defined IPv4 addresses; you can resolve them using a DNS name.
+		- Understand difference between Alias Record and CNAME.
+		- Given choise, always choose an Alias Record over an CNAME.
+		- Common DNS Types:
+			- SOA Records
+			- NS Records
+			- A Records
+			- CNAME
+			- MX Records (Used for mail)
+			- PTR Records (Reverse of A Record; to look DNS name against an IP address)
+		
