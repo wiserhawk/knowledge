@@ -71,4 +71,45 @@
 			- CNAME
 			- MX Records (Used for mail)
 			- PTR Records (Reverse of A Record; to look DNS name against an IP address)
+		- You can buy domain name directly from AWS. It can take upto 3 days to register depending on circumstances.
 		
+	===================================
+	Route53 Routing Polices
+	===================================
+	- Routing Polices availble with Route53:
+		- Simple Routing
+		- Weighted Routing
+		- Latency-based Routing
+		- Failover Routing
+		- Geolocation Routing
+		- Geoproximity Routing (Traffic Flow Only)
+		- Multivalue Answer Routing
+		
+	===================================
+	Route53 Simple Routing Policy
+	===================================
+	- If you choose the simple routing policy you can only have one record with multiple IP addresses. If you specify multiple values (IPs) in a record,
+	  Route53 returns all values to the user in a random order.
+	  
+	===================================
+	Route53 Weighted Routing Policy
+	===================================
+	- Allows you to split your traffic based on different weights assigned. For example, You can set 10% of your traffic to go to US-EAST-1 and 90% to EU-WEST-1.
+	
+	- Health Checks:
+		- You can set health checks on individual record sets.
+		- If a record set fails a health check, it will be removed from Route53 until it passes the health check. 
+		- You can set SNS notifications to alert you if a health check is failed.
+	
+	======================================
+	Route53 Latency-based Routing Policy
+	======================================
+	- Allows you to route your traffic based on the lowest network latency for your end user (i.e. which region will give them the fastest response time).
+	- To use latency-based routing, you create a latency resource record set for the Amazon EC2 (or ELB) resource in each region that host your website.
+	  When Route53 receives a query for your site, it selects the latency resource record set for the region that gives the user the lowest latency. Route53
+	  then responds with the value associated with that resource record set.
+	  
+	===================================
+	Route53 Failover Routing Policy
+	===================================
+	
