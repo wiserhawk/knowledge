@@ -1,169 +1,167 @@
 
-Google Drive Link for Machine Learning Codes & Datasets
-https://drive.google.com/drive/folders/1OFNnrHRZPZ3unWdErjLHod8Ibv2FfG1d?usp=sharing
+	Google Drive Link for Machine Learning Codes & Datasets
+	https://drive.google.com/drive/folders/1OFNnrHRZPZ3unWdErjLHod8Ibv2FfG1d?usp=sharing
 
-====================================================
-Data Processing in Python
-====================================================
-- Features
-- Dependent Varibale
+	====================================================
+	Data Processing in Python
+	====================================================
+	- Features
+	- Dependent Varibale
 
-- Feature Scaling : Scaling feature values in meaningful range, which make data model easy and much effecient for ML.
-- Feature Scaling Types
-	- Standardisation: generate values between -3 to +3, Recommended for almost every case.
-	- Normalisaton: generate values between -1 to +1
+	- Feature Scaling : Scaling feature values in meaningful range, which make data model easy and much effecient for ML.
+	- Feature Scaling Types
+		- Standardisation: generate values between -3 to +3, Recommended for almost every case.
+		- Normalisaton: generate values between -1 to +1
 
-====================================================
-Regression
-====================================================
+	====================================================
+	Regression
+	====================================================
+	- Regression models (both linear and non-linear) are used for predicting a real value, like salary for example. 
+	  If your independent variable is time, then you are forecasting future values, otherwise your model is predicting present but unknown values. 
+	  Regression technique vary from Linear Regression to SVR and Random Forests Regression.
 
-Regression models (both linear and non-linear) are used for predicting a real value, like salary for example. 
-If your independent variable is time, then you are forecasting future values, otherwise your model is predicting present but unknown values. 
-Regression technique vary from Linear Regression to SVR and Random Forests Regression.
+	Following are Machine Learning Regression models:
+		1. Simple Linear Regression
+		2. Multiple Linear Regression
+		3. Polynomial Regression
+		4. Support Vector for Regression (SVR)
+		5. Decision Tree Classification
+		6. Random Forest Classification
 
-In this part, you will understand and learn how to implement the following Machine Learning Regression models:
-
-1. Simple Linear Regression
-2. Multiple Linear Regression
-3. Polynomial Regression
-4. Support Vector for Regression (SVR)
-5. Decision Tree Classification
-6. Random Forest Classification
-
-	===========================
-	- Simple Linear Regression
-	===========================
-		- Y = C0 + C1 * X
-		- Y is Dependent Varibale (DV)
-		- X is Independent Varibale (IV)
-		- C1 is Coefficient 
-		- C0 is Constant
-	
-	=============================
-	- Multiple Linear Regression
-	=============================
-		- Y = B0 + B1*X1 + B2*X2 + ... + Bn*Xn
-		- Y is Dependent Varibale (DV)
-		- X is Independent Varibale (IV)
-		- B1...Bn is Coefficient 
-		- B0 is Constant
+		===========================
+		- Simple Linear Regression
+		===========================
+			- Y = C0 + C1 * X
+			- Y is Dependent Varibale (DV)
+			- X is Independent Varibale (IV)
+			- C1 is Coefficient 
+			- C0 is Constant
 		
-		- A Caveat
-			Assumptions of a Linear Regression; Before going with Linear Regression make sure below assumptions are true:
-			- Linearity
-			- Homoscedasticity
-			- Multivariate normality
-			- Independence of errors
-			- Lack of multicollinearity
+		=============================
+		- Multiple Linear Regression
+		=============================
+			- Y = B0 + B1*X1 + B2*X2 + ... + Bn*Xn
+			- Y is Dependent Varibale (DV)
+			- X is Independent Varibale (IV)
+			- B1...Bn is Coefficient 
+			- B0 is Constant
 			
-		- What is P Value?
-			- https://www.mathbootcamps.com/what-is-a-p-value/
-			- https://www.wikihow.com/Calculate-P-Value
+			- A Caveat
+				Assumptions of a Linear Regression; Before going with Linear Regression make sure below assumptions are true:
+				- Linearity
+				- Homoscedasticity
+				- Multivariate normality
+				- Independence of errors
+				- Lack of multicollinearity
+				
+			- What is P Value?
+				- https://www.mathbootcamps.com/what-is-a-p-value/
+				- https://www.wikihow.com/Calculate-P-Value
+				
+			- Dummy Variable Trap
 			
-		- Dummy Variable Trap
+			- 5 methods of building models:
+				- All in 
+				- Backward Elimination
+				- Forward Selection
+				- Bidirectional Elimination
+				- Score Comparison
+				
+			- Multiple Linear Regression in Python - Backward Elimination
+
+				As I explained in the previous tutorial, Backward Elimination is irrelevant in Python, because the Scikit-Learn library automatically 
+				takes care of selecting the statistically significant features when training the model to make accurate predictions.
+				However, if you do really want to learn how to manually implement Backward Elimination in Python and identify the most statistically 
+				significant features, please find in this link below some old videos I made on how to implement Backward Elimination in Python:
+
+				https://www.dropbox.com/sh/pknk0g9yu4z06u7/AADSTzieYEMfs1HHxKHt9j1ba?dl=0
+
+				These are old videos made on Spyder but the dataset and the code are the same as in the previous video lectures of this section on 
+				Multiple Linear Regression, except that I had manually removed the first column to avoid the Dummy Variable Trap with this line of code:
+
+				# Avoiding the Dummy Variable Trap
+				X = X[:, 1:]
+				Just keep this for this Backward Elimination implementation, but keep in mind that in general you don't have to remove 
+				manually a dummy variable column because Scikit-Learn takes care of it.
+
+				And also, please find the whole code implementing this Backward Elimination technique:
+
+				# Multiple Linear Regression
+				 
+				# Importing the libraries
+				import numpy as np
+				import matplotlib.pyplot as plt
+				import pandas as pd
+				 
+				# Importing the dataset
+				dataset = pd.read_csv('50_Startups.csv')
+				X = dataset.iloc[:, :-1].values
+				y = dataset.iloc[:, -1].values
+				print(X)
+				 
+				# Encoding categorical data
+				from sklearn.compose import ColumnTransformer
+				from sklearn.preprocessing import OneHotEncoder
+				ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [3])], remainder='passthrough')
+				X = np.array(ct.fit_transform(X))
+				print(X)
+				 
+				# Avoiding the Dummy Variable Trap
+				X = X[:, 1:]
+				 
+				# Splitting the dataset into the Training set and Test set
+				from sklearn.model_selection import train_test_split
+				X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+				 
+				# Training the Multiple Linear Regression model on the Training set
+				from sklearn.linear_model import LinearRegression
+				regressor = LinearRegression()
+				regressor.fit(X_train, y_train)
+				 
+				# Predicting the Test set results
+				y_pred = regressor.predict(X_test)
+				np.set_printoptions(precision=2)
+				print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
+				 
+				# Building the optimal model using Backward Elimination
+				import statsmodels.formula.api as sm
+				X = np.append(arr = np.ones((50, 1)).astype(int), values = X, axis = 1)
+				X_opt = X[:, [0, 1, 2, 3, 4, 5]]
+				regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+				regressor_OLS.summary()
+				X_opt = X[:, [0, 1, 3, 4, 5]]
+				regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+				regressor_OLS.summary()
+				X_opt = X[:, [0, 3, 4, 5]]
+				regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+				regressor_OLS.summary()
+				X_opt = X[:, [0, 3, 5]]
+				regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+				regressor_OLS.summary()
+				X_opt = X[:, [0, 3]]
+				regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+				regressor_OLS.summary()
+				Once again, this is totally optional.
+
+				Hope that can help anyway, and until then, enjoy Machine Learning!
+				
+			- Multiple Linear Regression in Python - BONUS
+				I just wanted to give you this little BONUS below which answers two frequently asked questions I received from you. So this BONUS simply 
+				answers the following two questions with the code included:
+
+				- Question 1: How do I use my multiple linear regression model to make a single prediction, for example the profit of a startup 
+							  with R&D Spend = 160000, Administration Spend = 130000, Marketing Spend = 300000 and State = California?
+
+				- Question 2: How do I get the final regression equation y = b0 + b1 x1 + b2 x2 + ... with the final values of the coefficients?
+
+				These two questions are answered in detail with the explanation and code at the end of this Bonus Colab file:
+				https://colab.research.google.com/drive/1ABjLFzknByfU4-F4roa1hX36H3aZlu6J?usp=sharing
 		
-		- 5 methods of building models:
-			- All in 
-			- Backward Elimination
-			- Forward Selection
-			- Bidirectional Elimination
-			- Score Comparison
-			
-		- Multiple Linear Regression in Python - Backward Elimination
-
-			As I explained in the previous tutorial, Backward Elimination is irrelevant in Python, because the Scikit-Learn library automatically 
-			takes care of selecting the statistically significant features when training the model to make accurate predictions.
-			However, if you do really want to learn how to manually implement Backward Elimination in Python and identify the most statistically 
-			significant features, please find in this link below some old videos I made on how to implement Backward Elimination in Python:
-
-			https://www.dropbox.com/sh/pknk0g9yu4z06u7/AADSTzieYEMfs1HHxKHt9j1ba?dl=0
-
-			These are old videos made on Spyder but the dataset and the code are the same as in the previous video lectures of this section on 
-			Multiple Linear Regression, except that I had manually removed the first column to avoid the Dummy Variable Trap with this line of code:
-
-			# Avoiding the Dummy Variable Trap
-			X = X[:, 1:]
-			Just keep this for this Backward Elimination implementation, but keep in mind that in general you don't have to remove 
-			manually a dummy variable column because Scikit-Learn takes care of it.
-
-			And also, please find the whole code implementing this Backward Elimination technique:
-
-			# Multiple Linear Regression
-			 
-			# Importing the libraries
-			import numpy as np
-			import matplotlib.pyplot as plt
-			import pandas as pd
-			 
-			# Importing the dataset
-			dataset = pd.read_csv('50_Startups.csv')
-			X = dataset.iloc[:, :-1].values
-			y = dataset.iloc[:, -1].values
-			print(X)
-			 
-			# Encoding categorical data
-			from sklearn.compose import ColumnTransformer
-			from sklearn.preprocessing import OneHotEncoder
-			ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [3])], remainder='passthrough')
-			X = np.array(ct.fit_transform(X))
-			print(X)
-			 
-			# Avoiding the Dummy Variable Trap
-			X = X[:, 1:]
-			 
-			# Splitting the dataset into the Training set and Test set
-			from sklearn.model_selection import train_test_split
-			X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
-			 
-			# Training the Multiple Linear Regression model on the Training set
-			from sklearn.linear_model import LinearRegression
-			regressor = LinearRegression()
-			regressor.fit(X_train, y_train)
-			 
-			# Predicting the Test set results
-			y_pred = regressor.predict(X_test)
-			np.set_printoptions(precision=2)
-			print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
-			 
-			# Building the optimal model using Backward Elimination
-			import statsmodels.formula.api as sm
-			X = np.append(arr = np.ones((50, 1)).astype(int), values = X, axis = 1)
-			X_opt = X[:, [0, 1, 2, 3, 4, 5]]
-			regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
-			regressor_OLS.summary()
-			X_opt = X[:, [0, 1, 3, 4, 5]]
-			regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
-			regressor_OLS.summary()
-			X_opt = X[:, [0, 3, 4, 5]]
-			regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
-			regressor_OLS.summary()
-			X_opt = X[:, [0, 3, 5]]
-			regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
-			regressor_OLS.summary()
-			X_opt = X[:, [0, 3]]
-			regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
-			regressor_OLS.summary()
-			Once again, this is totally optional.
-
-			Hope that can help anyway, and until then, enjoy Machine Learning!
-			
-		- Multiple Linear Regression in Python - BONUS
-			I just wanted to give you this little BONUS below which answers two frequently asked questions I received from you. So this BONUS simply 
-			answers the following two questions with the code included:
-
-			- Question 1: How do I use my multiple linear regression model to make a single prediction, for example the profit of a startup 
-						  with R&D Spend = 160000, Administration Spend = 130000, Marketing Spend = 300000 and State = California?
-
-			- Question 2: How do I get the final regression equation y = b0 + b1 x1 + b2 x2 + ... with the final values of the coefficients?
-
-			These two questions are answered in detail with the explanation and code at the end of this Bonus Colab file:
-			https://colab.research.google.com/drive/1ABjLFzknByfU4-F4roa1hX36H3aZlu6J?usp=sharing
-	
-	================================
-	- Polynomial Regression
-	================================
-		- Y = B0 + B1*X1 + B2*X1^2 + ... + Bn*X1^n
-		- Y is Dependent Varibale (DV)
-		- X is Independent Varibale (IV)
-		- B1...Bn is Coefficient 
-		- B0 is Constant
+		================================
+		- Polynomial Regression
+		================================
+			- Y = B0 + B1*X1 + B2*X1^2 + ... + Bn*X1^n
+			- Y is Dependent Varibale (DV)
+			- X is Independent Varibale (IV)
+			- B1...Bn is Coefficient 
+			- B0 is Constant
