@@ -20,7 +20,7 @@
 	  If your independent variable is time, then you are forecasting future values, otherwise your model is predicting present but unknown values. 
 	  Regression technique vary from Linear Regression to SVR and Random Forests Regression.
 
-	Following are Machine Learning Regression models:
+	- Following are Machine Learning Regression models:
 		1. Simple Linear Regression
 		2. Multiple Linear Regression
 		3. Polynomial Regression
@@ -165,3 +165,8 @@
 			- X is Independent Varibale (IV)
 			- B1...Bn is Coefficient 
 			- B0 is Constant
+			
+			- Why do call it Polynomial Linear Regression?
+				- Polynomial Linear Regression Equation = B0 + B1*X1 + B2*X1^2 + B3*X1^3... + Bn*X1^n
+				- Because as you can see above equation, linearity comes due to Coefficient (B0,B1,B2,...Bn). Polynomial property comes due 
+				  exponential increase in power of Independent Variables (x1, x1^2, x1^3,...x1^n)
