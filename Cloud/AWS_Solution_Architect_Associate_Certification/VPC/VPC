@@ -65,4 +65,35 @@
 	- Remember
 		- 1 Subnet = 1 Availibility Zone
 		- Security Groups are Stateful; NACL are Stateless.
+		- Security Group cannot span VPCs.
 		- No Transitive Peering
+		- US-EAST-1A in your AWS account can be completely different AZ to US-EAST-1A in another AWS account. The AZ's are randomized.
+		
+	- What happens when you create just a VPC?
+		- It create a default Router.
+		- It create a default Route Table.
+		- It create a default NACL.
+		- It create a default Security Group.
+		- It does NOT create any default Subnet.
+		- It does NOT create any Internet Gateway.
+	
+	- Subnets
+		- Subnets can not span across AZs.
+		- Amazon reserve 5 IP address from Subnet for internal usages.
+			- 10.0.0.0: Network address.
+			- 10.0.0.1: Reserved by AWS for the VPC router.
+			- 10.0.0.2: Reserved by AWS. IP address of the DNS server is always the base of VPC network range plus two; however, AWS also reserve the base of each
+						subnet range plus two. For VPCs with multiple CIDR blocks, the IP address of the DNS server is located in the primary CIDR.
+			- 10.0.0.3: Reserved by AWS for future use.
+			- 10.0.0.255: Network broadcast address. AWS do not support broadcast in a VPC, therefore it reserve this address.
+	
+	- Internet Gateways
+		- By default Internet Gateway is detached once you create it. You have to manually attached it with VPC.
+		- You can have only one Internet Gateway per VPC. AWS takes care of High Availibility of Internet Gateway.
+		
+	- Route Table
+		- All subnet create by default connected to Main Route Table (Default), that means they are by default pulic. Which is kind of security concern.
+		- For this we can make our Main Route Table as private and can create separate Route Table a public.
+		
+		
+ 
