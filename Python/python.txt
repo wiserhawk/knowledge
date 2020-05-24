@@ -1169,4 +1169,87 @@
 	============================================================
 	- OS Module: Use Underlying Operating System Functionality
 	============================================================
+		
+		import os
+
+		# See all attributes and methods of OS mudule.
+		print(dir(os))
+		print("------------------------------------------------")
+
+		# Get current working directory
+		print(os.getcwd())
+		print("------------------------------------------------")
+
+		# Change current working directory
+		os.chdir("C:\My Machine\study\python-code")
+		print(os.getcwd())
+		print("------------------------------------------------")
+
+		# List for files and directory in current working directory
+		print(os.listdir())
+		print("------------------------------------------------")
+
+		# Create new directories under current working directory.
+		os.mkdir('new_dir')
+		print(os.listdir())
+		print("------------------------------------------------")
+
+		# Create new multilevel directories under current working directory. (Most preferred option)
+		os.makedirs('first_dir/second_dir')
+		print(os.listdir())
+		print("------------------------------------------------")
+
+		# Remove files or directories for current work directory
+		os.rmdir('new_dir')
+		print(os.listdir())
+		print("------------------------------------------------")
+
+		# Remove multilevel files or directories for current work directory.
+		os.removedirs('first_dir/second_dir')
+		print(os.listdir())
+		print("------------------------------------------------")
+
+		# Rename file or directory name.
+		os.mkdir('test.txt')
+		os.renames('test.txt', 'renamed.txt')
+		print(os.listdir())
+		os.rmdir('renamed.txt')
+		print("------------------------------------------------")
+
+		# Print all info about file.
+		os.mkdir('test.txt')
+		print(os.stat('test.txt'))
+		os.rmdir('test.txt')
+		print("------------------------------------------------")
+
+		# Print entire directory tree of current working directory.
+		for dirpath, dirnames, filenames in os.walk('C:\My Machine\study\python-code'):
+			print('Current Path:', dirpath)
+			print('Directories:', dirnames)
+			print('Files:', filenames)
+			print() 
+		print("------------------------------------------------")
+			
+		# Print environment variable
+		print(os.environ.get('JAVA_HOME'))
+		print("------------------------------------------------")
+
+		# Creating a correct path by joining.
+		file_path = os.path.join(os.environ.get('JAVA_HOME'), 'temp.txt')
+		print(file_path)
+		print("------------------------------------------------")
+
+		# Get paly with os path features 
+		print(os.path.basename('cwd/temp/test.txt'))
+		print(os.path.dirname('cwd/temp/test.txt'))
+		print(os.path.split('cwd/temp/test.txt'))
+		print(os.path.exists('cwd/temp/test.txt'))
+		print(os.path.isdir('cwd/temp/test.txt'))
+		print(os.path.isfile('cwd/temp/test.txt'))
+		print(os.path.splitext('cwd/temp/test.txt'))
+		print("------------------------------------------------")
+
+	==============================================================================
+	- Datetime Module: How to work with Dates, Times, Timedeltas, and Timezones
+	==============================================================================
 	
