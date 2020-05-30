@@ -95,5 +95,46 @@
 		- All subnet create by default connected to Main Route Table (Default), that means they are by default pulic. Which is kind of security concern.
 		- For this we can make our Main Route Table as private and can create separate Route Table a public.
 		
+	===================================
+	NAT Instances & NAT Gateways	
+	===================================
+	- What is Network Address Translation (NAT)?
+		- Your EC2 instances in private subnets do not have direct access to internet. Therefore you cannot do all those activities on private EC2 instances which
+		  are dependent on internet e.g. Softwares installation/update, security patch update etc. NAT Instances or NAT Gateways provides a indirect access of 
+		  internet to private EC2 instances.
+		  
+	- NAT Instances:
+		- NAT Instances are single EC2 instances on public subnets. You can search "NAT" to get NAT Amazon AMIs and lauch an EC2 instance in public subnet.
+		
+	- NAT Gateways:
+		- NAT Gateways are highly available gateways to handle internet communications. 9 out of 10 time you will use NAT Gateways in your requirements. They spread
+		  across multiple AZs. They don't dependes on single instance. 
+		- If you have resources in multiple Availibility Zones and they share one NAT gateway, in the event of that the NAT gateway's Availibility Zone is down,
+		  resources in other Availibility Zones lose internet access. To create an Availibility Zone-independent architecture, create a NAT gateway in each Availibility
+		  Zone and configure your routing to ensure the resources use the NAT gateway in the same availability Zone.
+		 
+	- NAT Instance Exam Tips:
+		- When creating NAT instance, Disable Source/Destination Checks on the instance.
+		- NAT instance must be in public subnet.
+		- There must be a route out of the private subnet to the NAT instance, in order of this to work.
+		- The amount of traffic that NAT instances can support dependes on the instance size. If you are bottlenecking, increase the instance size.
+		- You can create high availability using Autoscaling Groups, multiple subnets in different AZs, and script to automate failover. But everthing need to be
+		  handle by use only.
+		- NAT instances are always behind a Securty Group.
+		
+	- NAT Gateways Exam Tips:
+		- Redundant inside the Availibility Zone. It can handle NAT failure automatically. 
+		- Preferred by the enterprise.
+		- Starts throughput at 5Gbps and scales currently to 45Gbps.
+		- No need to patch
+		- Not associated with security groups.
+		- Automatically assigned a public IP address.
+		- Remember to update your Route Tables.
+		- No need to Disable Source/Destination Checks.
+		
+	===================================
+	Network Access Control List (NACL)
+	===================================
+		
 		
  
