@@ -120,7 +120,7 @@
 		- The amount of traffic that NAT instances can support dependes on the instance size. If you are bottlenecking, increase the instance size.
 		- You can create high availability using Autoscaling Groups, multiple subnets in different AZs, and script to automate failover. But everthing need to be
 		  handle by use only.
-		- NAT instances are always behind a Securty Group.
+		- NAT instances are always behind a Security Group.
 		
 	- NAT Gateways Exam Tips:
 		- Redundant inside the Availibility Zone. It can handle NAT failure automatically. 
@@ -135,6 +135,76 @@
 	===================================
 	Network Access Control List (NACL)
 	===================================
+	- What is NACL?
+		- A network access control list (ACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more
+		  subnets. You might set up network ACLs with rules similar to your security groups in order to add an additional layer of security to your VPC.
+		  
+	- Network ACL Basics:
+		- Your VPC automatically comes with a modifiable default network ACL. By default, it allows all inbound and outbound IPv4 traffic and, if applicable, 
+		  IPv6 traffic.
+		- You can create a custom network ACL and associate it with a subnet. By default, each custom network ACL denies all inbound and outbound traffic 
+		  until you add rules.
+		- Each subnet in your VPC must be associated with a network ACL. If you don't explicitly associate a subnet with a network ACL, the subnet is automatically 
+		  associated with the default network ACL.
+		- You can associate a network ACL with multiple subnets. However, a subnet can be associated with only one network ACL at a time. When you associate 
+		  a network ACL with a subnet, the previous association is removed.
+		- A network ACL contains a numbered list of rules. We evaluate the rules in order, starting with the lowest numbered rule, to determine whether traffic 
+		  is allowed in or out of any subnet associated with the network ACL. The highest number that you can use for a rule is 32766. We recommend that you start 
+		  by creating rules in increments (for example, increments of 10 or 100) so that you can insert new rules where you need to later on.
+		- A network ACL has separate inbound and outbound rules, and each rule can either allow or deny traffic.
+		- Network ACLs are stateless, which means that responses to allowed inbound traffic are subject to the rules for outbound traffic (and vice versa).
+		- Block IP addresses using NACLs not Security Groups.
+	
+	===================================
+	Security Groups
+	===================================
+	- What is Security Group?
+		- A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. When you launch an instance in a VPC, you can assign 
+		  up to five security groups to the instance. Security groups act at the instance level, not the subnet level. Therefore, each instance in a subnet in your 
+		  VPC can be assigned to a different set of security groups.
+		- If you launch an instance using the Amazon EC2 API or a command line tool and you don't specify a security group, the instance is automatically assigned
+   		  to the default security group for the VPC. If you launch an instance using the Amazon EC2 console, you have an option to create a new security group for 
+		  the instance.
+		- For each security group, you add rules that control the inbound traffic to instances, and a separate set of rules that control the outbound traffic. 
+		  This section describes the basic things that you need to know about security groups for your VPC and their rules.
+		- You might set up network ACLs with rules similar to your security groups in order to add an additional layer of security to your VPC.
+		  
+	- Security Groups Basics:
+		- There are quotas on the number of security groups that you can create per VPC, the number of rules that you can add to each security group, and the number 
+		  of security groups that you can associate with a network interface.
+		- You can specify allow rules, but not deny rules.
+		- You can specify separate rules for inbound and outbound traffic.
+		- When you create a security group, it has no inbound rules. Therefore, no inbound traffic originating from another host to your instance is allowed until 
+		  you add inbound rules to the security group.
+		- By default, a security group includes an outbound rule that allows all outbound traffic. You can remove the rule and add outbound rules that allow specific 
+		  outbound traffic only. If your security group has no outbound rules, no outbound traffic originating from your instance is allowed.
+		- Security groups are stateful — if you send a request from your instance, the response traffic for that request is allowed to flow in regardless of inbound
+   		  security group rules. Responses to allowed inbound traffic are allowed to flow out, regardless of outbound rules.
+		- NOTE — Some types of traffic are tracked differently from other types. For more information, see Connection tracking 
+		  (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html#security-group-connection-tracking) in the Amazon EC2 User Guide for 
+		  Linux Instances.
+		- Instances associated with a security group can't talk to each other unless you add rules allowing the traffic (exception: the default security group has 
+		  these rules by default).
+		- Security groups are associated with network interfaces. After you launch an instance, you can change the security groups that are associated with the 
+		  instance, which changes the security groups associated with the primary network interface (eth0). You can also specify or change the security groups 
+		  associated with any other network interface. By default, when you create a network interface, it's associated with the default security group for the VPC, 
+		  unless you specify a different security group. For more information about network interfaces, see Elastic network interfaces.
+		- When you create a security group, you must provide it with a name and a description. The following rules apply:
+			- Names and descriptions can be up to 255 characters in length.
+			- Names and descriptions are limited to the following characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*.
+			- A security group name cannot start with sg- as these indicate a default security group.
+			- A security group name must be unique within the VPC.
+		- A security group can only be used in the VPC that you specify when you create the security group.
 		
-		
- 
+	===================================
+	Custom VPC & ELBs
+	===================================
+	- Important of Exam
+		- You can create a ELB on your VPC. But there are two Important thing you need to remember.
+			- All your subnets must be connected with Internet Gateways to setup load balancer on them.
+			- To setup load balancing, aleast two public subnets must be specifed. 
+			
+	===================================
+	VPC Flow Logs
+	===================================
+	
