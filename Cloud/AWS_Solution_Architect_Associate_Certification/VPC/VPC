@@ -247,4 +247,28 @@
 	===================================
 	Direct Connect
 	===================================
+	- What is AWS Direct Connect?
+		- Direct Connect is a network service that allows a customer to establish a dedicated network connection between one of Amazon's Direct Connect 
+		  locations and the customer's data center or colocation environment.
+		- Direct Connect provides Amazon Web Services (AWS) customers with a way to transfer data that does not involve using the public Internet. According 
+		  to Amazon, private network connections provide a safer, more consistent network experience than Internet-based connections. Direct Connect is also 
+		  useful for customers whose corporate governance prohibits the use of the public Internet for transferring sensitive data because of compliance concerns.
+		- Direct Connect can be used with all AWS services, including EC2, VPC, S3, and DynamoDB. AWS charges for data transferred over the dedicated connection 
+		  at a reduced rate rather than the standard Internet data transfer rate (DTR), and pricing is per port-hour.
 	
+	-  Setting Up Direct Connect - Steps
+		- Create a virtual interface in the Direct Connect console. This is a PUBLIC Virtual Interface.
+		- Go to the VPC console and the to VPN connections. Create a Customer Gateway.
+		- Create a Virtual Private Gateway.
+		- Attach the Virtual Private Gateway to the desired VPC.
+		- Select VPN Connections and create new VPN connection.
+		- Select the Virtual Private Gateway and the Customer Gateway.
+		- Once the VPN is available, set up the VPN on the customer gateway or firewall.
+		
+	- Exam Tips:
+		- Remember all above steps, memorize them for exam.
+		- Check this YouTube resource: https://www.youtube.com/watch?v=dhpTTT6V1So
+		
+	===================================
+	Global Accelerator 
+	===================================
