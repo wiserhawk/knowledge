@@ -331,3 +331,40 @@
 	===================================
 	VPC End Points [SAA-C02]
 	===================================
+	- What is a VPC ENdpoint?
+		- A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink without requiring an internet gateway,
+		  NAT device, VPN connection,or AWS Direct Connect connection. Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic
+		  between your VPC and the other service does not leave the Amazon network.
+		- Endpoints are virtual devices. They are horizontally scaled, redundant, and highly available VPC components that allow communication between instances in your VPC and services
+		  without imposing availability risks or bandwidth constraints on your network traffic.
+	
+	- There are two types of VPC endpoints:
+		- Interface Endpoints
+		- Gateway Endpoints
+		
+	- Interface Endpoints:
+		- An interface endpoints is an elastic network interface with a private IP address that serves as an entry point for traffic destined  to a supported service.
+		- The following services are supported:
+			. Amazon API Gateway				. Amazon Kinesis Data Streams
+			. AWS CloudFormation				. Amazon SageMaker and Amazon SageMaker Runtime
+			. Amazon CloudWatch					. Amazon SageMaker Notebook Instance
+			. Amazon CloudWatch Events			. AWS Secrets Manager
+			. Amazon CloudWatch Logs			. AWS Security Token Services
+			. AWS CodeBuild						. AWS Service Catalog
+			. AWS Config						. AWS SNS
+			. Amazon EC2 API					. Amazon SQS
+			. Elastic Load Balancing API		. AWS Systems Manager
+			. AWS Key Management Service		
+			. Endpoint services hosted by other AWS accounts
+			. Supported AWS Marketplace partner services
+			
+	- Gateway Endpoints:
+		- Its similar they look like NAT Gateway essentially. Currently Gateway Endpoints Support:
+			. Amazon S3
+			. DynamoDB
+			
+	- Example:
+		- Check below given VPC Architecture of using other AWS Service (S3) without using VPC Endpoints or Using Internet communication.
+			- /knowledge/Cloud/AWS_Solution_Architect_Associate_Certification/VPC/VPC_Architecture_of_Using_S3_By_NAT_Gateway_Over_Internet.jpg
+		- Check below given VPC Architecture of using other AWS Service (S3) using VPC Endpoints or Using Amazon Network communication. (NO communications over internet	)
+			- /knowledge/Cloud/AWS_Solution_Architect_Associate_Certification/VPC/VPC_Architecture_of_Using_S3_By_VPC_Endpoint_Over_Amazon_Network.jpg
