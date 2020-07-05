@@ -1,0 +1,23 @@
+	===================================
+	Introduction to Machine Learning
+	===================================
+	- Benefits of using ML
+		- Reduce Time for Programming: This give you tool to reduce time to do programming.
+		  For example, creating English to hindi language translator program.
+		
+		- Customize and Scale Products: ML proram can be customize accoding to need and can be scaled accordingly. 
+		  For example, you use same ML trained models to create another langular translator by just giving them lots of
+		  of data for model training. That way you can scale you translator easly with other languages. 
+		  
+		- Complete seemingly "Unprogrammable" Tasks: Some of the problem that engineer have no idea how to program them
+		  can be solve using ML. For example, its had to recognize humen faces using programming. But these kind of task
+		  ML algorithms can do very efficiently. We have to just show algorithm lots of example of humen faces to trained it.
+		  
+		- Philosophical Reasion: ML changes the way you think about problem. Software engineer are trained to think logically 
+		  and mathematically, we use assertion to prove properties get program correct. But in ML focus shit from mathematically
+		  science to natural science. We make observation about uncertain world, running experements and using statistics,
+		  not logic to prove the results of experements.
+		  
+	- Rules for Machine Learning
+		- https://developers.google.com/machine-learning/guides/rules-of-ml/#rule_1_dont_be_afraid_to_launch_a_product_without_machine_learning
+		  
