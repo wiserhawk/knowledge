@@ -1,0 +1,50 @@
+	=======================================
+	Framing
+	=======================================
+	
+	- What is (Supervised) Machine Learning?
+		- ML system learning create models
+			- how to combine inputs
+				- to produce usefull prrdictions
+					- on never-before-seen data
+					
+	- Terminology: Labels and Features
+		- LABEL: Label is the variable we are predicting
+			- Typically represented by the varibale y
+			- For example: A model which predict a mail is spam or not-spam, here "SPAM" or "NOT-SPAM" are labels.
+		
+		- FEATURES: Features are input variables describing our data
+			- Typically represented by the variables {X1, X2, X3,......, Xn}
+			- For example: Attributes which help model to predict result, i.e. Words in mails, sender email address, header information etc.
+
+	- Terminology: Examples and Models
+		- EXAMPLE is a particlar instance of data, x
+		
+		- LABELED EXAMPLE has {feature, lable}: (x, y)
+			- Used to train the model
+		
+		- UNLABELED EXAMPLE has {feature, ?}: (x, ?)
+			- Used for making predictions on new data
+		
+		- MODEL maps examples to predicted labels: y
+			- Defined by internal parameters, which are learned
+			
+	- Models (Traning & Inference)
+		- A model defines the relationship between features and label. For example, a spam detection model might associate certain features strongly with "spam". 
+		  Let's highlight two phases of a model's life:
+
+			- TRAINING means creating or learning the model. That is, you show the model labeled examples and enable the model to gradually learn the relationships 
+			  between features and label.
+			
+			- INFERENCE means applying the trained model to unlabeled examples. That is, you use the trained model to make useful predictions (y'). 
+			  For example, during inference, you can predict medianHouseValue for new unlabeled examples.		
+			
+	- Regression vs. Classification
+		- A REGRESSION model predicts continuous values. For example, regression models make predictions that answer questions like the following:
+			- What is the value of a house in California?
+			- What is the probability that a user will click on this ad?
+
+		- A CLASSIFICATION model predicts discrete values. For example, classification models make predictions that answer questions like the following:
+			- Is a given email message spam or not spam?
+			- Is this an image of a dog, a cat, or a hamster?
+
