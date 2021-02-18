@@ -497,18 +497,6 @@ F = Cloud (AWS), NoSQL DB
 3. Sell Equity
 4. 
 
-==============================
-Account Number= 9611813870 
-Account Branch= 0289 / GURGAON - GOLF COURSE 
-Account Nickname= MANOJ KUMAR  Edit
-CRN= 196036331 
-Nominee= YES 
-Account Opening Date = 09/09/2016  
-Mode of Operation = Singly
-Account Status = Active 
-Account Currency = INR 
-Account Type = Corporate Ace Salary Account 
-
 =============================================================
 					LATEST QUESTIONS
 =============================================================
