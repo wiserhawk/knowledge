@@ -1,3 +1,5 @@
+LINK : https://github.com/donnemartin/system-design-primer
+
 =============================================
 	SYSTEM DESIGN
 =============================================-
@@ -22,7 +24,7 @@ System Design Patterns
 	
 	
 =============================================================
-					ARCHETECTURE & SYSTEM DESIGN TOPICS
+	ARCHETECTURE & SYSTEM DESIGN TOPICS
 =============================================================
 - Release process
 - CI/CD
