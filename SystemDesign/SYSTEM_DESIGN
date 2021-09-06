@@ -16,11 +16,13 @@ System Design Patterns
 	- Separating Data and Metadata Storage
 	- Load Distribution
 	
+Difference between Http and TCP? What should use when?
 ================================================
 	AWS Serverless Applications Architecture
 ================================================
 - Slalom: CI/CD for Serverless Applications on AWS
 	- https://www.youtube.com/watch?v=tEpx5VaW4WE
+	
 	
 	
 =============================================================
