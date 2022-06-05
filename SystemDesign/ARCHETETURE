@@ -78,6 +78,7 @@ concurrent testing
 	- VisualVM
 
 Observability
+	- Service Mesh	(https://istio.io/latest/about/service-mesh/)
 	- K8s, Grefana, Promethises, 
 	- Logging
 	- Tracing
