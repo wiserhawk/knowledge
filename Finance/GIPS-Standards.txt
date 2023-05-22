@@ -1,0 +1,10 @@
+
+========================================
+	GIPS Standards
+========================================
+	Misleading practices:
+		- Backfill Bias: Charry picking of accounts to show a investment strategy performance instead to a strategy as a whole perform.
+		- Time Period Bias: Using selective time period where strategy performed good instead of whole period where strategy performed bad.
+		- Utilizing models and back test results where as results of actual live accounts could be use.
+		- Survivorship Bias: Only including firms current open best performed acconts for historical performance, which could be a misleading, because terminated accounts could be worst performer.
+		
