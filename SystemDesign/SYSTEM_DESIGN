@@ -57,3 +57,4 @@ Difference between Http and TCP? What should use when?
 - SSL cerificate installatoin on Ingress Controller
 - Cache writing policies: write-through, write-around or write-back? https://shahriar.svbtle.com/Understanding-writethrough-writearound-and-writeback-caching-with-python
 - Cache eviction policies.
+- HTTP Video Sreaming (HTTP Live Streaming (HLS))
